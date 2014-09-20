@@ -36,7 +36,7 @@ module.exports = function (grunt) {
 		watch: {
 			css: {
 				files: ['scss/**/*.scss'],
-				tasks: ['scss:dev','autoprefixer']
+				tasks: ['sass:dev','autoprefixer']
 			},
 
 			options: {
@@ -44,7 +44,16 @@ module.exports = function (grunt) {
 			}
 		},
 
-		browserSync: {
+        bower_concat: {
+            all: {
+                dest: 'js/build.js',
+                bowerOptions: {
+                    relative: false
+                }
+            }
+        },
+
+            browserSync: {
 			dev: {
 				bsFiles: {
 					src: [
@@ -80,6 +89,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-fontface');
+    grunt.loadNpmTasks('grunt-bower-concat');
 
 	// Default task(s).
 	grunt.registerTask('style', ['sass:dev', 'autoprefixer']);

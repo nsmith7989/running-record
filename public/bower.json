@@ -1,0 +1,23 @@
+{
+  "name": "RunningRecord",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nsmith7989/running-record",
+  "authors": [
+    "nsmith7989 <nathanael@gorocketfuel.com>"
+  ],
+  "description": "Running Record Hack Memphis Project",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-scss": "~3.0.1"
+  },
+  "devDependencies": {
+    "jwerty": "~0.3.2"
+  }
+}

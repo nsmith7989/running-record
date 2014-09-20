@@ -1,12 +1,15 @@
 {
-	"name": "RunningRecord",
-	"version": "0.1.0",
-	"devDependencies": {
-		"grunt": "*",
-		"grunt-autoprefixer": "*",
-		"grunt-sass": "*",
-		"grunt-contrib-watch": "*",
-		"grunt-browser-sync": "0.8.x",
-		"grunt-fontface": "*"
-	}
+  "name": "RunningRecord",
+  "version": "0.1.0",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-sass": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-browser-sync": "0.8.x",
+    "grunt-fontface": "*"
+  },
+  "dependencies": {
+    "grunt-bower-concat": "^0.3.0"
+  }
 }

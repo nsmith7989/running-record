@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+        "rydurham/sentinel": "1.*",
+        "guzzlehttp/guzzle": "~4.0"
 	},
 	"autoload": {
 		"classmap": [

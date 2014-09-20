@@ -8,8 +8,10 @@
     </head>
 
     <body>
-      <h1>Running Record</h1>
+        <div class="container">
+              <h1>Running Record</h1>
               @yield('content')
+          </div>
     </body>
 
 </html>

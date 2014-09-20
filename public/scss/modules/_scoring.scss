@@ -1,0 +1,14 @@
+.text {
+    font-size: 24px;
+    
+    
+    .active {
+        background: rgba(255, 224, 23, 0.80)
+    }
+    .incorrect {
+        background: rgba(161, 59, 62, 0.72)
+    }
+    .active.incorrect {
+        background: rgba(161, 81, 24, 0.72)
+    }
+}

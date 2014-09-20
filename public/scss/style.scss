@@ -4,6 +4,7 @@
 
 //Grids
 //NOTE: Grid layout must be set in _config.scss
+@import "layout/normalize";
 @import 'layout/base-grid';
 @import 'layout/responsive-grid';
 
@@ -13,3 +14,4 @@
 //Modules
 @import 'modules/forms';
 @import 'modules/buttons';
+@import 'modules/scoring';
