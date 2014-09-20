@@ -1,0 +1,27 @@
+//GRID SETUP
+
+//Full Width
+//This is the default 950 Grid
+$num-columns: 24;
+$columns-width: 30px;
+$margin-width: 10px;
+
+//Tablet
+$tablet-break: 964px;
+$num-tablet-columns: 24;
+$columns-tablet-width: 24px;
+$margin-tablet-width: 8px;
+
+//Phone
+$nav-break: 767px;
+$phone-break: 480px;
+$phone-landscape-width: 90%;
+$margin-phone-width: 20px;
+
+$phone-portrait-width: 90%;
+
+//Displays and hides
+$main-nav: '.main-nav';
+$mobile-nav-container: '.mobile-nav';
+
+$base-font-size: 16px;
