@@ -1,0 +1,119 @@
+$site-teal1: #26b8c5;
+$site-teal2: #2099a4;
+$site-teal3: #cae8eb;
+$site-green1: #57b947;
+$site-green2: #407e36;
+$site-yellow1: #e2c14f;
+$site-yellow2: #b6933d;
+$site-red1:#d5513f;
+$site-red2:#a64133;
+$site-grey1: #272727;
+$site-grey2: #979797;
+$site-grey3: #c8c8c8;
+$site-grey4: #e9e9e9;
+$site-grey5: #f8f8f8;
+$site-white: #fff;
+$hover-transition: 400ms;
+
+.content {
+  width: 100%;
+}
+
+h1 {
+
+}
+h2 {
+  @extend .raleway-light;
+  font-size: 28px;
+  color: $site-teal1;
+  line-height: (30/28);
+  border-bottom: 1px solid $site-grey1;
+  padding-bottom: 5px;
+}
+
+.homepage {
+  h1 {}
+  h2 {
+    @extend .raleway-regular;
+    font-size: 36px;
+    color: $site-green2;
+    background: #fff;
+    display: inline-block;
+    border: none;
+  }
+  h3 {}
+  h4 {}
+}
+
+.article-list {
+  h1 {
+    font-size: 90px;
+  }
+}
+
+.article-page {
+  h1 {
+    font-size: 40px;
+    text-shadow: none;
+    color: $site-grey1;
+  }
+  h2 {
+
+  }
+  h3 {
+    font-size: 28px;
+    @extend .raleway-light;
+    line-height: (30/24);
+  }
+}
+
+
+h2 {
+
+}
+
+h3 {
+  @extend .raleway-regular;
+  font-size: 30px;
+}
+
+
+body {
+  line-height: (22/16);
+  @extend .OpenSans-Regular;
+  color: $site-grey1;
+}
+
+a {
+  color: $site-teal1;
+  text-decoration: none;
+  &:hover {
+    color: $site-teal2;
+  }
+}
+
+//TODO: scope styles to all tinyMCE areas
+.rf-paragraph {
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      padding-left: 35px;
+      margin: 10px 0;
+      list-style: none;
+    }
+  }
+}
+
+
+p {
+  font-size: 16px;
+  line-height: (24/16);
+  margin-bottom: 20px;
+}
+p.error {
+  color: #ff887c !important;
+}
+p.success {
+  color: $site-teal1 !important;
+}

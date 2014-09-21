@@ -4,7 +4,7 @@
   "devDependencies": {
     "grunt": "*",
     "grunt-autoprefixer": "*",
-    "grunt-sass": "*",
+    "grunt-sass": "0.12.x",
     "grunt-contrib-watch": "*",
     "grunt-browser-sync": "0.8.x",
     "grunt-fontface": "*"

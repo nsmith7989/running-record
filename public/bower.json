@@ -15,7 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-scss": "~3.0.1"
+    "normalize-scss": "~3.0.1",
+    "Recorderjs": "*"
   },
   "devDependencies": {
     "jwerty": "~0.3.2"

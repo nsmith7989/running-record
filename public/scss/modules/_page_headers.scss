@@ -1,0 +1,22 @@
+.pageheader-teacher {
+  background: $site-grey4;
+  padding: 40px 0;
+}
+.pageheader-student{
+  background: $site-teal3;
+  padding: 40px 0;
+}
+.pageheader{
+  display: flex;
+  align-items: center;
+}
+.pageheader .dashboard {
+  font-size: 14px;
+  text-transform: uppercase;
+//  color: $site-grey2;
+  @extend .OpenSans-Bold;
+  letter-spacing: 1px;
+}
+.pageheader .name {
+  font-size: 40px;
+}

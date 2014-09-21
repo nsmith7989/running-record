@@ -109,7 +109,6 @@ var rr = window.rr || {};
     $( function() {
         rr.scoring.init();
 
-        //bind to right arrow
 
 
     } );

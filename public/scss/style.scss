@@ -1,10 +1,12 @@
+@import "modules/reset";
+
 @import 'config';
 @import 'utility/clearfix';
 @import 'utility/functions';
+@import 'site_styles';
 
 //Grids
 //NOTE: Grid layout must be set in _config.scss
-@import "layout/normalize";
 @import 'layout/base-grid';
 @import 'layout/responsive-grid';
 
@@ -14,4 +16,7 @@
 //Modules
 @import 'modules/forms';
 @import 'modules/buttons';
-@import 'modules/scoring';
+@import 'modules/header';
+@import 'modules/page_headers';
+@import 'modules/lists';
+@import "modules/scoring";
