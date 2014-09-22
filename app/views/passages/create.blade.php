@@ -1,0 +1,1 @@
+/home/vagrant/sites/running-record.dev/app/views/passages/create.blade.php

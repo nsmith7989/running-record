@@ -44,7 +44,13 @@
     <ul class="table-list">
         <li>
             <div class="container student-list">
-                <div class="name"><a href="student-dashboard.html">Eugene Hall</a></div><div class="level">Level 8</div><div class="status"><a class="complete-score-button" href="">Finish Scoring</a> </div>
+                <div class="name">
+                    <a href="student-dashboard.html">Eugene Hall</a>
+                </div>
+                <div class="level">Level 8</div>
+                <div class="status">
+                    <a class="complete-score-button" href="">Finish Scoring</a>
+                </div>
             </div>
         </li>
         <li>
