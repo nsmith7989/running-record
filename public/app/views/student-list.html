@@ -1,0 +1,36 @@
+<div class="students" ng-controller="StudentController">
+
+    <div class="container">
+        <h1>Students</h1>
+    </div>
+
+    <div class="search-wrap">
+        <div class="container">
+            <input ng-model="query" placeholder="Search..." class="student-search">
+        </div>
+    </div>
+
+    <ul class="table-list">
+
+        <li>
+            <div class="container student-list">
+                <div class="name"><strong>Name</strong></div>
+                <div class="level"><strong>Level</strong></div>
+                <div class="status"><strong>Status</strong></div>
+            </div>
+        </li>
+
+        <li ng-repeat="student in students | filter:query">
+            <div class="container student-list">
+                <div class="name">
+                    <a href="#/student/{{ student.id }}">{{ student.name }}</a>
+                </div>
+                <div class="level">{{ student.reading_level }}</div>
+                <div class="status">
+                    <a class="complete-score-button" href="">Finish Scoring</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>

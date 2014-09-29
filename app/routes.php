@@ -11,9 +11,36 @@
 |
 */
 
-Route::get('/', array('as' => 'home', function()
-{
+//everything behind auth, for now
+Route::get('/', function () {
     return View::make('home');
-}));
+});
 
-Route::resource('passages', 'PassagesController');
+
+Route::group(array('before' => 'auth'), function () {
+
+    Route::resource('passages', 'PassagesController');
+    Route::resource('students', 'StudentsController');
+    Route::get('dashboard', function() {
+        return View::make('running-record');
+    });
+
+});
+
+
+// =======================================
+// Login Routes
+// =======================================
+
+//shows the login form
+Route::get('login', array(
+    'uses' => 'HomeController@showLogin',
+));
+
+Route::post('login', array(
+    'uses' => 'HomeController@doLogin',
+));
+
+Route::get('logout', array(
+    'uses' => 'HomeController@doLogout',
+));

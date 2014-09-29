@@ -6,7 +6,6 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "rydurham/sentinel": "1.*",
         "guzzlehttp/guzzle": "~4.0",
 		"fzaninotto/faker": "1.*"
 	},

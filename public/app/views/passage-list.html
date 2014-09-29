@@ -1,0 +1,32 @@
+<div class="students" ng-controller="PassagesController">
+
+    <div class="container">
+        <h1>Passages</h1>
+    </div>
+
+    <div class="search-wrap">
+        <div class="container">
+            <input ng-model="query" placeholder="Search..." class="student-search">
+        </div>
+    </div>
+
+    <ul class="table-list">
+
+        <li>
+            <div class="container student-list">
+                <div class="name"><strong>Passage Name</strong></div>
+                <div class="level"><strong>Level</strong></div>
+            </div>
+        </li>
+
+        <li ng-repeat="passage in passages | filter:query">
+            <div class="container student-list">
+                <div class="name">
+                    <a href="#/passages/{{ passage.id }}">{{ passage.title }}</a>
+                </div>
+                <div class="level">{{ passage.reading_level }}</div>
+            </div>
+        </li>
+    </ul>
+
+</div>

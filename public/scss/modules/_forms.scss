@@ -15,7 +15,19 @@ input[type="color"],
 select,
 textarea,
 .field {
-//all in inputs
-//break them up if you need. 
 
+
+}
+
+.search-wrap {
+    background: $site-grey4;
+}
+
+.student-search {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 18px;
+    border: 1px solid $site-teal1;
 }

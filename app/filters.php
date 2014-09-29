@@ -88,11 +88,3 @@ Route::filter('csrf', function () {
 |
 */
 
-if (Sentry::check()) {
-    $user = Sentry::getUser();
-
-    $thisUser = User::with('students')->find($user->id);
-
-    View::share('user', $thisUser);
-}
-

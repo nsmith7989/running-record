@@ -1,36 +1,32 @@
 <?php
 
-class PassagesController extends \BaseController {
+class StudentsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /passages
+	 * GET /students
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-        $passages = Passage::all();
-
-        //load in the view and pass in all users
-        return Response::json($passages);
-
+        return Response::json(Student::where('user_id', Auth::id())->get());
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /passages/create
+	 * GET /students/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		return View::make('passages.create');
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /passages
+	 * POST /students
 	 *
 	 * @return Response
 	 */
@@ -41,20 +37,26 @@ class PassagesController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /passages/{id}
+	 * GET /students/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-		$passage = Passage::find($id);
-        return Response::json($passage);
+        $student = Student::find($id);
+
+        if ($student->user_id == Auth::id()) {
+            return Response::json(Student::find($id));
+        } else {
+            return Response::json(['not_authorized']);
+        }
+
 	}
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /passages/{id}/edit
+	 * GET /students/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -66,7 +68,7 @@ class PassagesController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /passages/{id}
+	 * PUT /students/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -78,7 +80,7 @@ class PassagesController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /passages/{id}
+	 * DELETE /students/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
