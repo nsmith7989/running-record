@@ -1,0 +1,82 @@
+header .button {
+  background: $site-teal2;
+  @extend .OpenSans-Regular;
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  padding: 5px 10px;
+  float: right;
+}
+header .button:hover {
+  background: $site-teal1;
+}
+
+.pageheader .button {
+  flex: 100%;
+  background: $site-teal1;
+  @extend .OpenSans-Bold;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  float: right;
+  margin: 0 0 0 20px;
+  border-bottom: 2px solid $site-teal2;
+
+}
+.pageheader .button:hover {
+  background: $site-teal2;
+}
+.complete-score-button {
+  flex: 100%;
+  background: $site-yellow1;
+  @extend .OpenSans-Bold;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  float: right;
+  margin: 0 0 0 20px;
+  border-bottom: 2px solid $site-yellow2;
+}
+.complete-score-button:hover {
+  background: $site-yellow2;
+  color: #ffffff;
+}
+.score-button {
+  flex: 100%;
+  background: $site-red1;
+  @extend .OpenSans-Bold;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  float: right;
+  margin: 0 0 0 20px;
+  border-bottom: 2px solid $site-red2;
+}
+.score-button:hover {
+  background: $site-red2;
+  color: #ffffff;
+}
+.scored-button {
+  flex: 100%;
+  background: $site-teal1;
+  @extend .OpenSans-Bold;
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  float: right;
+  margin: 0 0 0 20px;
+  border-bottom: 2px solid $site-teal2;
+}
+.scored-button:hover {
+  background: $site-teal2;
+  color: #ffffff;
+}

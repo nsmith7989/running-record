@@ -1,0 +1,25 @@
+.table-list li {
+  background: $site-grey5;
+  border-bottom: 1px solid $site-grey3;
+  padding: 15px 0;
+}
+.table-list li:nth-child(odd) {
+  background: #ffffff;
+}
+.student-list {
+  display: flex;
+  align-items: center;
+}
+.student-list .status, .name, .level {
+  flex: 100%;
+}
+.level {
+  text-align: center;
+}
+.status {
+  text-align: right;
+}
+.student-list .name {
+  font-size: 22px;
+  @extend .OpenSans-Bold;
+}

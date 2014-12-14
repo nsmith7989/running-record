@@ -1,0 +1,4 @@
+@include rf-font-face($font-family: OpenSans-Bold, $file: OpenSans-Bold, $short-name: OpenSans-Bold, $serif: sans);
+@include rf-font-face($font-family: OpenSans-Light, $file: OpenSans-Light, $short-name: OpenSans-Light, $serif: sans);
+@include rf-font-face($font-family: OpenSans-Regular, $file: OpenSans-Regular, $short-name: OpenSans-Regular, $serif: sans);
+@include rf-font-face($font-family: PrintBold, $file: PrintBold, $short-name: PrintBold, $serif: sans);
