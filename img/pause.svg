@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="38px" height="51px">
+<style type="text/css"><![CDATA[
+.style0 {
+  font-size: 14px;
+  font-family: "OpenSans-Bold";
+  fill: rgb(39,39,39);
+  text-transform: uppercase;
+}
+]]></style>
+<rect x="5.00" y="0.00" width="10.00" height="30.00" fill="rgb(225,193,79)"/>
+<rect x="24.00" y="0.00" width="10.00" height="30.00" fill="rgb(225,193,79)"/>
+<text transform="matrix(0.861478,0,0,0.862824,-0.332638,50)" class="style0">
+<tspan x="0 6.27197 14.448 23.5058 30.4077" y="0.00">
+pause</tspan>
+</text>
+</svg>

@@ -15,6 +15,10 @@ $site-grey5: #f8f8f8;
 $site-white: #fff;
 $hover-transition: 400ms;
 
+@mixin open-sans($style) {
+  @extend .OpenSans-#{$style};
+}
+
 .content {
   width: 100%;
 }

@@ -1,9 +1,10 @@
 .text {
     font-size: 24px;
-    line-height: 1.8;
+    line-height: 1;
     .word {
-        margin-right: .3em;
+        margin: .2em .2em .2em 0;
         display: inline-block;
+        padding: .2em .1em;
     }
     .active {
         background: rgba(255, 224, 23, 0.80);

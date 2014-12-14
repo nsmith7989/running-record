@@ -6,7 +6,7 @@ module.exports = React.createClass({
         return (
             <header>
                 <div className="container">
-                    Ms. Gowland
+                   Running Record - Ms. Gowland
                 </div>
             </header>
         )

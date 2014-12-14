@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="38px" height="51px">
+<style type="text/css"><![CDATA[
+.style0 {
+  font-size: 14px;
+  font-family: "OpenSans-Bold";
+  fill: rgb(39,39,39);
+  text-transform: uppercase;
+}
+]]></style>
+<path fill="rgb(87,185,71)" fill-rule="evenodd" d="M 29.2 15.68C 29.2 15.68 9.2 30.68 9.2 30.68 9.2 30.68 9.2 0.68 9.2 0.68 9.2 0.68 29.2 15.68 29.2 15.68Z"/>
+<text transform="matrix(0.861478,0,0,0.862824,0.386361,50)" class="style0">
+<tspan x="0 6.90195 12.8099 21.3779 29.0356" y="0.00">
+start</tspan>
+</text>
+</svg>

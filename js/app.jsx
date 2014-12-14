@@ -1,6 +1,13 @@
 var React = require('react');
+var data = require('./data/exampledata.js');
 
-var Header = require('./components/grade-interface.jsx');
+var GradeInterface = require('./components/GradeInterface.jsx');
 
 
-React.render(<Header />, document.getElementById('react-app'));
+React.render(
+    <GradeInterface
+        passageName="Robinson Crusoe"
+        passage={data}
+        studentName="Samantha F."
+    />,
+    document.getElementsByTagName('body')[0]);

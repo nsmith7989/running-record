@@ -1,0 +1,58 @@
+.test-info {
+    > .container {
+        display: flex;
+//        justify-content: space-between;
+        > * {
+            width: 50%;
+        }
+    }
+    padding: 20px 0;
+    background: $site-teal3;
+    .student{
+        text-transform: uppercase;
+        font-size: 18px;
+        color: $site-grey2;
+        @include open-sans(Semibold);
+    }
+    .passage-name {
+        font-size: 38px;
+    }
+
+    .timer-wrapper {
+        float: right;
+        @include open-sans(Bold);
+        font-size: 20px;
+        color: $site-teal1;
+        .label {
+            font-size: 18px;
+        }
+        .timer {
+            padding: 5px 10px;
+            background: $site-white;
+            border: 1px solid $site-teal1;
+            display: inline-block;
+        }
+    }
+    .play-controls {
+        float: right;
+        margin-top: 20px;
+        img {
+            margin-right: 25px;
+            cursor: pointer;
+        }
+    }
+
+    .stats {
+        > * {
+            display: inline-block;
+            text-align: center;
+            margin: 20px 20px 0;
+
+            .label {
+                @include open-sans(Bold);
+                font-size: 18px;
+            }
+        }
+    }
+
+}
