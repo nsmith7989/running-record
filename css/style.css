@@ -1088,7 +1088,7 @@ body {
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
 /* line 34, /Users/nathanaelsmith/projects/grader-interface/scss/utility/functions */
-.OpenSans-Bold, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .test-info .timer-wrapper, .test-info .stats > * .label {
+.OpenSans-Bold, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
 @font-face {
@@ -1271,66 +1271,104 @@ header {
 .text {
   font-size: 24px;
   line-height: 1; }
-  /* line 4, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
-  .text .word {
+  /* line 7, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+  .text .active {
+    background: rgba(255, 224, 23, 0.8); }
+  /* line 10, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+  .text .incorrect {
+    background: rgba(161, 59, 62, 0.72); }
+  /* line 13, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+  .text .active.incorrect {
+    background: rgba(161, 81, 24, 0.72); }
+  /* line 17, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+  .text .word-wrap {
+    position: relative;
     margin: 0.2em 0.2em 0.2em 0;
     display: inline-block;
     padding: 0.2em 0.1em; }
-  /* line 9, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
-  .text .active {
-    background: rgba(255, 224, 23, 0.8); }
-  /* line 12, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
-  .text .incorrect {
-    background: rgba(161, 59, 62, 0.72); }
-  /* line 15, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
-  .text .active.incorrect {
-    background: rgba(161, 81, 24, 0.72); }
+    /* line 22, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+    .text .word-wrap input {
+      display: block;
+      width: 20px;
+      border: 1px solid #272727;
+      font-size: 14px; }
+    /* line 28, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+    .text .word-wrap .word {
+      display: block; }
+
+/* line 35, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+.finish-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  color: #fff;
+  background: #d5513f;
+  border: none;
+  border-bottom: 4px solid #a64133;
+  text-transform: uppercase;
+  font-size: 24px;
+  margin: 10px 0 20px; }
 
 /* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
 .test-info {
-  padding: 20px 0;
+  padding: 20px 0 0;
   background: #cae8eb; }
   /* line 2, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info > .container {
     display: flex; }
-    /* line 5, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    /* line 4, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info > .container > * {
       width: 50%; }
-  /* line 11, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+  /* line 10, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .student {
     text-transform: uppercase;
     font-size: 18px;
     color: #979797; }
-  /* line 17, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+  /* line 16, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .passage-name {
     font-size: 38px; }
-  /* line 21, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+  /* line 20, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .timer-wrapper {
     float: right;
     font-size: 20px;
     color: #26b8c5; }
-    /* line 26, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    /* line 25, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .timer-wrapper .label {
       font-size: 18px; }
-    /* line 29, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    /* line 28, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .timer-wrapper .timer {
       padding: 5px 10px;
       background: #fff;
       border: 1px solid #26b8c5;
       display: inline-block; }
-  /* line 36, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+  /* line 35, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .play-controls {
     float: right;
     margin-top: 20px; }
-    /* line 39, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    /* line 38, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .play-controls img {
       margin-right: 25px;
       cursor: pointer; }
-  /* line 46, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .stats > * {
     display: inline-block;
     text-align: center;
     margin: 20px 20px 0; }
-    /* line 51, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .stats > * .label {
       font-size: 18px; }
+  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+  .test-info .percentBar-wrapper {
+    background: #fff;
+    margin-top: 20px; }
+    /* line 61, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    .test-info .percentBar-wrapper .bar {
+      background: #57b947;
+      height: 5px; }
+
+/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/footer */
+footer {
+  background: #26b8c5;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0; }

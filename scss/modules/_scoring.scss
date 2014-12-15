@@ -2,9 +2,7 @@
     font-size: 24px;
     line-height: 1;
     .word {
-        margin: .2em .2em .2em 0;
-        display: inline-block;
-        padding: .2em .1em;
+
     }
     .active {
         background: rgba(255, 224, 23, 0.80);
@@ -15,4 +13,36 @@
     .active.incorrect {
         background: rgba(161, 81, 24, 0.72)
     }
+
+    .word-wrap {
+        position: relative;
+        margin: .2em .2em .2em 0;
+        display: inline-block;
+        padding: .2em .1em;
+        input {
+            display: block;
+            width: 20px;
+            border: 1px solid $site-grey1;
+            font-size: 14px;
+        }
+        .word {
+            display: block;
+        }
+    }
+
+}
+
+.finish-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    color: $site-white;
+    background: $site-red1;
+    border: none;
+    border-bottom: 4px solid $site-red2;
+    text-transform: uppercase;
+    font-size: 24px;
+    @include open-sans(Bold);
+    margin: 10px 0 20px;
+
 }

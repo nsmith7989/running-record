@@ -1,12 +1,11 @@
 .test-info {
     > .container {
         display: flex;
-//        justify-content: space-between;
         > * {
             width: 50%;
         }
     }
-    padding: 20px 0;
+    padding: 20px 0 0;
     background: $site-teal3;
     .student{
         text-transform: uppercase;
@@ -49,9 +48,19 @@
             margin: 20px 20px 0;
 
             .label {
-                @include open-sans(Bold);
                 font-size: 18px;
+                @include open-sans(Bold);
+
             }
+        }
+    }
+    
+    .percentBar-wrapper {
+        background: $site-white;
+        margin-top: 20px;
+        .bar {
+            background: $site-green1;
+            height: 5px;
         }
     }
 

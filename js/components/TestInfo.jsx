@@ -1,7 +1,8 @@
 var React = require('react');
 var Timer = require('./Timer.jsx');
 var Controls = require('./Controls.jsx');
-var PercentageCorrect = require('./Stats.jsx');
+var Stats = require('./Stats.jsx');
+var PercentBar = require('./PercentBar.jsx');
 
 module.exports = React.createClass({
 
@@ -20,9 +21,10 @@ module.exports = React.createClass({
                     <div className="controls">
                         <Timer {...this.props} />
                         <Controls {...this.props} />
-                        <PercentageCorrect {...this.props}/>
+                        <Stats {...this.props}/>
                     </div>
                 </div>
+                <PercentBar {...this.props} />
             </div>
         )
     }
