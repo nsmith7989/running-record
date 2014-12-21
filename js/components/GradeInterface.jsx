@@ -4,18 +4,20 @@ var Header = require('./Header.jsx');
 var Word = require('./Word.jsx');
 var TestInfo = require('./TestInfo.jsx');
 var Footer = require('./Footer.jsx');
+var Results = require('./Results.jsx');
 
 
 module.exports = React.createClass({
 
     handleKeyDown: function(e) {
-        switch (e.keyCode) {
+
+        switch(e.keyCode) {
             case 39: //key code right arrow
                 e.preventDefault();
                 //if the timer is not running start it
-                if (!this.state.running) this.startTimer();
+                if(!this.state.running) this.startTimer();
 
-                if (this.state.currentWord + 1 == this.wordArray.length) {
+                if(this.state.currentWord + 1 == this.wordArray.length) {
                     this.stopTimer();
                 }
 
@@ -26,26 +28,31 @@ module.exports = React.createClass({
             case 37: // key cod left arrow
                 e.preventDefault();
                 //if the timer is not running start it
-                if (!this.state.running) this.startTimer();
+                if(!this.state.running) this.startTimer();
 
                 this.setState({
                     currentWord: this.state.currentWord - 1
                 });
                 break;
-            case 32: // key code spacebar
+            //case 32: // key code spacebar
+            default:
                 e.preventDefault();
                 //if the timer is not running start it
-                if (!this.state.running) this.startTimer();
+                if(!this.state.running) this.startTimer();
 
                 var position = this.state.currentWord;
 
                 var incorrectWord = this.wordArray[position];
+
+                console.log(String.fromCharCode(e.keyCode));
+
                 this.setState({
                     //currentWord: this.state.currentWord + 1,
                     incorrectWords: React.addons.update(this.state.incorrectWords, {
                         $push: [{
                             position: position,
-                            word: incorrectWord
+                            word: incorrectWord,
+                            errorCode: String.fromCharCode(e.keyCode)
                         }]
                     }),
                     incorrectPositions: React.addons.update(this.state.incorrectPositions, {
@@ -62,7 +69,9 @@ module.exports = React.createClass({
             incorrectWords: [],
             incorrectPositions: [],
             timeElapsed: 0,
-            running: false
+            running: false,
+            enteringErrorCode: false,
+            showResults: false
         }
     },
 
@@ -96,20 +105,21 @@ module.exports = React.createClass({
     componentWillMount: function() {
 
         this.wordArray = this.props.passage.split(' ').filter(function(word) {
-            if (word) return true;
+            if(word) return true;
         });
-    },
-
-    onErrorCode: function(e) {
-        e.target.blur();
-        console.log(e);
-
     },
 
     tick: function() {
 
         this.setState({
             timeElapsed: this.state.timeElapsed + 1000
+        })
+    },
+
+    handleResultsClick: function() {
+        this.stopTimer();
+        this.setState({
+            showResults: true
         })
     },
 
@@ -129,15 +139,16 @@ module.exports = React.createClass({
                     {this.wordArray.map(function(item, i) {
                         return <Word
                             currentWord={this.state.currentWord}
+                            incorrectWords={this.state.incorrectWords}
                             indexPos={i} key={i}
                             incorrectPositions={this.state.incorrectPositions}
                             word={item}
-                            onErrorCode={this.onErrorCode}
                         />
                     }.bind(this))}
                 </div>
+                {this.state.showResults ? <Results {...this.state} /> : ''}
                 <div className="container">
-                    <button className="finish-btn">Stop Timer and Show Score</button>
+                    <button onClick={this.handleResultsClick} className="finish-btn">Stop Timer and Show Score</button>
                 </div>
                 <Footer></Footer>
 

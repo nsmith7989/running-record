@@ -6,34 +6,42 @@
   "main": "js/app.jsx",
   "dependencies": {
     "flux": "^2.0.0",
+    "jquery": "^2.1.3",
     "keymirror": "~0.1.0",
+    "localStorage": "^1.0.3",
+    "lodash": "^2.4.1",
     "object-assign": "^1.0.0",
-    "react": "^0.12.0"
+    "parse": "^1.3.0",
+    "react": "^0.12.0",
+    "xmlhttprequest": "^1.6.0"
   },
   "devDependencies": {
     "browser-sync": "^1.7.3",
     "browserify": "^6.2.0",
+    "debowerify": "^1.2.0",
     "envify": "^3.0.0",
     "faker": "^2.1.1",
     "jest-cli": "~0.1.17",
     "node-sass": "^1.2.3",
+    "parallelshell": "^1.0.0",
     "reactify": "^0.15.2",
     "uglify-js": "~2.4.15",
     "watchify": "^2.1.1"
   },
   "scripts": {
-    "start": "watchify -o js/bundle.js -v -d . & npm run watch-sass & npm run browser-sync",
+    "start": "parallelshell 'watchify -o js/bundle.js -v -d .' 'npm run watch-sass' 'npm run browser-sync'",
     "build": "NODE_ENV=production browserify . | uglifyjs -cm > js/bundle.min.js",
     "test": "jest",
-    "browser-sync": "browser-sync start --server --files='js/bundle.js, index.html, css/*'",
-    "node-sass": "node-sass --source-comments scss/style.scss css/style.css",
-    "watch-sass": "nodemon -e scss -x \"npm run node-sass\""
+    "browser-sync": "browser-sync start --server --files='js/bundle.js, index.html, css/style.css'",
+    "node-sass": "node-sass --source-map css/style.css.map scss/style.scss css/style.css && autoprefixer css/style.css",
+    "watch-sass": "nodemon -e scss -x 'npm run node-sass'"
   },
   "author": "Bill Fisher",
   "browserify": {
     "transform": [
       "reactify",
-      "envify"
+      "envify",
+      "debowerify"
     ]
   },
   "jest": {

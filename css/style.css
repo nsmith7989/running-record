@@ -2,7 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-/* line 6, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -12,38 +11,30 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
-/* line 16, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
-/* line 19, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 body {
   line-height: 1; }
 
-/* line 22, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 ol, ul {
   list-style: none; }
 
-/* line 25, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 blockquote, q {
   quotes: none; }
 
-/* line 29, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 blockquote:before, blockquote:after {
   content: '';
   content: none; }
 
-/* line 34, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 q:before, q:after {
   content: '';
   content: none; }
 
-/* line 38, /Users/nathanaelsmith/projects/grader-interface/scss/modules/reset */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 4, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .clearfix:after, .clearfix:before, .clearfixiest:after, .clearfixiest:before {
   display: block;
   visibility: hidden;
@@ -51,14 +42,11 @@ table {
   width: 0;
   height: 0;
   content: '\0020'; }
-/* line 12, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .clearfix:after, .clearfixiest:after {
   clear: both; }
-/* line 15, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .clearfix, .clearfixiest {
   zoom: 1; }
 
-/* line 24, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .clear {
   display: block;
   visibility: hidden;
@@ -73,11 +61,9 @@ table {
 * http://caniuse.com/css-sel3
 *
 */
-/* line 22, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 .content {
   width: 100%; }
 
-/* line 29, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 h2 {
   font-size: 28px;
   color: #26b8c5;
@@ -85,7 +71,6 @@ h2 {
   border-bottom: 1px solid #272727;
   padding-bottom: 5px; }
 
-/* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 .homepage h2 {
   font-size: 36px;
   color: #407e36;
@@ -93,157 +78,115 @@ h2 {
   display: inline-block;
   border: none; }
 
-/* line 53, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 .article-list h1 {
   font-size: 90px; }
 
-/* line 59, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 .article-page h1 {
   font-size: 40px;
   text-shadow: none;
   color: #272727; }
-/* line 67, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 .article-page h3 {
   font-size: 28px;
   line-height: 1.25; }
 
-/* line 79, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 h3 {
   font-size: 30px; }
 
-/* line 85, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 body {
   line-height: 1.375;
   color: #272727; }
 
-/* line 91, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 a {
   color: #26b8c5;
   text-decoration: none; }
-  /* line 94, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
   a:hover {
     color: #2099a4; }
 
-/* line 101, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 .rf-paragraph ul {
   padding: 0;
   margin: 0; }
-  /* line 104, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
   .rf-paragraph ul li {
     padding-left: 35px;
     margin: 10px 0;
     list-style: none; }
 
-/* line 113, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 p {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px; }
 
-/* line 118, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 p.error {
   color: #ff887c !important; }
 
-/* line 121, /Users/nathanaelsmith/projects/grader-interface/scss/site_styles */
 p.success {
   color: #26b8c5 !important; }
 
-/* line 13, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 body {
   font-size: 100%; }
 
-/* line 39, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .container {
   width: 950px;
   position: relative;
   z-index: 0;
   margin: 0 auto;
   padding: 0; }
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .column, .container .columns {
     display: inline;
     float: left;
     margin: 0 10px 0 0; }
-    /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
     .container .column.last, .container .columns.last {
       margin-right: 0; }
-  /* line 56, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col1.columns, .container col1.column {
     width: 30px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col2.columns {
     width: 70px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col3.columns {
     width: 110px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col4.columns {
     width: 150px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col5.columns {
     width: 190px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col6.columns {
     width: 230px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col7.columns {
     width: 270px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col8.columns {
     width: 310px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col9.columns {
     width: 350px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col10.columns {
     width: 390px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col11.columns {
     width: 430px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col12.columns {
     width: 470px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col13.columns {
     width: 510px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col14.columns {
     width: 550px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col15.columns {
     width: 590px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col16.columns {
     width: 630px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col17.columns {
     width: 670px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col18.columns {
     width: 710px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col19.columns {
     width: 750px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col20.columns {
     width: 790px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col21.columns {
     width: 830px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col22.columns {
     width: 870px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col23.columns {
     width: 910px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .container .col24.columns {
     width: 950px; }
 
-/* line 63, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .row {
   margin-bottom: 20px; }
-  /* line 4, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
   .row:after, .row:before {
     display: block;
     visibility: hidden;
@@ -251,823 +194,612 @@ body {
     width: 0;
     height: 0;
     content: '\0020'; }
-  /* line 12, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
   .row:after {
     clear: both; }
-  /* line 15, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
   .row {
     zoom: 1; }
-  /* line 68, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
   .row.reverse > .column, .row.reverse > .columns {
     float: right; }
-    /* line 70, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
     .row.reverse > .column.first, .row.reverse > .columns.first {
       margin-right: 0; }
-    /* line 71, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
     .row.reverse > .column.last, .row.reverse > .columns.last {
       margin: 0 10px 0 0; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-1 {
   padding-right: 40px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-2 {
   padding-right: 80px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-3 {
   padding-right: 120px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-4 {
   padding-right: 160px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-5 {
   padding-right: 200px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-6 {
   padding-right: 240px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-7 {
   padding-right: 280px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-8 {
   padding-right: 320px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-9 {
   padding-right: 360px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-10 {
   padding-right: 400px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-11 {
   padding-right: 440px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-12 {
   padding-right: 480px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-13 {
   padding-right: 520px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-14 {
   padding-right: 560px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-15 {
   padding-right: 600px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-16 {
   padding-right: 640px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-17 {
   padding-right: 680px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-18 {
   padding-right: 720px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-19 {
   padding-right: 760px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-20 {
   padding-right: 800px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-21 {
   padding-right: 840px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-22 {
   padding-right: 880px; }
 
-/* line 78, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .append-23 {
   padding-right: 920px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-1 {
   padding-left: 40px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-2 {
   padding-left: 80px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-3 {
   padding-left: 120px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-4 {
   padding-left: 160px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-5 {
   padding-left: 200px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-6 {
   padding-left: 240px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-7 {
   padding-left: 280px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-8 {
   padding-left: 320px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-9 {
   padding-left: 360px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-10 {
   padding-left: 400px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-11 {
   padding-left: 440px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-12 {
   padding-left: 480px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-13 {
   padding-left: 520px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-14 {
   padding-left: 560px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-15 {
   padding-left: 600px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-16 {
   padding-left: 640px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-17 {
   padding-left: 680px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-18 {
   padding-left: 720px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-19 {
   padding-left: 760px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-20 {
   padding-left: 800px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-21 {
   padding-left: 840px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-22 {
   padding-left: 880px; }
 
-/* line 82, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .prepend-23 {
   padding-left: 920px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-1 {
   margin-left: -40px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-2 {
   margin-left: -80px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-3 {
   margin-left: -120px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-4 {
   margin-left: -160px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-5 {
   margin-left: -200px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-6 {
   margin-left: -240px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-7 {
   margin-left: -280px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-8 {
   margin-left: -320px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-9 {
   margin-left: -360px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-10 {
   margin-left: -400px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-11 {
   margin-left: -440px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-12 {
   margin-left: -480px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-13 {
   margin-left: -520px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-14 {
   margin-left: -560px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-15 {
   margin-left: -600px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-16 {
   margin-left: -640px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-17 {
   margin-left: -680px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-18 {
   margin-left: -720px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-19 {
   margin-left: -760px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-20 {
   margin-left: -800px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-21 {
   margin-left: -840px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-22 {
   margin-left: -880px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-23 {
   margin-left: -920px; }
 
-/* line 86, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .pull-24 {
   margin-left: -960px; }
 
-/* line 89, /Users/nathanaelsmith/projects/grader-interface/scss/layout/base-grid */
 .mobile-nav {
   display: none; }
 
 @media only screen and (min-width: 767px) and (max-width: 964px) {
-  /* line 23, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .container {
     width: 760px; }
-    /* line 25, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
     .container .column, .container .columns {
       margin: 0 8px 0 0; }
-      /* line 30, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col1, .container .column.col1 .container .column, .container .columns.col1, .container .columns.col1 .container .columns {
         width: 24px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col2, .container .columns.col2 {
         width: 56px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col3, .container .columns.col3 {
         width: 88px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col4, .container .columns.col4 {
         width: 120px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col5, .container .columns.col5 {
         width: 152px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col6, .container .columns.col6 {
         width: 184px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col7, .container .columns.col7 {
         width: 216px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col8, .container .columns.col8 {
         width: 248px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col9, .container .columns.col9 {
         width: 280px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col10, .container .columns.col10 {
         width: 312px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col11, .container .columns.col11 {
         width: 344px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col12, .container .columns.col12 {
         width: 376px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col13, .container .columns.col13 {
         width: 408px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col14, .container .columns.col14 {
         width: 440px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col15, .container .columns.col15 {
         width: 472px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col16, .container .columns.col16 {
         width: 504px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col17, .container .columns.col17 {
         width: 536px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col18, .container .columns.col18 {
         width: 568px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col19, .container .columns.col19 {
         width: 600px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col20, .container .columns.col20 {
         width: 632px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col21, .container .columns.col21 {
         width: 664px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col22, .container .columns.col22 {
         width: 696px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col23, .container .columns.col23 {
         width: 728px; }
-      /* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
       .container .column.col24, .container .columns.col24 {
         width: 760px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-1 {
     width: 24px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-2 {
     width: 56px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-3 {
     width: 88px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-4 {
     width: 120px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-5 {
     width: 152px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-6 {
     width: 184px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-7 {
     width: 216px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-8 {
     width: 248px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-9 {
     width: 280px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-10 {
     width: 312px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-11 {
     width: 344px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-12 {
     width: 376px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-13 {
     width: 408px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-14 {
     width: 440px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-15 {
     width: 472px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-16 {
     width: 504px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-17 {
     width: 536px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-18 {
     width: 568px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-19 {
     width: 600px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-20 {
     width: 632px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-21 {
     width: 664px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-22 {
     width: 696px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-23 {
     width: 728px; }
 
-  /* line 40, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .span-24 {
     width: 760px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-1 {
     padding-right: 32px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-2 {
     padding-right: 64px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-3 {
     padding-right: 96px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-4 {
     padding-right: 128px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-5 {
     padding-right: 160px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-6 {
     padding-right: 192px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-7 {
     padding-right: 224px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-8 {
     padding-right: 256px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-9 {
     padding-right: 288px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-10 {
     padding-right: 320px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-11 {
     padding-right: 352px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-12 {
     padding-right: 384px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-13 {
     padding-right: 416px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-14 {
     padding-right: 448px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-15 {
     padding-right: 480px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-16 {
     padding-right: 512px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-17 {
     padding-right: 544px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-18 {
     padding-right: 576px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-19 {
     padding-right: 608px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-20 {
     padding-right: 640px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-21 {
     padding-right: 672px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-22 {
     padding-right: 704px; }
 
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .append-23 {
     padding-right: 736px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-1 {
     padding-left: 32px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-2 {
     padding-left: 64px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-3 {
     padding-left: 96px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-4 {
     padding-left: 128px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-5 {
     padding-left: 160px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-6 {
     padding-left: 192px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-7 {
     padding-left: 224px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-8 {
     padding-left: 256px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-9 {
     padding-left: 288px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-10 {
     padding-left: 320px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-11 {
     padding-left: 352px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-12 {
     padding-left: 384px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-13 {
     padding-left: 416px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-14 {
     padding-left: 448px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-15 {
     padding-left: 480px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-16 {
     padding-left: 512px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-17 {
     padding-left: 544px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-18 {
     padding-left: 576px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-19 {
     padding-left: 608px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-20 {
     padding-left: 640px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-21 {
     padding-left: 672px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-22 {
     padding-left: 704px; }
 
-  /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .prepend-23 {
     padding-left: 736px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-1 {
     margin-left: -32px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-2 {
     margin-left: -64px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-3 {
     margin-left: -96px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-4 {
     margin-left: -128px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-5 {
     margin-left: -160px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-6 {
     margin-left: -192px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-7 {
     margin-left: -224px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-8 {
     margin-left: -256px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-9 {
     margin-left: -288px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-10 {
     margin-left: -320px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-11 {
     margin-left: -352px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-12 {
     margin-left: -384px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-13 {
     margin-left: -416px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-14 {
     margin-left: -448px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-15 {
     margin-left: -480px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-16 {
     margin-left: -512px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-17 {
     margin-left: -544px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-18 {
     margin-left: -576px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-19 {
     margin-left: -608px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-20 {
     margin-left: -640px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-21 {
     margin-left: -672px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-22 {
     margin-left: -704px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-23 {
     margin-left: -736px; }
 
-  /* line 55, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .pull-24 {
     margin-left: -768px; }
 
-  /* line 59, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .row.reverse > .column.last {
     margin: 0 8px 0 0; }
  }
 
 @media only screen and (max-width: 767px) {
-  /* line 64, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .container {
     width: 90%; }
-    /* line 66, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
     .container.columns, .container.column, .container .columns, .container .column {
       margin: 0 0 20px 0;
       padding: 0; }
-    /* line 71, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
     .container [class*='col'].column, .container [class*='col'].columns {
       width: 90%; }
 
-  /* line 79, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .row.reverse > .colun.last .row.reverse > coluns.last {
     margin: 0 10px 0 0; }
 
-  /* line 85, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .mobile-nav {
     display: block; }
 
-  /* line 89, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .main-nav {
     display: none; }
  }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  /* line 96, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .container {
     width: 90%; }
-    /* line 98, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
     .container .column, .container .columns {
       margin: 0 0 20px 0; }
-    /* line 100, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
     .container [class*='col'].column, .container [class*='col'].columns {
       width: 90%; }
 
-  /* line 106, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .mobile-nav {
     display: block; }
 
-  /* line 110, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .main-nav {
     display: none; }
 
-  /* line 114, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .scale-width-grid {
     max-width: 100%;
     height: auto; }
 
-  /* line 118, /Users/nathanaelsmith/projects/grader-interface/scss/layout/responsive-grid */
   .scale-width-grid-full {
     width: 100%;
     height: auto; }
  }
 
-/* line 4, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .container:after, .container:before {
   display: block;
   visibility: hidden;
@@ -1075,10 +807,8 @@ body {
   width: 0;
   height: 0;
   content: '\0020'; }
-/* line 12, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .container:after {
   clear: both; }
-/* line 15, /Users/nathanaelsmith/projects/grader-interface/scss/utility/clearfix */
 .container {
   zoom: 1; }
 
@@ -1087,7 +817,6 @@ body {
   src: url('../fonts/OpenSans-Bold.eot');
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
-/* line 34, /Users/nathanaelsmith/projects/grader-interface/scss/utility/functions */
 .OpenSans-Bold, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
@@ -1096,7 +825,6 @@ body {
   src: url('../fonts/OpenSans-Light.eot');
   src: url('../fonts/OpenSans-Light.eot?#iefix'), url('../fonts/OpenSans-Light.woff'), url('../fonts/OpenSans-Light.ttf'), url('../fonts/OpenSans-Light.svg#OpenSans-Light'); }
 
-/* line 34, /Users/nathanaelsmith/projects/grader-interface/scss/utility/functions */
 .OpenSans-Light {
   font-family: 'OpenSans-Light', Arial, sans-serif; }
 
@@ -1105,7 +833,6 @@ body {
   src: url('../fonts/OpenSans-Regular.eot');
   src: url('../fonts/OpenSans-Regular.eot?#iefix'), url('../fonts/OpenSans-Regular.woff'), url('../fonts/OpenSans-Regular.ttf'), url('../fonts/OpenSans-Regular.svg#OpenSans-Regular'); }
 
-/* line 34, /Users/nathanaelsmith/projects/grader-interface/scss/utility/functions */
 .OpenSans-Regular, body, header .button {
   font-family: 'OpenSans-Regular', Arial, sans-serif; }
 
@@ -1114,11 +841,9 @@ body {
   src: url('../fonts/PrintBold.eot');
   src: url('../fonts/PrintBold.eot?#iefix'), url('../fonts/PrintBold.woff'), url('../fonts/PrintBold.ttf'), url('../fonts/PrintBold.svg#PrintBold'); }
 
-/* line 34, /Users/nathanaelsmith/projects/grader-interface/scss/utility/functions */
 .PrintBold, header {
   font-family: 'PrintBold', Arial, sans-serif; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 header .button {
   background: #2099a4;
   color: #ffffff;
@@ -1128,13 +853,14 @@ header .button {
   padding: 5px 10px;
   float: right; }
 
-/* line 11, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 header .button:hover {
   background: #26b8c5; }
 
-/* line 15, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .pageheader .button {
-  flex: 100%;
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
   background: #26b8c5;
   color: #ffffff;
   font-size: 18px;
@@ -1145,13 +871,14 @@ header .button:hover {
   margin: 0 0 0 20px;
   border-bottom: 2px solid #2099a4; }
 
-/* line 29, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .pageheader .button:hover {
   background: #2099a4; }
 
-/* line 32, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .complete-score-button {
-  flex: 100%;
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
   background: #e2c14f;
   color: #ffffff;
   font-size: 18px;
@@ -1162,14 +889,15 @@ header .button:hover {
   margin: 0 0 0 20px;
   border-bottom: 2px solid #b6933d; }
 
-/* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .complete-score-button:hover {
   background: #b6933d;
   color: #ffffff; }
 
-/* line 49, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .score-button {
-  flex: 100%;
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
   background: #d5513f;
   color: #ffffff;
   font-size: 18px;
@@ -1180,14 +908,15 @@ header .button:hover {
   margin: 0 0 0 20px;
   border-bottom: 2px solid #a64133; }
 
-/* line 62, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .score-button:hover {
   background: #a64133;
   color: #ffffff; }
 
-/* line 66, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .scored-button {
-  flex: 100%;
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
   background: #26b8c5;
   color: #ffffff;
   font-size: 18px;
@@ -1198,12 +927,10 @@ header .button:hover {
   margin: 0 0 0 20px;
   border-bottom: 2px solid #2099a4; }
 
-/* line 79, /Users/nathanaelsmith/projects/grader-interface/scss/modules/buttons */
 .scored-button:hover {
   background: #2099a4;
   color: #ffffff; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/header */
 header {
   background: #26b8c5;
   padding: 20px 0;
@@ -1211,92 +938,95 @@ header {
   text-transform: uppercase;
   font-size: 20px; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/page_headers */
 .pageheader-teacher {
   background: #e9e9e9;
   padding: 40px 0; }
 
-/* line 5, /Users/nathanaelsmith/projects/grader-interface/scss/modules/page_headers */
 .pageheader-student {
   background: #cae8eb;
   padding: 40px 0; }
 
-/* line 9, /Users/nathanaelsmith/projects/grader-interface/scss/modules/page_headers */
 .pageheader {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center; }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
-/* line 13, /Users/nathanaelsmith/projects/grader-interface/scss/modules/page_headers */
 .pageheader .dashboard {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px; }
 
-/* line 20, /Users/nathanaelsmith/projects/grader-interface/scss/modules/page_headers */
 .pageheader .name {
   font-size: 40px; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .table-list li {
   background: #f8f8f8;
   border-bottom: 1px solid #c8c8c8;
   padding: 15px 0; }
 
-/* line 6, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .table-list li:nth-child(odd) {
   background: #ffffff; }
 
-/* line 9, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .student-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center; }
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
 
-/* line 13, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .student-list .status, .name, .level {
-  flex: 100%; }
+  -webkit-box-flex: 100%;
+  -webkit-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%; }
 
-/* line 16, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .level {
   text-align: center; }
 
-/* line 19, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .status {
   text-align: right; }
 
-/* line 22, /Users/nathanaelsmith/projects/grader-interface/scss/modules/lists */
 .student-list .name {
   font-size: 22px; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
 .text {
   font-size: 24px;
   line-height: 1; }
-  /* line 7, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
   .text .active {
-    background: rgba(255, 224, 23, 0.8); }
-  /* line 10, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+    color: #d5b718; }
   .text .incorrect {
-    background: rgba(161, 59, 62, 0.72); }
-  /* line 13, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
-  .text .active.incorrect {
-    background: rgba(161, 81, 24, 0.72); }
-  /* line 17, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+    color: #a13b3e; }
   .text .word-wrap {
     position: relative;
     margin: 0.2em 0.2em 0.2em 0;
     display: inline-block;
-    padding: 0.2em 0.1em; }
-    /* line 22, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
-    .text .word-wrap input {
+    padding: 0.8em 0.1em 0.1em; }
+    .text .word-wrap .error-code {
       display: block;
       width: 20px;
       border: 1px solid #272727;
-      font-size: 14px; }
-    /* line 28, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
+      font-size: 14px;
+      height: 1.1em;
+      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      text-align: center;
+      font-weight: bold; }
     .text .word-wrap .word {
       display: block; }
 
-/* line 35, /Users/nathanaelsmith/projects/grader-interface/scss/modules/scoring */
 .finish-btn {
   display: block;
   width: 100%;
@@ -1309,66 +1039,55 @@ header {
   font-size: 24px;
   margin: 10px 0 20px; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
 .test-info {
   padding: 20px 0 0;
   background: #cae8eb; }
-  /* line 2, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info > .container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex; }
-    /* line 4, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info > .container > * {
       width: 50%; }
-  /* line 10, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .student {
     text-transform: uppercase;
     font-size: 18px;
     color: #979797; }
-  /* line 16, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .passage-name {
-    font-size: 38px; }
-  /* line 20, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
+    font-size: 34px; }
   .test-info .timer-wrapper {
     float: right;
     font-size: 20px;
     color: #26b8c5; }
-    /* line 25, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .timer-wrapper .label {
       font-size: 18px; }
-    /* line 28, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .timer-wrapper .timer {
       padding: 5px 10px;
       background: #fff;
       border: 1px solid #26b8c5;
       display: inline-block; }
-  /* line 35, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .play-controls {
     float: right;
     margin-top: 20px; }
-    /* line 38, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .play-controls img {
       margin-right: 25px;
       cursor: pointer; }
-  /* line 45, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .stats > * {
     display: inline-block;
     text-align: center;
     margin: 20px 20px 0; }
-    /* line 50, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .stats > * .label {
       font-size: 18px; }
-  /* line 58, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
   .test-info .percentBar-wrapper {
     background: #fff;
     margin-top: 20px; }
-    /* line 61, /Users/nathanaelsmith/projects/grader-interface/scss/modules/testinfo */
     .test-info .percentBar-wrapper .bar {
       background: #57b947;
       height: 5px; }
 
-/* line 1, /Users/nathanaelsmith/projects/grader-interface/scss/modules/footer */
 footer {
   background: #26b8c5;
   color: #fff;
   text-align: center;
   padding: 20px 0; }
+/*# sourceMappingURL=style.css.map */
