@@ -817,7 +817,7 @@ body {
   src: url('../fonts/OpenSans-Bold.eot');
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
-.OpenSans-Bold, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
+.OpenSans-Bold, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label, .login-wrap input[type="submit"] {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
 @font-face {
@@ -937,6 +937,12 @@ header {
   color: #ffffff;
   text-transform: uppercase;
   font-size: 20px; }
+  header .r-col {
+    text-align: right; }
+  header a {
+    color: #fff;
+    text-align: right;
+    cursor: pointer; }
 
 .pageheader-teacher {
   background: #e9e9e9;
@@ -1090,4 +1096,44 @@ footer {
   color: #fff;
   text-align: center;
   padding: 20px 0; }
+
+.login-wrap {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 50px; }
+  .login-wrap h2 {
+    margin-bottom: 20px; }
+  .login-wrap input {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box; }
+  .login-wrap input[type="submit"] {
+    font-weight: bold;
+    background: #57b947;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 24px;
+    border: none;
+    border-bottom: 2px solid #407e36; }
+
+body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1; }
 /*# sourceMappingURL=style.css.map */

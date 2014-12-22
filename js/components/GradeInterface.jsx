@@ -44,7 +44,7 @@ module.exports = React.createClass({
 
                 var incorrectWord = this.wordArray[position];
 
-                console.log(String.fromCharCode(e.keyCode));
+                if (this.state.incorrectPositions.indexOf(position) !== -1) return;
 
                 this.setState({
                     //currentWord: this.state.currentWord + 1,

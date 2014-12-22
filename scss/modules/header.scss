@@ -5,5 +5,13 @@ header {
   @extend .PrintBold;
   text-transform: uppercase;
   font-size: 20px;
+  .r-col {
+    text-align: right;
+  }
+  a {
+    color: $site-white;
+    text-align: right;
+    cursor: pointer;
+  }
 }
 
