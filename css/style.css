@@ -817,7 +817,7 @@ body {
   src: url('../fonts/OpenSans-Bold.eot');
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
-.OpenSans-Bold, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label, .login-wrap input[type="submit"] {
+.OpenSans-Bold, input[type="submit"], .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
 @font-face {
@@ -843,6 +843,34 @@ body {
 
 .PrintBold, header {
   font-family: 'PrintBold', Arial, sans-serif; }
+
+h2 {
+  margin-bottom: 20px; }
+
+input {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-sizing: border-box; }
+
+input[type="submit"] {
+  font-weight: bold;
+  background: #57b947;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+  border: none;
+  border-bottom: 2px solid #407e36; }
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  font-size: 20px;
+  min-height: 150px; }
 
 header .button {
   background: #2099a4;
@@ -1101,23 +1129,6 @@ footer {
   width: 40%;
   margin: 0 auto;
   margin-top: 50px; }
-  .login-wrap h2 {
-    margin-bottom: 20px; }
-  .login-wrap input {
-    display: block;
-    width: 100%;
-    font-size: 20px;
-    margin-bottom: 10px;
-    padding: 10px;
-    box-sizing: border-box; }
-  .login-wrap input[type="submit"] {
-    font-weight: bold;
-    background: #57b947;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 24px;
-    border: none;
-    border-bottom: 2px solid #407e36; }
 
 body {
   display: -webkit-box;
@@ -1136,4 +1147,7 @@ body {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
+
+.form-wrap {
+  margin-top: 40px; }
 /*# sourceMappingURL=style.css.map */

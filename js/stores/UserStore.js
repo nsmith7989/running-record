@@ -1,15 +1,15 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var Parse = window.Parse;
+var assign = Object.assign || require('object.assign');
 
 var EventEmitter = require('events').EventEmitter;
-var merge = require('react/lib/merge');
 var UserConstants = require('../constants/UserConstants.js');
 
 var CHANGE_EVENT = 'change';
 var _errors = [];
 var _success = [];
 
-var UserStore = merge(EventEmitter.prototype, {
+var UserStore = assign(EventEmitter.prototype, {
 
     emitChange: function() {
         this.emit(CHANGE_EVENT);

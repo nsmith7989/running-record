@@ -1,8 +1,7 @@
 var React = require('react'),
     Parse = window.Parse,
     UserActions = require('../actions/UserActions'),
-    $ = require('jquery');
-
+    RouteActions = require('../actions/RouteActions');
 
 
 module.exports = React.createClass({
@@ -14,6 +13,7 @@ module.exports = React.createClass({
             user: e.currentTarget[0].value,
             pass: e.currentTarget[1].value
         });
+
     },
 
     getInitialState: () => {
@@ -38,7 +38,7 @@ module.exports = React.createClass({
             UserActions.create({
                 user: e.currentTarget[0].value,
                 pass: e.currentTarget[1].value
-            })
+            });
         }
 
     },

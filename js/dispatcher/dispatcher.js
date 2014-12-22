@@ -1,5 +1,4 @@
 var Dispatcher = require('flux').Dispatcher,
-    assign = require('object-assign'),
     RunningRecordDispatcher = new Dispatcher();
 
 

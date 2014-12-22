@@ -1,6 +1,7 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var UserConstants = require('../constants/UserConstants');
 var Parse = window.Parse;
+var RouteActions = require('./RouteActions');
 
 module.exports = {
 
@@ -18,6 +19,7 @@ module.exports = {
                     actionType: UserConstants.LOG_IN,
                     data: user
                 });
+                RouteActions.navigate('/passages');
 
             },
             error: function(user, error) {

@@ -11,6 +11,7 @@
     "localStorage": "^1.0.3",
     "lodash": "^2.4.1",
     "object-assign": "^1.0.0",
+    "object.assign": "^1.1.1",
     "parse": "^1.3.0",
     "react": "^0.12.0",
     "react-router": "^0.11.6",
@@ -31,7 +32,7 @@
   },
   "scripts": {
     "start": "parallelshell 'watchify -o js/bundle.js -v -d .' 'npm run watch-sass' 'npm run browser-sync'",
-    "build": "NODE_ENV=production browserify . | uglifyjs -cm > js/bundle.min.js",
+    "build": "NODE_ENV=production browserify . | uglifyjs -cm > js/bundle.js",
     "test": "jest",
     "browser-sync": "browser-sync start --server --files='js/bundle.js, index.html, css/style.css'",
     "node-sass": "node-sass --source-map css/style.css.map scss/style.scss css/style.css && autoprefixer css/style.css",
