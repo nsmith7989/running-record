@@ -6,6 +6,8 @@ var merge = require('react/lib/merge');
 var UserConstants = require('../constants/UserConstants.js');
 
 var CHANGE_EVENT = 'change';
+var _errors = [];
+var _success = [];
 
 var UserStore = merge(EventEmitter.prototype, {
 
@@ -31,6 +33,14 @@ var UserStore = merge(EventEmitter.prototype, {
         return Parse.User.current() ? true : false;
     },
 
+    getSuccess: function() {
+        return _success;
+    },
+
+    getError: function() {
+        return _errors;
+    },
+
     dispatcherIndex: Dispatcher.register(function(payload) {
 
         var action = payload.action;
@@ -39,11 +49,24 @@ var UserStore = merge(EventEmitter.prototype, {
 
             case UserConstants.LOG_IN:
 
+                _success = ['Successfully Logged In.'];
+
                 UserStore.emitChange();
 
                 break;
 
             case UserConstants.LOG_OUT:
+
+                _success = ['Successfully Logged Out.'];
+
+                UserStore.emitChange();
+
+                break;
+
+            case UserConstants.ERROR:
+
+                //todo: push all errors into error object
+                _errors = ["Parse API Error: " + action.data.message];
 
                 UserStore.emitChange();
 

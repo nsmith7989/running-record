@@ -23,9 +23,9 @@ module.exports = {
             error: function(user, error) {
 
                 Dispatcher.handleViewAction({
-                    actionType: UserConstants.LOG_IN_ERROR,
+                    actionType: UserConstants.ERROR,
                     data: error
-                })
+                });
 
             }
         });
@@ -44,6 +44,29 @@ module.exports = {
     },
 
     create: function(data) {
+
+        var user = new Parse.User();
+        user.set("username", data.user);
+        user.set("password", data.pass);
+
+        user.signUp(null, {
+            success: function(user) {
+
+                // success logs a user in
+                Dispatcher.handleViewAction({
+                    actionType: UserConstants.LOG_IN,
+                    data: user
+                });
+
+            },
+            error: function(user, error) {
+                Dispatcher.handleViewAction({
+                    actionType: UserConstants.ERROR,
+                    data: error
+                });
+
+            }
+        });
 
     }
 

@@ -6,7 +6,6 @@ var React = require('react'),
     AppHeader = require('./Header.jsx'),
     AppFooter = require('./Footer.jsx'),
     Login = require('./Login.jsx'),
-    UserActions = require('../actions/UserActions.js'),
     UserStore = require('../stores/UserStore.js');
 
 
@@ -14,7 +13,9 @@ var GradeInterface = require('./GradeInterface.jsx');
 
 function getUserState() {
     return {
-        loggedIn: UserStore.getUserState()
+        loggedIn: UserStore.getUserState(),
+        errors: UserStore.getError(),
+        success: UserStore.getSuccess()
     }
 }
 
@@ -34,14 +35,14 @@ var App = React.createClass({
 
 
     render: function() {
+
+
         return (
             <body>
                 <AppHeader {...this.state} />
-
                 <div className="main">
-                    {this.state.loggedIn ? 'We are logged in' : <Login handleLogin={this.handleLoginAttempt} /> }
+                    {this.state.loggedIn ? 'We are logged in' : <Login handleLogin={this.handleLoginAttempt} {...this.state} /> }
                 </div>
-
                 <AppFooter />
 
             </body>
