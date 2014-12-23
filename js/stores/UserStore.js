@@ -50,7 +50,7 @@ var UserStore = assign(createStore(), {
 
                 break;
 
-            case UserConstants.ERROR:
+            case UserConstants.USER_ERROR:
 
                 //todo: push all errors into error object
                 _errors = ["Parse API Error: " + action.data.message];

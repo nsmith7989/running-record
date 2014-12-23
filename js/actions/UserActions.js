@@ -67,7 +67,7 @@ module.exports = {
             },
             error: function(user, error) {
                 Dispatcher.handleViewAction({
-                    actionType: UserConstants.ERROR,
+                    actionType: UserConstants.USER_ERROR,
                     data: error
                 });
 
