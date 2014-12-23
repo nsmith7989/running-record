@@ -7,6 +7,7 @@ module.exports = React.createClass({
             <div className="form-wrap container">
                 <form onSubmit={this.props.handleCreate}>
                     <h2>Add Student</h2>
+                    <p className="success">{this.props.state.success}</p>
                     <input type="text" name="name" placeholder="Name"/>
                     <textarea name="notes" placeholder="Notes"/>
                     <input type="submit" />

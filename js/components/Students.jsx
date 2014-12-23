@@ -10,8 +10,8 @@ var Update = require('./Students-update.jsx');
 
 var getStudentInfo = () => {
     return {
-        success: StudentStore.getSuccessMessage(),
-        view: StudentStore.getCurrentView(),
+        success: StudentStore.getStudentSuccessMessage(),
+        view: StudentStore.getStudentCurrentView(),
         students: StudentStore.getStudents(),
         currentStudent: StudentStore.getCurrentStudent()
     }
@@ -62,7 +62,7 @@ module.exports = React.createClass({
     },
 
     read: function(id) {
-        StudentActions.readPassage(id);
+        StudentActions.readStudent(id);
     },
 
     showEditForm: function(id) {

@@ -47,7 +47,7 @@ var StudentActions = {
         })
     },
 
-    readPassage: function(id) {
+    readStudent: function(id) {
         Dispatcher.handleViewAction({
             actionType: StudentConstants.READ,
             data: {id: id, view: StudentConstants.READ}
@@ -58,10 +58,10 @@ var StudentActions = {
         var Student = Parse.Object.extend("Student");
         var query = new Parse.Query(Student);
 
-        query.get(id).then(function(passage) {
+        query.get(id).then(function(student) {
 
             //data.teacher = Parse.User.current();
-            passage.save(data).then(function(resp) {
+            student.save(data).then(function(resp) {
 
                 Dispatcher.handleViewAction({
                     actionType: StudentConstants.UPDATE,
@@ -82,7 +82,7 @@ var StudentActions = {
 
 };
 
-//on first load get all passages
+//on first load get all students
 StudentActions.getAll();
 
 

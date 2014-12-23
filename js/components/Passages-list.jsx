@@ -4,8 +4,8 @@ var PassageStore = require('../stores/PassageStore');
 
 function getPassageInfo() {
     return {
-        success: PassageStore.getSuccessMessage(),
-        view: PassageStore.getCurrentView(),
+        success: PassageStore.getPassageSuccessMessage(),
+        view: PassageStore.getPassageCurrentView(),
         passages: PassageStore.getPassages(),
         currentPassage: PassageStore.getCurrentPassage()
     }

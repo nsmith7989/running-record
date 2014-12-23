@@ -35,11 +35,11 @@ var PassageStore = assign(EventEmitter.prototype, {
         PassageStore.removeListener(CHANGE_EVENT, callback);
     },
 
-    getSuccessMessage: function() {
+    getPassageSuccessMessage: function() {
         return _success_message;
     },
 
-    getCurrentView: function() {
+    getPassageCurrentView: function() {
         return _view;
     },
 

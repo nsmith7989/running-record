@@ -34,11 +34,11 @@ var StudentStore = assign(EventEmitter.prototype, {
         StudentStore.removeListener(CHANGE_EVENT, callback);
     },
 
-    getSuccessMessage: function() {
+    getStudentSuccessMessage: function() {
         return _success_message;
     },
 
-    getCurrentView: function() {
+    getStudentCurrentView: function() {
         return _view;
     },
 
@@ -67,7 +67,7 @@ var StudentStore = assign(EventEmitter.prototype, {
 
                 _success_message = 'Student "' + action.data.name + '" Created!';
 
-                //add passage
+                //add student
                 _students.push(action.data);
 
 
@@ -119,12 +119,12 @@ var StudentStore = assign(EventEmitter.prototype, {
                 _view = StudentConstants.LIST;
                 _current = null;
 
-                //find the passage and update its data
-                var passage = _.find(_students, {id: action.data.id});
+                //find the student and update its data
+                var student = _.find(_students, {id: action.data.id});
 
-                var newPassage = action.data;
+                var newStudent = action.data;
 
-                _students[_students.indexOf(passage)] = newPassage;
+                _students[_students.indexOf(student)] = newStudent;
 
                 _success_message = 'Student "' + action.data.name + '" updated';
 
