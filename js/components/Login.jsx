@@ -25,7 +25,8 @@ module.exports = React.createClass({
     handleCreateSwitch: function() {
         this.setState({
             loginForm: false
-        })
+        });
+        RouteActions.navigate('/login/register');
     },
 
     handleUserCreateAttempt: function(e) {

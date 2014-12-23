@@ -2,8 +2,8 @@ var Dispatcher = require('flux').Dispatcher,
     RunningRecordDispatcher = new Dispatcher();
 
 
-    RunningRecordDispatcher.handleViewAction = function(action) {
-        this.dispatch({
+    RunningRecordDispatcher.handleViewAction = action => {
+        RunningRecordDispatcher.dispatch({
             source: 'VIEW_ACTION',
             action: action
         });

@@ -43,6 +43,10 @@ module.exports = {
         Dispatcher.handleViewAction({
             actionType: UserConstants.LOG_OUT
         });
+        RouteActions.navigate('/');
+
+
+
     },
 
     create: function(data) {
