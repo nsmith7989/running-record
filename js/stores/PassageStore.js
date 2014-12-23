@@ -10,7 +10,7 @@ var createStore = require('../utils/storeUtils');
 var _passages = [];
 var _success_message = '';
 var _current = '';
-var _view = PassageConstants.LIST;
+var _view = PassageConstants.LIST_PASSAGE;
 
 
 var PassageStore = assign(createStore(), {
@@ -37,14 +37,14 @@ var PassageStore = assign(createStore(), {
 
         switch(action.actionType) {
 
-            case PassageConstants.GET_ALL:
+            case PassageConstants.GET_ALL_PASSAGES:
 
                 _passages = action.data;
                 PassageStore.emitChange();
 
                 break;
 
-            case PassageConstants.CREATE:
+            case PassageConstants.CREATE_PASSAGE:
 
                 _success_message = 'Passage "' + action.data.title + '" Created!';
 
@@ -62,22 +62,22 @@ var PassageStore = assign(createStore(), {
 
                 break;
 
-            case PassageConstants.LIST:
+            case PassageConstants.LIST_PASSAGES:
 
-                _view = PassageConstants.LIST;
+                _view = PassageConstants.LIST_PASSAGES;
                 PassageStore.emitChange();
 
                 break;
 
-            case PassageConstants.SHOW_FORM:
+            case PassageConstants.SHOW_PASSAGE_FORM:
 
-                _view = PassageConstants.SHOW_FORM;
+                _view = PassageConstants.SHOW_PASSAGE_FORM;
                 PassageStore.emitChange();
 
                 break;
 
-            case PassageConstants.READ:
-                _view = PassageConstants.READ;
+            case PassageConstants.READ_PASSAGE:
+                _view = PassageConstants.READ_PASSAGE;
 
                 _current = _.find(_passages, {id: action.data.id});
 
@@ -86,18 +86,18 @@ var PassageStore = assign(createStore(), {
 
                 break;
 
-            case PassageConstants.SHOW_EDIT_FORM:
+            case PassageConstants.SHOW_PASSAGE_EDIT_FORM:
 
-                _view = PassageConstants.SHOW_EDIT_FORM;
+                _view = PassageConstants.SHOW_PASSAGE_EDIT_FORM;
                 _current = _.find(_passages, {id: action.data.id});
 
                 PassageStore.emitChange();
 
                 break;
 
-            case PassageConstants.UPDATE:
+            case PassageConstants.UPDATE_PASSAGE:
 
-                _view = PassageConstants.LIST;
+                _view = PassageConstants.UPDATE_PASSAGE;
                 _current = null;
 
                 //find the passage and update its data

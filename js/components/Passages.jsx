@@ -74,19 +74,18 @@ var PassagesController = React.createClass({
 
     render: function() {
 
-
         var output;
         switch(this.state.view) {
-            case PassageConstants.LIST:
+            case PassageConstants.LIST_PASSAGE:
                 output = <List {...this} passages={this.state.passages}/>;
                 break;
-            case PassageConstants.SHOW_FORM:
+            case PassageConstants.SHOW_PASSAGE_FORM:
                 output = <Form {...this} />;
                 break;
-            case PassageConstants.READ:
+            case PassageConstants.READ_PASSAGE:
                 output = <Read {...this} />;
                 break;
-            case PassageConstants.SHOW_EDIT_FORM:
+            case PassageConstants.SHOW_PASSAGE_EDIT_FORM:
                 output = <Update {...this} />;
                 break;
         }

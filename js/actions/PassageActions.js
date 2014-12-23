@@ -11,7 +11,7 @@ PassageActions = {
         var passage = new Passage();
         passage.save(data).then(resp => {
             Dispatcher.handleViewAction({
-                actionType: PassageConstants.CREATE,
+                actionType: PassageConstants.CREATE_PASSAGE,
                 data: assign(resp.attributes, {id: resp.id})
             });
         })
@@ -25,7 +25,7 @@ PassageActions = {
         queryObject.find().then(resp => {
 
             Dispatcher.handleViewAction({
-                actionType: PassageConstants.GET_ALL,
+                actionType: PassageConstants.GET_ALL_PASSAGES,
                 data: resp.map(item => {return assign(item.attributes, {id: item.id})})
             })
 
@@ -40,14 +40,14 @@ PassageActions = {
 
     showForm: function() {
         Dispatcher.handleViewAction({
-            actionType: PassageConstants.SHOW_FORM
+            actionType: PassageConstants.SHOW_PASSAGE_FORM
         })
     },
 
     readPassage: function(id) {
         Dispatcher.handleViewAction({
-            actionType: PassageConstants.READ,
-            data: {id: id, view: PassageConstants.READ}
+            actionType: PassageConstants.READ_PASSAGE,
+            data: {id: id, view: PassageConstants.READ_PASSAGE}
         })
     },
 
@@ -59,7 +59,7 @@ PassageActions = {
             passage.save(data).then(function(resp) {
 
                 Dispatcher.handleViewAction({
-                    actionType: PassageConstants.UPDATE,
+                    actionType: PassageConstants.UPDATE_PASSAGE,
                     data: assign(resp.attributes, {id: resp.id})
                 });
 
@@ -70,8 +70,8 @@ PassageActions = {
 
     showEditForm: function(id) {
         Dispatcher.handleViewAction({
-            actionType: PassageConstants.SHOW_EDIT_FORM,
-            data: {id: id, view: PassageConstants.SHOW_EDIT_FORM}
+            actionType: PassageConstants.SHOW_PASSAGE_EDIT_FORM,
+            data: {id: id, view: PassageConstants.SHOW_PASSAGE_EDIT_FORM}
         });
     }
 

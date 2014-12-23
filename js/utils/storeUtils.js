@@ -36,7 +36,6 @@ function create() {
 
     return store;
 
-
 }
 
 module.exports = create;
