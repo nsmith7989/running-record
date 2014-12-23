@@ -19,7 +19,7 @@ module.exports = {
                     actionType: UserConstants.LOG_IN,
                     data: user
                 });
-                RouteActions.navigate('/passages');
+                RouteActions.navigate('/');
 
             },
             error: function(user, error) {

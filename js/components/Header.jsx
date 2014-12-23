@@ -1,5 +1,6 @@
 var React = require('react'),
-    UserActions = require('../actions/UserActions');
+    UserActions = require('../actions/UserActions'),
+    Dashboard = require('./Dashboard.jsx');
 
 module.exports = React.createClass({
 
@@ -22,6 +23,7 @@ module.exports = React.createClass({
 
                     <div className="col16 last columns r-col">
                         {loginBtn}
+                        <Dashboard />
                     </div>
                 </div>
             </header>

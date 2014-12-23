@@ -11,7 +11,8 @@ var React = require('react'),
     assign = Object.assign || require('object.assign'),
     Students = require('./Students.jsx'),
     RouteActions = require('../actions/RouteActions'),
-    Passages = require('./Passages.jsx');
+    Passages = require('./Passages.jsx'),
+    Dashboard = require('./Dashboard.jsx');
 
 
 var GradeInterface = require('./GradeInterface.jsx');
@@ -68,13 +69,12 @@ var App = React.createClass({
                     currentView = <Login handleLogin={this.handleLoginAttempt} {...this.state} />;
                     break;
                 default:
-                    currentView = 'No route found - 404';
+                    currentView = <Dashboard />;
                     break;
 
             }
         } else {
             currentView = <Login handleLogin={this.handleLoginAttempt} {...this.state} />;
-            //RouteActions.updateHash('/login');
         }
 
 
@@ -82,7 +82,7 @@ var App = React.createClass({
             <body>
                 <AppHeader {...this.state} />
                 <div className="main">
-                {currentView}
+                    {currentView}
                 </div>
                 <AppFooter />
 
