@@ -2,34 +2,15 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
 
-var EventEmitter = require('events').EventEmitter;
 var UserConstants = require('../constants/UserConstants.js');
 
+var createStore = require('../utils/storeUtils');
 
-var CHANGE_EVENT = 'change';
+
 var _errors = [];
 var _success = [];
 
-var UserStore = assign(EventEmitter.prototype, {
-
-    emitChange: function() {
-        this.emit(CHANGE_EVENT);
-    },
-
-    /**
-     * @param {function} callback
-     */
-    addChangeListener: function(callback) {
-        UserStore.on(CHANGE_EVENT, callback);
-    },
-
-    /**
-     * @param {function} callback
-     */
-    removeChangeListener: function(callback) {
-        UserStore.removeListener(CHANGE_EVENT, callback);
-    },
-
+var UserStore = assign(createStore(), {
     getUserState: function() {
         return Parse.User.current() ? true : false;
     },
@@ -84,5 +65,6 @@ var UserStore = assign(EventEmitter.prototype, {
     })
 
 });
+
 
 module.exports = UserStore;

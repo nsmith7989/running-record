@@ -3,36 +3,16 @@ var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
 var _ = require('lodash');
 
-var EventEmitter = require('events').EventEmitter;
 var StudentConstants = require('../constants/StudentConstants');
-var StudentActions = require('../actions/StudentActions');
+var createStore = require('../utils/storeUtils');
 
-var CHANGE_EVENT = 'change';
 
 var _students = [];
 var _success_message = '';
 var _current = '';
 var _view = StudentConstants.SHOW_FORM;
 
-var StudentStore = assign(EventEmitter.prototype, {
-
-    emitChange: function() {
-        StudentStore.emit(CHANGE_EVENT);
-    },
-
-    /**
-     * @param {function} callback
-     */
-    addChangeListener: function(callback) {
-        StudentStore.on(CHANGE_EVENT, callback);
-    },
-
-    /**
-     * @param {function} callback
-     */
-    removeChangeListener: function(callback) {
-        StudentStore.removeListener(CHANGE_EVENT, callback);
-    },
+var StudentStore = assign(createStore(), {
 
     getStudentSuccessMessage: function() {
         return _success_message;
@@ -141,10 +121,9 @@ var StudentStore = assign(EventEmitter.prototype, {
         }
 
         return true;
-
     })
 
-
 });
+
 
 module.exports = StudentStore;

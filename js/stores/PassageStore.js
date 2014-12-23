@@ -3,11 +3,9 @@ var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
 var _ = require('lodash');
 
-var EventEmitter = require('events').EventEmitter;
 var PassageConstants = require('../constants/PassageConstants');
-var PassageActions = require('../actions/PassageActions');
+var createStore = require('../utils/storeUtils');
 
-var CHANGE_EVENT = 'change';
 
 var _passages = [];
 var _success_message = '';
@@ -15,25 +13,7 @@ var _current = '';
 var _view = PassageConstants.LIST;
 
 
-var PassageStore = assign(EventEmitter.prototype, {
-
-    emitChange: function() {
-        PassageStore.emit(CHANGE_EVENT);
-    },
-
-    /**
-     * @param {function} callback
-     */
-    addChangeListener: function(callback) {
-        PassageStore.on(CHANGE_EVENT, callback);
-    },
-
-    /**
-     * @param {function} callback
-     */
-    removeChangeListener: function(callback) {
-        PassageStore.removeListener(CHANGE_EVENT, callback);
-    },
+var PassageStore = assign(createStore(), {
 
     getPassageSuccessMessage: function() {
         return _success_message;
@@ -145,7 +125,7 @@ var PassageStore = assign(EventEmitter.prototype, {
 
     })
 
-
 });
+
 
 module.exports = PassageStore;
