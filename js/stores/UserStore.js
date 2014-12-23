@@ -4,7 +4,6 @@ var assign = Object.assign || require('object.assign');
 
 var EventEmitter = require('events').EventEmitter;
 var UserConstants = require('../constants/UserConstants.js');
-var clearFlash = require('../utils/clearFlash');
 
 
 var CHANGE_EVENT = 'change';

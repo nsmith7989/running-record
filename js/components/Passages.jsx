@@ -2,14 +2,22 @@ var React = require('react');
 var jQuery = require('jquery');
 var PassageActions = require('../actions/PassageActions');
 var PassageStore = require('../stores/PassageStore');
+var PassageConstants = require('../constants/PassageConstants');
+var Form = require('./Passages-form.jsx');
+var List = require('./Passages-list.jsx');
+var Read = require('./Passages-read.jsx');
+var Update = require('./Passage-update.jsx');
 
-var getSuccessMessage = () => {
+var getPassageInfo = () => {
     return {
-        success: PassageStore.getSuccessMessage()
+        success: PassageStore.getSuccessMessage(),
+        view: PassageStore.getCurrentView(),
+        passages: PassageStore.getPassages(),
+        currentPassage: PassageStore.getCurrentPassage()
     }
 };
 
-module.exports = React.createClass({
+var PassagesController = React.createClass({
 
     handleCreate: function(e) {
         e.preventDefault();
@@ -23,50 +31,72 @@ module.exports = React.createClass({
 
     },
 
-    getInitialState: function () {
-        return getSuccessMessage();
+    handleUpdate: function(id, e) {
+        e.preventDefault();
+        var formData = {};
+        jQuery(e.target).serializeArray()
+            .map(item => {
+                formData[item.name] = item.value;
+            });
+        PassageActions.update(id, formData);
     },
 
+    getInitialState: function() {
+        return getPassageInfo();
+    },
 
     componentWillMount: function() {
         PassageStore.addChangeListener(this._onPassageChange);
-
     },
 
     componentWillUnmount: function() {
         PassageStore.removeChangeListener(this._onPassageChange);
     },
 
-    getAllPassages: function() {
-        PassageActions.getAll();
+    list: function() {
+        PassageActions.list();
+    },
+
+    showAddForm: function() {
+        PassageActions.showForm();
+    },
+
+    read: function(id) {
+        PassageActions.readPassage(id);
+    },
+
+    showEditForm: function(id) {
+        PassageActions.showEditForm(id);
+    },
+
+    delete: function(id) {
     },
 
     render: function() {
 
-        var form = (
-            <div className="form-wrap container">
-                <form onSubmit={this.handleCreate}>
-                    <h2>Add Passage</h2>
-                    <p className="success">{this.state.success}</p>
-                    <input type="text" name="title" placeholder="Title"/>
-                    <input type="text" name="difficulty" placeholder="Difficulty"/>
-                    <textarea name="content" placeholder="Content"/>
-                    <input type="submit" />
-                </form>
 
-                <button onClick={this.getAllPassages}>Get All</button>
+        var output;
+        switch(this.state.view) {
+            case PassageConstants.LIST:
+                output = <List {...this} passages={this.state.passages}/>;
+                break;
+            case PassageConstants.SHOW_FORM:
+                output = <Form {...this} />;
+                break;
+            case PassageConstants.READ:
+                output = <Read {...this} />;
+                break;
+            case PassageConstants.SHOW_EDIT_FORM:
+                output = <Update {...this} />;
+                break;
+        }
 
-            </div>
-        );
-
-        return (
-            <div>
-                {form}
-            </div>
-        )
+        return output;
     },
 
     _onPassageChange: function() {
-        this.setState(getSuccessMessage());
+        this.setState(getPassageInfo());
     }
 });
+
+module.exports = PassagesController;
