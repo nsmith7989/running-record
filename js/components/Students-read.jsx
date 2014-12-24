@@ -9,12 +9,10 @@ module.exports = React.createClass({
                 <h2>{currentStudent.name}</h2>
                 <p dangerouslySetInnerHTML={{ __html: currentStudent.notes }} />
 
-                <div>
-                    <button className="dangerous-action">Test {currentStudent.name}</button>
-                </div>
+
                 <button onClick={this.props.list}>&larr; Back to Student List</button>
                 <button onClick={this.props.showEditForm.bind(null, currentStudent.id)}>Update {currentStudent.name}</button>
-
+                <button className="dangerous-action">Test {currentStudent.name}</button>
 
 
             </div>
