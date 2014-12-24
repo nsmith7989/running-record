@@ -143,6 +143,12 @@ var PassageStore = assign(createStore(), {
 
                 break;
 
+            case PassageConstants.SET_CURRENT_PASSAGE:
+
+                _current = _.find(_passages, {id: action.data.id});
+
+                break;
+
         }
 
         return true;

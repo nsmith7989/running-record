@@ -87,7 +87,15 @@ PassageActions = {
                 });
             });
         });
+    },
+
+    setCurrent: function(id) {
+        Dispatcher.handleViewAction({
+            actionType: PassageConstants.SET_CURRENT_PASSAGE,
+            data: {id: id}
+        });
     }
+
 
 };
 

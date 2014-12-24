@@ -10,7 +10,7 @@ var TestActions = require('../actions/TestActions');
 
 var _success_message = '';
 var _current = '';
-var _view = TestConstants.PASSAGE_SELECTION;
+var _view = 'selection';
 var _score = {};
 
 var TestStore = assign(createStore(), {
@@ -33,7 +33,13 @@ var TestStore = assign(createStore(), {
         switch(action.actionType) {
             case TestConstants.PASSAGE_SELECTION:
 
-                _view = TestConstants.PASSAGE_SELECTION;
+                _view = 'selection';
+                TestStore.emitChange();
+
+                break;
+            case TestConstants.TEST_VIEW_CHANGE:
+
+                _view = action.data;
                 TestStore.emitChange();
 
                 break;

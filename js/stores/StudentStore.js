@@ -125,6 +125,11 @@ var StudentStore = assign(createStore(), {
 
 
                 break;
+            case StudentConstants.SET_CURRENT_STUDENT:
+
+                _current = _.find(_students, {id: action.data.id});
+
+                break;
 
         }
 

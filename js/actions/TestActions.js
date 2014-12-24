@@ -9,7 +9,7 @@ var Student = Parse.Object.extend('Student');
 
 var TestActions = {
 
-    create: (data, studentId) => {
+    create: (data, studentId, passageId) => {
 
         var test = new Test();
         data.teacher = Parse.User.current();
@@ -56,6 +56,13 @@ var TestActions = {
                 })
             });
         });
+    },
+
+    switchView: view => {
+        Dispatcher.handleViewAction({
+            actionType: TestConstants.TEST_VIEW_CHANGE,
+            data: view
+        })
     }
 
 

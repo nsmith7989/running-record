@@ -8,14 +8,14 @@ var React = require('react'),
     Login = require('./Login.jsx'),
     UserStore = require('../stores/UserStore'),
     RouteStore = require('../stores/RouteStore'),
+    StudentStore = require('../stores/StudentStore'),
     assign = Object.assign || require('object.assign'),
     Students = require('./Students.jsx'),
     RouteActions = require('../actions/RouteActions'),
     Passages = require('./Passages.jsx'),
-    Dashboard = require('./Dashboard.jsx');
+    Dashboard = require('./Dashboard.jsx'),
+    Tests = require('./Tests.jsx');
 
-
-var GradeInterface = require('./GradeInterface.jsx');
 
 function getUserState() {
     return {
@@ -68,10 +68,12 @@ var App = React.createClass({
                 case "/login":
                     currentView = <Login handleLogin={this.handleLoginAttempt} {...this.state} />;
                     break;
+                case "/test":
+                    currentView = <Tests />;
+                    break;
                 default:
                     currentView = <Dashboard />;
                     break;
-
             }
         } else {
             currentView = <Login handleLogin={this.handleLoginAttempt} {...this.state} />;

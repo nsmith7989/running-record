@@ -91,7 +91,7 @@ module.exports = React.createClass({
                                             <button className="edit" onClick={this.props.showEditForm.bind(null, student.id)}>
                                                 Edit
                                             </button>
-                                            <button className="delete">
+                                            <button onClick={this.props.createTest.bind(null, student.id)} className="delete">
                                                 Test
                                             </button>
                                         </span>

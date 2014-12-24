@@ -7,6 +7,7 @@ var Form = require('./Students-form.jsx');
 var List = require('./Students-list.jsx');
 var Read = require('./Students-read.jsx');
 var Update = require('./Students-update.jsx');
+var Router = require('../actions/RouteActions');
 
 var getStudentInfo = () => {
     return {
@@ -40,7 +41,6 @@ module.exports = React.createClass({
             .map(item => {
                 formData[item.name] = item.value;
             });
-        debugger;
         StudentActions.update(id, formData);
     },
 
@@ -74,6 +74,11 @@ module.exports = React.createClass({
     },
 
     destroy: function(id) {
+    },
+
+    createTest: function(studentId) {
+        StudentActions.setCurrent(studentId);
+        Router.navigate('/test');
     },
 
 

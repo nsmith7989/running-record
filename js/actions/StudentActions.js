@@ -80,6 +80,13 @@ var StudentActions = {
             actionType: StudentConstants.SHOW_STUDENT_EDIT_FORM,
             data: {id: id, view: StudentConstants.SHOW_STUDENT_EDIT_FORM}
         });
+    },
+
+    setCurrent: function(id) {
+        Dispatcher.handleViewAction({
+           actionType: StudentConstants.SET_CURRENT_STUDENT,
+            data: {id: id}
+        });
     }
 
 };

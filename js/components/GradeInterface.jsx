@@ -1,13 +1,10 @@
 var React = require('react/addons');
-
-var Header = require('./Header.jsx');
 var Word = require('./Word.jsx');
 var TestInfo = require('./TestInfo.jsx');
-var Footer = require('./Footer.jsx');
 var Results = require('./Results.jsx');
 
 
-module.exports = React.createClass({
+var GradingInterface = React.createClass({
 
     handleKeyDown: function(e) {
 
@@ -102,6 +99,11 @@ module.exports = React.createClass({
         window.addEventListener('keydown', this.handleKeyDown);
     },
 
+    componentWillUnmount: function() {
+        window.removeEventListener('keydown', this.handleKeyDown);
+        clearInterval(this.timer);
+    },
+
     componentWillMount: function() {
 
         this.wordArray = this.props.passage.split(' ').filter(function(word) {
@@ -126,7 +128,6 @@ module.exports = React.createClass({
     render: function() {
         return (
             <div>
-                <Header />
                 <TestInfo
                     {...this.props}
                     {...this.state}
@@ -150,9 +151,10 @@ module.exports = React.createClass({
                 <div className="container">
                     <button onClick={this.handleResultsClick} className="finish-btn">Stop Timer and Show Score</button>
                 </div>
-                <Footer></Footer>
 
             </div>
         );
     }
 });
+
+module.exports = GradingInterface;

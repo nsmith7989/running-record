@@ -9,5 +9,6 @@ module.exports = keyMirror({
     GET_ALL_PASSAGES: null,
     LIST_PASSAGES: null,
     SHOW_PASSAGE_FORM: null,
-    SHOW_PASSAGE_EDIT_FORM: null
+    SHOW_PASSAGE_EDIT_FORM: null,
+    SET_CURRENT_PASSAGE: null
 });
