@@ -34,7 +34,7 @@ PassageActions = {
 
     list: function() {
         Dispatcher.handleViewAction({
-            actionType: PassageConstants.LIST
+            actionType: PassageConstants.LIST_PASSAGES
         })
     },
 
@@ -72,6 +72,20 @@ PassageActions = {
         Dispatcher.handleViewAction({
             actionType: PassageConstants.SHOW_PASSAGE_EDIT_FORM,
             data: {id: id, view: PassageConstants.SHOW_PASSAGE_EDIT_FORM}
+        });
+    },
+
+    destroy: function(id) {
+        var Passage = Parse.Object.extend("Passage");
+        var query = new Parse.Query(Passage);
+
+        query.get(id).then(function(passage) {
+            passage.destroy().then(function(resp) {
+                Dispatcher.handleViewAction({
+                    actionType: PassageConstants.DELETE_PASSAGE,
+                    data: assign(resp.attributes, {id: resp.id})
+                });
+            });
         });
     }
 

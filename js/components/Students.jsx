@@ -77,16 +77,16 @@ module.exports = React.createClass({
 
         var output;
         switch(this.state.view) {
-            case StudentConstants.LIST:
+            case StudentConstants.LIST_STUDENTS:
                 output = <List {...this} />;
                 break;
-            case StudentConstants.SHOW_FORM:
+            case StudentConstants.SHOW_STUDENT_FORM:
                 output = <Form {...this} />;
                 break;
-            case StudentConstants.READ:
+            case StudentConstants.READ_STUDENT:
                 output = <Read {...this} />;
                 break;
-            case StudentConstants.SHOW_EDIT_FORM:
+            case StudentConstants.SHOW_STUDENT_EDIT_FORM:
                 output = <Update {...this} />;
                 break;
         }

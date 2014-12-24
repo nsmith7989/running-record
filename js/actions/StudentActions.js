@@ -14,7 +14,7 @@ var StudentActions = {
 
         student.save(data).then(resp => {
             Dispatcher.handleViewAction({
-                actionType: StudentConstants.CREATE,
+                actionType: StudentConstants.CREATE_STUDENT,
                 data: assign(resp.attributes, {id: resp.id})
             });
         })
@@ -28,7 +28,7 @@ var StudentActions = {
         queryObject.find().then(resp => {
 
             Dispatcher.handleViewAction({
-                actionType: StudentConstants.GET_ALL,
+                actionType: StudentConstants.GET_ALL_STUDENTS,
                 data: resp.map(item => {return assign(item.attributes, {id: item.id})})
             })
 
@@ -37,20 +37,20 @@ var StudentActions = {
 
     list: function() {
         Dispatcher.handleViewAction({
-            actionType: StudentConstants.LIST
+            actionType: StudentConstants.LIST_STUDENTS
         })
     },
 
     showForm: function() {
         Dispatcher.handleViewAction({
-            actionType: StudentConstants.SHOW_FORM
+            actionType: StudentConstants.SHOW_STUDENT_FORM
         })
     },
 
     readStudent: function(id) {
         Dispatcher.handleViewAction({
-            actionType: StudentConstants.READ,
-            data: {id: id, view: StudentConstants.READ}
+            actionType: StudentConstants.READ_STUDENT,
+            data: {id: id, view: StudentConstants.READ_STUDENT}
         })
     },
 
@@ -64,7 +64,7 @@ var StudentActions = {
             student.save(data).then(function(resp) {
 
                 Dispatcher.handleViewAction({
-                    actionType: StudentConstants.UPDATE,
+                    actionType: StudentConstants.UPDATE_STUDENT,
                     data: assign(resp.attributes, {id: resp.id})
                 });
 
@@ -75,8 +75,8 @@ var StudentActions = {
 
     showEditForm: function(id) {
         Dispatcher.handleViewAction({
-            actionType: StudentConstants.SHOW_EDIT_FORM,
-            data: {id: id, view: StudentConstants.SHOW_EDIT_FORM}
+            actionType: StudentConstants.SHOW_STUDENT_EDIT_FORM,
+            data: {id: id, view: StudentConstants.SHOW_STUDENT_EDIT_FORM}
         });
     }
 

@@ -10,7 +10,7 @@ var createStore = require('../utils/storeUtils');
 var _passages = [];
 var _success_message = '';
 var _current = '';
-var _view = PassageConstants.LIST_PASSAGE;
+var _view = PassageConstants.LIST_PASSAGES;
 
 
 var PassageStore = assign(createStore(), {
@@ -108,6 +108,24 @@ var PassageStore = assign(createStore(), {
                 _passages[_passages.indexOf(passage)] = newPassage;
 
                 _success_message = 'Passage "' + action.data.title + '" updated';
+
+                PassageStore.emitChange();
+
+                setTimeout(() => {
+                    _success_message = '';
+                    PassageStore.emitChange();
+                }, 4000);
+
+
+                break;
+
+            case PassageConstants.DELETE_PASSAGE:
+
+                var passage = _.find(_passages, {id: action.data.id});
+
+                _passages.splice(_passages.indexOf(passage), 1);
+
+                _success_message = 'Passage "' + action.data.title + '" deleted';
 
                 PassageStore.emitChange();
 

@@ -25,6 +25,17 @@ module.exports = React.createClass({
         PassageStore.removeChangeListener(this._onChange);
     },
 
+    confirmDeletion: function(id) {
+        this.setState({
+            deletionConfirmation: true,
+            possibleDeletion: id
+        })
+    },
+
+    confirmYes: function(id) {
+        this.props.destroy(id);
+        this.replaceState(getPassageInfo());
+    },
 
     search: function(e) {
 
@@ -54,6 +65,15 @@ module.exports = React.createClass({
     },
 
     render: function() {
+
+        var confirm = (
+            <div className="confirm">
+                <div className="container">
+                    Confirm deletion: <button onClick={this.confirmYes.bind(null,this.state.possibleDeletion)}>Confirm</button>
+                </div>
+            </div>
+        );
+
         var suscess = this.props.state.success ? <p className="success">{this.props.state.success}</p> : '';
         return (
             <div>
@@ -71,6 +91,7 @@ module.exports = React.createClass({
                         </div>
                     </div>
                 </div>
+                {this.state.deletionConfirmation ? confirm : ''}
                 <div className="table-list">
                     <ul>
                         <li className="headings">
@@ -93,7 +114,7 @@ module.exports = React.createClass({
                                         <button className="edit" onClick={this.props.showEditForm.bind(null, passage.id)}>
                                             Edit
                                         </button>
-                                        <button className="delete" onClick={this.props.delete.bind(null, passage.id)}>
+                                        <button className="delete" onClick={this.confirmDeletion.bind(null, passage.id)}>
                                             Delete
                                         </button>
                                     </span>

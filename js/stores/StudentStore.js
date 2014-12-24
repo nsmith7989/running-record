@@ -10,7 +10,7 @@ var createStore = require('../utils/storeUtils');
 var _students = [];
 var _success_message = '';
 var _current = '';
-var _view = StudentConstants.SHOW_FORM;
+var _view = StudentConstants.SHOW_STUDENT_FORM;
 
 var StudentStore = assign(createStore(), {
 
@@ -36,14 +36,14 @@ var StudentStore = assign(createStore(), {
 
         switch(action.actionType) {
 
-            case StudentConstants.GET_ALL:
+            case StudentConstants.GET_ALL_STUDENTS:
 
                 _students = action.data;
                 StudentStore.emitChange();
 
                 break;
 
-            case StudentConstants.CREATE:
+            case StudentConstants.CREATE_STUDENT:
 
                 _success_message = 'Student "' + action.data.name + '" Created!';
 
@@ -61,22 +61,22 @@ var StudentStore = assign(createStore(), {
 
                 break;
 
-            case StudentConstants.LIST:
+            case StudentConstants.LIST_STUDENTS:
 
-                _view = StudentConstants.LIST;
+                _view = StudentConstants.LIST_STUDENTS;
                 StudentStore.emitChange();
 
                 break;
 
-            case StudentConstants.SHOW_FORM:
+            case StudentConstants.SHOW_STUDENT_FORM:
 
-                _view = StudentConstants.SHOW_FORM;
+                _view = StudentConstants.SHOW_STUDENT_FORM;
                 StudentStore.emitChange();
 
                 break;
 
-            case StudentConstants.READ:
-                _view = StudentConstants.READ;
+            case StudentConstants.READ_STUDENT:
+                _view = StudentConstants.READ_STUDENT;
 
                 _current = _.find(_students, {id: action.data.id});
 
@@ -85,18 +85,18 @@ var StudentStore = assign(createStore(), {
 
                 break;
 
-            case StudentConstants.SHOW_EDIT_FORM:
+            case StudentConstants.SHOW_STUDENT_EDIT_FORM:
 
-                _view = StudentStore.SHOW_EDIT_FORM;
+                _view = StudentStore.SHOW_STUDENT_EDIT_FORM;
                 _current = _.find(_students, {id: action.data.id});
 
                 StudentStore.emitChange();
 
                 break;
 
-            case StudentConstants.UPDATE:
+            case StudentConstants.UPDATE_STUDENT:
 
-                _view = StudentConstants.LIST;
+                _view = StudentConstants.LIST_STUDENTS;
                 _current = null;
 
                 //find the student and update its data

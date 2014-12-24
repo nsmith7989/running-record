@@ -69,15 +69,16 @@ var PassagesController = React.createClass({
         PassageActions.showEditForm(id);
     },
 
-    delete: function(id) {
+    destroy: function(id) {
+        PassageActions.destroy(id);
     },
 
     render: function() {
 
         var output;
         switch(this.state.view) {
-            case PassageConstants.LIST_PASSAGE:
-                output = <List {...this} passages={this.state.passages}/>;
+            case PassageConstants.LIST_PASSAGES:
+                output = <List {...this} />;
                 break;
             case PassageConstants.SHOW_PASSAGE_FORM:
                 output = <Form {...this} />;
