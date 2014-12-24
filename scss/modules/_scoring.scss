@@ -19,6 +19,7 @@
         margin: .2em .2em .2em 0;
         display: inline-block;
         padding: .8em .1em .1em;
+
         .error-code {
             display: block;
             width: 20px;
@@ -35,6 +36,9 @@
         }
         .word {
             display: block;
+            .punct {
+                color: #000;
+            }
         }
     }
 

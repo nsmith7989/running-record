@@ -2,9 +2,19 @@ var React = require('react/addons');
 var Word = require('./Word.jsx');
 var TestInfo = require('./TestInfo.jsx');
 var Results = require('./Results.jsx');
-
+var TestActions = require('../actions/TestActions');
+var StudentStore = require('../stores/StudentStore');
+var PassageStore = require('../stores/PassageStore');
 
 var GradingInterface = React.createClass({
+
+    submitTest: function() {
+        TestActions.create(
+            this.state,
+            StudentStore.getCurrentStudent().id,
+            PassageStore.getCurrentPassage().id
+        )
+    },
 
     handleKeyDown: function(e) {
 
@@ -41,7 +51,7 @@ var GradingInterface = React.createClass({
 
                 var incorrectWord = this.wordArray[position];
 
-                if (this.state.incorrectPositions.indexOf(position) !== -1) return;
+                if(this.state.incorrectPositions.indexOf(position) !== -1) return;
 
                 this.setState({
                     //currentWord: this.state.currentWord + 1,
@@ -106,9 +116,34 @@ var GradingInterface = React.createClass({
 
     componentWillMount: function() {
 
-        this.wordArray = this.props.passage.split(' ').filter(function(word) {
-            if(word) return true;
-        });
+        var passage = this.props.passage;
+
+        this.wordArray = passage
+            .split(/\s|\u2013|\u2014/g).filter(function(word) {
+                if(word) return true;
+            });
+
+        this.wordArray = this.wordArray.map(function(word) {
+            var wordObj = {};
+            wordObj.word = word;
+            var regex = /[^A-Za-z]/g;
+
+
+            if(regex.test(word.charAt(0))) {
+                wordObj.before = word.charAt(0);
+                wordObj.word = word.substring(1);
+            }
+
+            if(regex.test(word.substring(word.length - 1))) {
+                wordObj.after = word.substring(word.length - 1);
+                wordObj.word = wordObj.word.substring(0, wordObj.word.length - 1);
+            }
+
+            return wordObj;
+
+        })
+
+
     },
 
     tick: function() {
@@ -147,10 +182,12 @@ var GradingInterface = React.createClass({
                         />
                     }.bind(this))}
                 </div>
-                {this.state.showResults ? <Results {...this.state} /> : ''}
-                <div className="container">
-                    <button onClick={this.handleResultsClick} className="finish-btn">Stop Timer and Show Score</button>
-                </div>
+                {this.state.showResults ?
+                    <Results {...this.state} submit={this.submitTest} /> :
+                    <div className="container">
+                        <button onClick={this.handleResultsClick} className="finish-btn">Stop Timer and Show Score</button>
+                    </div>}
+
 
             </div>
         );

@@ -3,7 +3,7 @@ var RouteConstants = require('../constants/RouteConstants');
 var Parse = window.Parse;
 
 window.onpopstate = () => {
-    RouteActions.navigate(window.location.hash.replace('#', ''));
+    //RouteActions.navigate(window.location.hash.replace('#', ''));
 };
 
 var RouteActions = {
@@ -15,7 +15,7 @@ var RouteActions = {
         //var stateObj = { route: route };
         //history.pushState(stateObj, route, route);
 
-        window.location.hash = route ? '#' + route : '';
+        //window.location.hash = route ? '#' + route : '';
 
         Dispatcher.handleViewAction({
             actionType: RouteConstants.NAVIGATE,
@@ -25,7 +25,7 @@ var RouteActions = {
     },
 
     updateHash: function (route) {
-        window.location.hash = '#' + route;
+        //window.location.hash = '#' + route;
     }
 
 

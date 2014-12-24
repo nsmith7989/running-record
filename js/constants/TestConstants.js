@@ -7,5 +7,6 @@ module.exports = keyMirror({
     DELETE_TEST: null,
     READ_TEST: null,
     PASSAGE_SELECTION: null,
-    TEST_VIEW_CHANGE: null
+    TEST_VIEW_CHANGE: null,
+    TEST_FOR_STUDENT: null
 });

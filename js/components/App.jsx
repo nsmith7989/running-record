@@ -72,7 +72,7 @@ var App = React.createClass({
                     currentView = <Tests />;
                     break;
                 default:
-                    currentView = <Dashboard />;
+                    currentView = <Students />;
                     break;
             }
         } else {
