@@ -5,8 +5,8 @@ $site-green1: #57b947;
 $site-green2: #407e36;
 $site-yellow1: #e2c14f;
 $site-yellow2: #b6933d;
-$site-red1:#d5513f;
-$site-red2:#a64133;
+$site-red1: #d5513f;
+$site-red2: #a64133;
 $site-grey1: #272727;
 $site-grey2: #979797;
 $site-grey3: #c8c8c8;
@@ -16,108 +16,117 @@ $site-white: #fff;
 $hover-transition: 400ms;
 
 @mixin open-sans($style) {
-  @extend .OpenSans-#{$style};
+    @extend .OpenSans-#{$style};
 }
 
 .content {
-  width: 100%;
+    width: 100%;
 }
 
 h1 {
 
 }
+
 h2 {
-  @extend .raleway-light;
-  font-size: 28px;
-  color: $site-teal1;
-  line-height: (30/28);
-  border-bottom: 1px solid $site-grey1;
-  padding-bottom: 5px;
+    @extend .raleway-light;
+    font-size: 28px;
+    color: $site-teal1;
+    line-height: (30/28);
+    border-bottom: 1px solid $site-grey1;
+    padding-bottom: 5px;
+}
+
+strong {
+    @include open-sans(Bold);
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
 .homepage {
-  h1 {}
-  h2 {
-    @extend .raleway-regular;
-    font-size: 36px;
-    color: $site-green2;
-    background: #fff;
-    display: inline-block;
-    border: none;
-  }
-  h3 {}
-  h4 {}
+    h1 {
+    }
+    h2 {
+        @extend .raleway-regular;
+        font-size: 36px;
+        color: $site-green2;
+        background: #fff;
+        display: inline-block;
+        border: none;
+    }
+    h3 {
+    }
+    h4 {
+    }
 }
 
 .article-list {
-  h1 {
-    font-size: 90px;
-  }
+    h1 {
+        font-size: 90px;
+    }
 }
 
 .article-page {
-  h1 {
-    font-size: 40px;
-    text-shadow: none;
-    color: $site-grey1;
-  }
-  h2 {
+    h1 {
+        font-size: 40px;
+        text-shadow: none;
+        color: $site-grey1;
+    }
+    h2 {
 
-  }
-  h3 {
-    font-size: 28px;
-    @extend .raleway-light;
-    line-height: (30/24);
-  }
+    }
+    h3 {
+        font-size: 28px;
+        @extend .raleway-light;
+        line-height: (30/24);
+    }
 }
-
 
 h2 {
 
 }
 
 h3 {
-  @extend .raleway-regular;
-  font-size: 30px;
+    @extend .raleway-regular;
+    font-size: 30px;
 }
 
-
 body {
-  line-height: (22/16);
-  @extend .OpenSans-Regular;
-  color: $site-grey1;
+    line-height: (22/16);
+    @extend .OpenSans-Regular;
+    color: $site-grey1;
 }
 
 a {
-  color: $site-teal1;
-  text-decoration: none;
-  &:hover {
-    color: $site-teal2;
-  }
+    color: $site-teal1;
+    text-decoration: none;
+    &:hover {
+        color: $site-teal2;
+    }
 }
 
 //TODO: scope styles to all tinyMCE areas
 .rf-paragraph {
-  ul {
-    padding: 0;
-    margin: 0;
-    li {
-      padding-left: 35px;
-      margin: 10px 0;
-      list-style: none;
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            padding-left: 35px;
+            margin: 10px 0;
+            list-style: none;
+        }
     }
-  }
 }
-
 
 p {
-  font-size: 16px;
-  line-height: (24/16);
-  margin-bottom: 20px;
+    font-size: 16px;
+    line-height: (24/16);
+    margin-bottom: 20px;
 }
+
 p.error {
-  color: #ff887c ;
+    color: #ff887c;
 }
+
 p.success {
-  color: $site-teal1;
+    color: $site-teal1;
 }

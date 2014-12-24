@@ -71,6 +71,10 @@ h2 {
   border-bottom: 1px solid #272727;
   padding-bottom: 5px; }
 
+strong {
+  text-transform: uppercase;
+  font-size: 14px; }
+
 .homepage h2 {
   font-size: 36px;
   color: #407e36;
@@ -817,7 +821,7 @@ body {
   src: url('../fonts/OpenSans-Bold.eot');
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
-.OpenSans-Bold, input[type="submit"], .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, button, .table-list li > .container > *:nth-child(3) button, .table-list li.headings, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
+.OpenSans-Bold, strong, input[type="submit"], .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, button, .table-list li > .container > *:nth-child(3) button, .table-list li.headings, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
 @font-face {

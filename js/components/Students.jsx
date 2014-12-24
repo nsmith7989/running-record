@@ -69,7 +69,7 @@ module.exports = React.createClass({
         StudentActions.showEditForm(id);
     },
 
-    delete: function(id) {
+    destroy: function(id) {
     },
 
 
@@ -91,6 +91,7 @@ module.exports = React.createClass({
                 break;
         }
 
+        if (!output) throw new Error('No route matched');
         return output;
 
     },

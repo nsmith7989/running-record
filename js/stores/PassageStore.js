@@ -97,7 +97,7 @@ var PassageStore = assign(createStore(), {
 
             case PassageConstants.UPDATE_PASSAGE:
 
-                _view = PassageConstants.UPDATE_PASSAGE;
+                _view = PassageConstants.LIST_PASSAGES;
                 _current = null;
 
                 //find the passage and update its data

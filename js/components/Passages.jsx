@@ -91,6 +91,7 @@ var PassagesController = React.createClass({
                 break;
         }
 
+        if (!output) throw new Error('No route matched out of Passages');
         return output;
     },
 
