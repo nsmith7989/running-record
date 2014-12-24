@@ -821,7 +821,7 @@ body {
   src: url('../fonts/OpenSans-Bold.eot');
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
-.OpenSans-Bold, strong, input[type="submit"], .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, button, .table-list li > .container > *:nth-child(3) button, .table-list li > .container > *:last-child button, .table-list li.headings, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
+.OpenSans-Bold, strong, input[type="submit"], button, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .table-list li > .container > *:nth-child(3) button, .table-list li > .container > *:last-child button, .table-list li.headings, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
 @font-face {
@@ -875,6 +875,22 @@ textarea {
   border: 1px solid #eee;
   font-size: 20px;
   min-height: 150px; }
+
+button {
+  display: inline-block;
+  border: none;
+  background: #57b947;
+  color: #fff;
+  font-size: 16px;
+  padding: 2px 10px;
+  cursor: pointer;
+  border-bottom: 2px solid #407e36;
+  text-transform: uppercase;
+  margin-left: 5px;
+  margin-bottom: 10px; }
+  button.dangerous-action {
+    background: #d5513f;
+    border-bottom-color: #a64133; }
 
 header .button {
   background: #2099a4;
@@ -1041,18 +1057,6 @@ a:hover {
 
 .table-list li:nth-child(odd) {
   background: #ffffff; }
-
-button {
-  display: inline-block;
-  border: none;
-  background: #57b947;
-  color: #fff;
-  font-size: 16px;
-  padding: 2px 10px;
-  cursor: pointer;
-  border-bottom: 2px solid #407e36;
-  text-transform: uppercase;
-  margin-left: 5px; }
 
 .flash .success {
   text-align: center;
