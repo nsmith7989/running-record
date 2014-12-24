@@ -32,12 +32,15 @@ module.exports = React.createClass({
     },
 
     handleUpdate: function(id, e) {
+
         e.preventDefault();
         var formData = {};
+
         jQuery(e.target).serializeArray()
             .map(item => {
                 formData[item.name] = item.value;
             });
+        debugger;
         StudentActions.update(id, formData);
     },
 
@@ -46,6 +49,7 @@ module.exports = React.createClass({
     },
 
     componentWillMount: function() {
+        StudentStore.initialize();
         StudentStore.addChangeListener(this._onStudentChange);
     },
 

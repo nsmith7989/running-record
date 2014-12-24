@@ -5,14 +5,20 @@ var _ = require('lodash');
 
 var StudentConstants = require('../constants/StudentConstants');
 var createStore = require('../utils/storeUtils');
+var StudentActions = require('../actions/StudentActions');
 
 
 var _students = [];
 var _success_message = '';
 var _current = '';
-var _view = StudentConstants.SHOW_STUDENT_FORM;
+var _view = StudentConstants.LIST_STUDENTS;
 
 var StudentStore = assign(createStore(), {
+
+    initialize: function() {
+        //on first load get all students
+        StudentActions.getAll();
+    },
 
     getStudentSuccessMessage: function() {
         return _success_message;
@@ -87,7 +93,9 @@ var StudentStore = assign(createStore(), {
 
             case StudentConstants.SHOW_STUDENT_EDIT_FORM:
 
-                _view = StudentStore.SHOW_STUDENT_EDIT_FORM;
+
+
+                _view = StudentConstants.SHOW_STUDENT_EDIT_FORM;
                 _current = _.find(_students, {id: action.data.id});
 
                 StudentStore.emitChange();

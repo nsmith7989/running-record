@@ -25,8 +25,10 @@ var StudentActions = {
         var Student = Parse.Object.extend("Student");
         var queryObject = new Parse.Query(Student);
 
-        queryObject.find().then(resp => {
+        //only equal to the current User
+        queryObject.equalTo('teacher', Parse.User.current());
 
+        queryObject.find().then(resp => {
             Dispatcher.handleViewAction({
                 actionType: StudentConstants.GET_ALL_STUDENTS,
                 data: resp.map(item => {return assign(item.attributes, {id: item.id})})
@@ -81,9 +83,6 @@ var StudentActions = {
     }
 
 };
-
-//on first load get all students
-StudentActions.getAll();
 
 
 module.exports = StudentActions;

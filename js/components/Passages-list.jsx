@@ -56,7 +56,7 @@ module.exports = React.createClass({
             keys: ['title']
         };
 
-        var fuse = new Fuse(this.props.passages, options);
+        var fuse = new Fuse(this.state.passages, options);
 
 
         this.setState({
@@ -69,7 +69,7 @@ module.exports = React.createClass({
         var confirm = (
             <div className="confirm">
                 <div className="container">
-                    Confirm deletion: <button onClick={this.confirmYes.bind(null,this.state.possibleDeletion)}>Confirm</button>
+                    This will remove this passage for all users: <button onClick={this.confirmYes.bind(null,this.state.possibleDeletion)}>Confirm</button>
                 </div>
             </div>
         );

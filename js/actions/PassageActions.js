@@ -91,8 +91,5 @@ PassageActions = {
 
 };
 
-//on first load get all passages
-PassageActions.getAll();
-
 
 module.exports = PassageActions;

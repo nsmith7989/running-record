@@ -5,6 +5,7 @@ var _ = require('lodash');
 
 var PassageConstants = require('../constants/PassageConstants');
 var createStore = require('../utils/storeUtils');
+var PassageActions = require('../actions/PassageActions');
 
 
 var _passages = [];
@@ -14,6 +15,11 @@ var _view = PassageConstants.LIST_PASSAGES;
 
 
 var PassageStore = assign(createStore(), {
+
+    initialize: function() {
+        //on first load get all passages
+        PassageActions.getAll();
+    },
 
     getPassageSuccessMessage: function() {
         return _success_message;
