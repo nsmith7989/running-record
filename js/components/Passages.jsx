@@ -52,6 +52,7 @@ var PassagesController = React.createClass({
 
     componentWillUnmount: function() {
         PassageStore.removeChangeListener(this._onPassageChange);
+        PassageActions.changeView(PassageConstants.LIST_PASSAGES);
     },
 
     list: function() {

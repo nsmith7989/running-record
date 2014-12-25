@@ -10,5 +10,7 @@ module.exports = keyMirror({
     LIST_PASSAGES: null,
     SHOW_PASSAGE_FORM: null,
     SHOW_PASSAGE_EDIT_FORM: null,
-    SET_CURRENT_PASSAGE: null
+    SET_CURRENT_PASSAGE: null,
+    GET_PASSAGE_BY_ID: null,
+    CHANGE_PASSAGE_VIEW: null
 });

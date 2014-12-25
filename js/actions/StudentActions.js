@@ -87,6 +87,13 @@ var StudentActions = {
            actionType: StudentConstants.SET_CURRENT_STUDENT,
             data: {id: id}
         });
+    },
+
+    changeView: function(view) {
+        Dispatcher.handleViewAction({
+            actionType: StudentConstants.CHANGE_STUDENT_VIEW,
+            data: view
+        })
     }
 
 };

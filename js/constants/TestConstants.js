@@ -8,5 +8,5 @@ module.exports = keyMirror({
     READ_TEST: null,
     PASSAGE_SELECTION: null,
     TEST_VIEW_CHANGE: null,
-    TEST_FOR_STUDENT: null
+    TEST_FOR_STUDENT: null,
 });

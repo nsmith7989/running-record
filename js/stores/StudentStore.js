@@ -131,6 +131,13 @@ var StudentStore = assign(createStore(), {
 
                 break;
 
+            case StudentConstants.CHANGE_STUDENT_VIEW:
+
+
+                _view = action.data;
+                StudentStore.emitChange();
+                break;
+
         }
 
         return true;

@@ -57,8 +57,10 @@ var TestStore = assign(createStore(), {
                 break;
             case TestConstants.CREATE_TEST:
 
-
                 _view = 'selection';
+                debugger;
+                testsByStudent[action.data.studentId].tests.push(action.data);
+
                 TestStore.emitChange();
 
                 break;

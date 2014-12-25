@@ -892,6 +892,9 @@ button {
     background: #d5513f;
     border-bottom-color: #a64133; }
 
+.button-wrap {
+  margin-top: 40px; }
+
 header .button {
   background: #2099a4;
   color: #ffffff;

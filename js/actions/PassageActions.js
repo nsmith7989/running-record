@@ -3,11 +3,13 @@ var PassageConstants = require('../constants/PassageConstants');
 var assign = require('object.assign');
 var Parse = window.Parse;
 
+var Passage = Parse.Object.extend("Passage");
+
+
 PassageActions = {
 
     create: function(data) {
 
-        var Passage = Parse.Object.extend("Passage");
         var passage = new Passage();
         passage.save(data).then(resp => {
             Dispatcher.handleViewAction({
@@ -19,7 +21,6 @@ PassageActions = {
     },
 
     getAll: function() {
-        var Passage = Parse.Object.extend("Passage");
         var queryObject = new Parse.Query(Passage);
 
         queryObject.find().then(resp => {
@@ -52,7 +53,6 @@ PassageActions = {
     },
 
     update: function(id, data) {
-        var Passage = Parse.Object.extend("Passage");
         var query = new Parse.Query(Passage);
 
         query.get(id).then(function(passage) {
@@ -76,7 +76,6 @@ PassageActions = {
     },
 
     destroy: function(id) {
-        var Passage = Parse.Object.extend("Passage");
         var query = new Parse.Query(Passage);
 
         query.get(id).then(function(passage) {
@@ -94,6 +93,24 @@ PassageActions = {
             actionType: PassageConstants.SET_CURRENT_PASSAGE,
             data: {id: id}
         });
+    },
+
+    getPassageById: function(id) {
+        var queryObj = new Parse.Query(Passage);
+
+        queryObj.get(id).then(function(passage) {
+            Dispatcher.handleViewAction({
+                ActionType: PassageConstants.GET_PASSAGE_BY_ID,
+                data: {id: passage.id, passage: passage}
+            })
+        })
+    },
+
+    changeView: function(view) {
+        Dispatcher.handleViewAction({
+            actionType: PassageConstants.CHANGE_PASSAGE_VIEW,
+            data: view
+        })
     }
 
 

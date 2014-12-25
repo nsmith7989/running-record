@@ -32,7 +32,7 @@ var TestActions = {
                     .then(resp => {
                         Dispatcher.handleViewAction({
                             actionType: TestConstants.CREATE_TEST,
-                            data: assign(resp.attributes, {id: resp.id})
+                            data: assign(resp, {testId: resp.id}, {studentId: studentId})
                         })
                     });
             });
@@ -73,7 +73,7 @@ var TestActions = {
     findByStudent: studentId => {
         var studentQuery = new Parse.Query(Student);
 
-        studentQuery.find(studentId).then(student => {
+        studentQuery.get(studentId).then(student => {
            var testQuery = new Parse.Query(Test);
             testQuery.equalTo('student', student);
             testQuery.find(tests => {

@@ -55,6 +55,7 @@ module.exports = React.createClass({
 
     componentWillUnmount: function() {
         StudentStore.removeChangeListener(this._onStudentChange);
+        StudentActions.changeView(StudentConstants.LIST_STUDENTS);
     },
 
     list: function() {

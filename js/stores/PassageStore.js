@@ -12,6 +12,7 @@ var _passages = [];
 var _success_message = '';
 var _current = '';
 var _view = PassageConstants.LIST_PASSAGES;
+var _passagesByID = {};
 
 
 var PassageStore = assign(createStore(), {
@@ -37,11 +38,29 @@ var PassageStore = assign(createStore(), {
         return _current;
     },
 
+    getPassageById: function(id) {
+        if (!_passagesByID[id]) {
+            PassageActions.getPassageById(id);
+        } else {
+            return _passagesByID[id];
+        }
+
+    },
+
+
+
     dispatcherIndex: Dispatcher.register(function(payload) {
 
         var action = payload.action;
 
         switch(action.actionType) {
+
+            case PassageConstants.CHANGE_PASSAGE_VIEW:
+
+                _view = action.data;
+                PassageStore.emitChange();
+
+                break;
 
             case PassageConstants.GET_ALL_PASSAGES:
 
@@ -146,6 +165,14 @@ var PassageStore = assign(createStore(), {
             case PassageConstants.SET_CURRENT_PASSAGE:
 
                 _current = _.find(_passages, {id: action.data.id});
+
+                break;
+
+            case PassageConstants.GET_PASSAGE_BY_ID:
+
+                _passagesByID[action.data.id] = action.data.passage;
+
+                PassageStore.emitChange();
 
                 break;
 
