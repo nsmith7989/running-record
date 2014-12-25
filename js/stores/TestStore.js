@@ -14,6 +14,7 @@ var _success_message = '';
 var _current = '';
 var _view = 'selection';
 var _score = {};
+var _fetched = false;
 
 var testsByStudent = {};
 
@@ -32,8 +33,9 @@ var TestStore = assign(createStore(), {
     },
 
     getTestsByStudentId: (id) => {
-        if (!testsByStudent[id]) {
+        if (!_fetched) {
             TestActions.findByStudent(id);
+            _fetched = true;
         } else {
             return testsByStudent[id];
         }
@@ -58,8 +60,7 @@ var TestStore = assign(createStore(), {
             case TestConstants.CREATE_TEST:
 
                 _view = 'selection';
-                debugger;
-                testsByStudent[action.data.studentId].tests.push(action.data);
+                _fetched = false;
 
                 TestStore.emitChange();
 
