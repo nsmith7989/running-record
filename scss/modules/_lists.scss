@@ -56,10 +56,14 @@ a:hover {
     align-items: center;
     > * {
         flex: 100%;
+        text-align: center;
+        &:first-child {
+            text-align: left;
+        }
         &:nth-child(2) {
             text-align: center;
         }
-        &:nth-child(3), &:last-child {
+        &:last-child {
             text-align: right;
             button {
                 display: inline-block;
@@ -94,10 +98,13 @@ a:hover {
     font-size: 14px;
     @include open-sans(Bold);
     > * {
+        * {
+            text-align: center;
+        }
         &:nth-child(2) {
             text-align: center;
         }
-        &:nth-child(3) {
+        &:last-child {
             text-align: right;
         }
     }

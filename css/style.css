@@ -821,7 +821,7 @@ body {
   src: url('../fonts/OpenSans-Bold.eot');
   src: url('../fonts/OpenSans-Bold.eot?#iefix'), url('../fonts/OpenSans-Bold.woff'), url('../fonts/OpenSans-Bold.ttf'), url('../fonts/OpenSans-Bold.svg#OpenSans-Bold'); }
 
-.OpenSans-Bold, strong, input[type="submit"], button, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .table-list li > .container > *:nth-child(3) button, .table-list li > .container > *:last-child button, .table-list li.headings, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
+.OpenSans-Bold, strong, input[type="submit"], button, .pageheader .button, .complete-score-button, .score-button, .scored-button, .pageheader .dashboard, .table-list li > .container > *:last-child button, .table-list li.headings, .student-list .name, .finish-btn, .test-info .timer-wrapper, .test-info .stats > * .label {
   font-family: 'OpenSans-Bold', Arial, sans-serif; }
 
 @font-face {
@@ -1083,12 +1083,15 @@ a:hover {
     -webkit-box-flex: 100%;
     -webkit-flex: 100%;
         -ms-flex: 100%;
-            flex: 100%; }
+            flex: 100%;
+    text-align: center; }
+    .table-list li > .container > *:first-child {
+      text-align: left; }
     .table-list li > .container > *:nth-child(2) {
       text-align: center; }
-    .table-list li > .container > *:nth-child(3), .table-list li > .container > *:last-child {
+    .table-list li > .container > *:last-child {
       text-align: right; }
-      .table-list li > .container > *:nth-child(3) button, .table-list li > .container > *:last-child button {
+      .table-list li > .container > *:last-child button {
         display: inline-block;
         border: none;
         background: #57b947;
@@ -1098,10 +1101,10 @@ a:hover {
         font-size: 16px;
         cursor: pointer;
         border-bottom: 2px solid #407e36; }
-        .table-list li > .container > *:nth-child(3) button.read, .table-list li > .container > *:last-child button.read {
+        .table-list li > .container > *:last-child button.read {
           background: #26b8c5;
           border-bottom: 2px solid #2099a4; }
-        .table-list li > .container > *:nth-child(3) button.delete, .table-list li > .container > *:last-child button.delete {
+        .table-list li > .container > *:last-child button.delete {
           background: #d5513f;
           border-bottom: 2px solid #a64133; }
 
@@ -1109,9 +1112,11 @@ a:hover {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 14px; }
+  .table-list li.headings > * * {
+    text-align: center; }
   .table-list li.headings > *:nth-child(2) {
     text-align: center; }
-  .table-list li.headings > *:nth-child(3) {
+  .table-list li.headings > *:last-child {
     text-align: right; }
 
 .student-list {

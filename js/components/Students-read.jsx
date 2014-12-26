@@ -4,6 +4,7 @@ var Router = require('../actions/RouteActions');
 var TestStore = require('../stores/TestStore');
 var PassagesStore = require('../stores/PassageStore');
 var _ = require('lodash');
+var scoreCalc = require('../utils/store-calc');
 
 function getTestInfo(id) {
     return {
@@ -29,16 +30,21 @@ module.exports = React.createClass({
 
     render: function() {
         if(this.state.tests) {
-            var tests = this.state.tests.map(function(test,i) {
+            var tests = this.state.tests.map(function(test, i) {
                 var date = new Date(test.createdAt);
                 var passage = _.find(this.state.passages, {'id': test.attributes.passage.id});
+                var score = scoreCalc(test.attributes);
                 return (
                     <li key={i}>
                         <div className="container">
                             <span>{passage.title}</span>
-                            <span>{date.getMonth() +1}/{date.getDate()}/{date.getFullYear()}</span>
-                            <span>Score</span>
-                            <span><button>View Test</button></span>
+                            <span>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</span>
+                            <span>
+                            {score.percentageCorrect}% | {score.time}
+                            </span>
+                            <span>
+                                <button>View Test</button>
+                            </span>
                         </div>
                     </li>
                 )

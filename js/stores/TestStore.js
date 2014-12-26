@@ -9,7 +9,6 @@ var createStore = require('../utils/storeUtils');
 var TestActions = require('../actions/TestActions');
 
 
-
 var _success_message = '';
 var _current = '';
 var _view = 'selection';
@@ -33,12 +32,18 @@ var TestStore = assign(createStore(), {
     },
 
     getTestsByStudentId: (id) => {
-        if (!_fetched) {
-            TestActions.findByStudent(id);
-            _fetched = true;
+
+        if (_fetched) {
+            if(testsByStudent[id]) {
+                return testsByStudent[id]
+            } else {
+                TestActions.findByStudent(id);
+            }
         } else {
-            return testsByStudent[id];
+            TestActions.findByStudent(id);
         }
+
+
     },
 
     dispatcherIndex: Dispatcher.register(payload => {
@@ -61,7 +66,6 @@ var TestStore = assign(createStore(), {
 
                 _view = 'selection';
                 _fetched = false;
-
                 TestStore.emitChange();
 
                 break;
@@ -69,6 +73,7 @@ var TestStore = assign(createStore(), {
             case TestConstants.TEST_FOR_STUDENT:
 
                 testsByStudent[action.data.id] = action.data.tests;
+                _fetched = true;
                 TestStore.emitChange();
 
                 break;
