@@ -117,31 +117,34 @@ var GradingInterface = React.createClass({
     componentWillMount: function() {
 
         var passage = this.props.passage;
+        var wordCount = 0;
 
-        this.wordArray = passage
-            .split(/\s|\u2013|\u2014/g).filter(function(word) {
-                if(word) return true;
-            });
+        this.paragraphs = passage.split(/\n|\r/g).map(function(paragraph) {
+            return paragraph.split(/\s/g).filter(function(word) { if (word) return word;}).map(function(word) {
+                var wordObj = {};
+                wordObj.word = word;
+                wordObj.count = wordCount;
+                var regex = /[^A-Za-z]/g;
+                if(regex.test(word.charAt(0))) {
+                    wordObj.before = word.charAt(0);
+                    wordObj.word = word.substring(1);
+                }
+                if(regex.test(word.substring(word.length - 1))) {
+                    wordObj.after = word.substring(word.length - 1);
+                    wordObj.word = wordObj.word.substring(0, wordObj.word.length - 1);
+                }
+                wordCount++;
+                return wordObj;
+            })
+        });
+
+        this.wordArray = passage.split(' ').filter(function(word) { if (word) return word;});
 
         this.wordArray = this.wordArray.map(function(word) {
             var wordObj = {};
             wordObj.word = word;
-            var regex = /[^A-Za-z]/g;
-
-
-            if(regex.test(word.charAt(0))) {
-                wordObj.before = word.charAt(0);
-                wordObj.word = word.substring(1);
-            }
-
-            if(regex.test(word.substring(word.length - 1))) {
-                wordObj.after = word.substring(word.length - 1);
-                wordObj.word = wordObj.word.substring(0, wordObj.word.length - 1);
-            }
-
             return wordObj;
-
-        })
+        });
 
 
     },
@@ -161,6 +164,7 @@ var GradingInterface = React.createClass({
     },
 
     render: function() {
+
         return (
             <div>
                 <TestInfo
@@ -172,14 +176,22 @@ var GradingInterface = React.createClass({
                     timeElapsed={this.state.timeElapsed}
                     totalWords={this.wordArray.length} />
                 <div className="text container">
-                    {this.wordArray.map(function(item, i) {
-                        return <Word
-                            currentWord={this.state.currentWord}
-                            incorrectWords={this.state.incorrectWords}
-                            indexPos={i} key={i}
-                            incorrectPositions={this.state.incorrectPositions}
-                            word={item}
-                        />
+                    {this.paragraphs.map(function(paragraph) {
+                        return (
+                            <p>
+                                {paragraph.map(function(item, i) {
+                                    return (
+                                        <Word
+                                            currentWord={this.state.currentWord}
+                                            incorrectWords={this.state.incorrectWords}
+                                            indexPos={item.count} key={item.count}
+                                            incorrectPositions={this.state.incorrectPositions}
+                                            word={item}
+                                        />
+                                    )
+                                }.bind(this))}
+                            </p>
+                        )
                     }.bind(this))}
                 </div>
                 {this.state.showResults ?

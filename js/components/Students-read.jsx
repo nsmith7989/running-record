@@ -22,10 +22,13 @@ module.exports = React.createClass({
 
     componentWillMount: function() {
         TestStore.addChangeListener(this._onChange);
+        PassagesStore.addChangeListener(this._onChange);
     },
 
     componentWillUnmount: function() {
         TestStore.removeChangeListener(this._onChange);
+        PassagesStore.removeChangeListener(this._onChange);
+
     },
 
     render: function() {

@@ -13,12 +13,17 @@
     .active.incorrect {
 //        background: rgba(161, 81, 24, 0.72)
     }
+    p {
+        margin-bottom: 0;
+        line-height: 1;
+    }
 
     .word-wrap {
         position: relative;
         margin: .2em .2em .2em 0;
         display: inline-block;
         padding: .8em .1em .1em;
+        font-size: 24px;
 
         .error-code {
             display: block;

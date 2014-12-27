@@ -28,17 +28,13 @@ var Word = React.createClass({
         //loop over all incorrect words
         var className = React.addons.classSet(this.activeClass);
 
-        var before = this.props.word.before || '';
-
         return (
-            <span>
-                <span className="word-wrap">
+            <span className="word-wrap">
                 {this.props.incorrectPositions.indexOf(this.props.indexPos) > -1 ? <ErrorBlock {...this.props} index={this.props.indexPos} /> : ''}
-                    <span className={className}>
-                        <span className="punct" dangerouslySetInnerHTML={{__html: before.replace(/\r|\n/g, '<br />')}} />
-                        <span dangerouslySetInnerHTML={{__html: this.props.word.word.replace(/\r|\n/g, '<br />')}} />
-                        <span className="punct">{this.props.word.after}</span>
-                    </span>
+                <span className={className}>
+                    <span className="punct" dangerouslySetInnerHTML={{__html: this.props.word.before}} />
+                    <span dangerouslySetInnerHTML={{__html: this.props.word.word}} />
+                    <span className="punct">{this.props.word.after}</span>
                 </span>
             </span>
         )

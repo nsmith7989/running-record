@@ -6,6 +6,7 @@ var _ = require('lodash');
 var PassageConstants = require('../constants/PassageConstants');
 var createStore = require('../utils/storeUtils');
 var PassageActions = require('../actions/PassageActions');
+var RouterStore = require('./RouteStore');
 
 
 var _passages = [];
@@ -13,6 +14,7 @@ var _success_message = '';
 var _current = '';
 var _view = PassageConstants.LIST_PASSAGES;
 var _passagesByID = {};
+var _initalized = false;
 
 
 var PassageStore = assign({}, createStore(), {
@@ -20,6 +22,7 @@ var PassageStore = assign({}, createStore(), {
     initialize: function() {
         //on first load get all passages
         PassageActions.getAll();
+        _initalized = true;
     },
 
     getPassageSuccessMessage: function() {
@@ -31,7 +34,12 @@ var PassageStore = assign({}, createStore(), {
     },
 
     getPassages: function() {
-        return _passages;
+        if (_initalized) {
+            return _passages;
+        } else {
+            PassageStore.initialize();
+        }
+
     },
 
     getCurrentPassage: function() {

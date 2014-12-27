@@ -31,7 +31,11 @@ module.exports = React.createClass({
                     <h3>Incorrect Words ({this.props.incorrectPositions.length})</h3>
                     <ul>
                         {Object.keys(errorCodeGroups).map(function(letter) {
-                            var words = errorCodeGroups[letter].map(incorrectObj => incorrectObj.word.word).join(', ');
+
+                            var words = errorCodeGroups[letter].map(incorrectObj => {
+                                console.log(incorrectObj.word.word);
+                                return incorrectObj.word.word
+                            }).join(', ');
                             return (
                                 <li><strong>{letter}: </strong>{words}</li>
                             );

@@ -1151,11 +1151,15 @@ a:hover {
     color: #d5b718; }
   .text .incorrect {
     color: #a13b3e; }
+  .text p {
+    margin-bottom: 0;
+    line-height: 1; }
   .text .word-wrap {
     position: relative;
     margin: 0.2em 0.2em 0.2em 0;
     display: inline-block;
-    padding: 0.8em 0.1em 0.1em; }
+    padding: 0.8em 0.1em 0.1em;
+    font-size: 24px; }
     .text .word-wrap .error-code {
       display: block;
       width: 20px;
