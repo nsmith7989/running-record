@@ -17,7 +17,7 @@ var _fetched = false;
 
 var testsByStudent = {};
 
-var TestStore = assign(createStore(), {
+var TestStore = assign({}, createStore(), {
 
     getTestSuccessMessage: () => {
         return _success_message;

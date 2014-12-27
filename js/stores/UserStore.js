@@ -10,7 +10,7 @@ var createStore = require('../utils/storeUtils');
 var _errors = [];
 var _success = [];
 
-var UserStore = assign(createStore(), {
+var UserStore = assign({}, createStore(), {
     getUserState: function() {
         return Parse.User.current() ? true : false;
     },

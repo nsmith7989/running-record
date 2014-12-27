@@ -13,7 +13,7 @@ var _success_message = '';
 var _current = '';
 var _view = StudentConstants.LIST_STUDENTS;
 
-var StudentStore = assign(createStore(), {
+var StudentStore = assign({}, createStore(), {
 
     initialize: function() {
         //on first load get all students

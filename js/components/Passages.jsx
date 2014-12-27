@@ -76,7 +76,6 @@ var PassagesController = React.createClass({
     },
 
     render: function() {
-
         var output;
         switch(this.state.view) {
             case PassageConstants.LIST_PASSAGES:

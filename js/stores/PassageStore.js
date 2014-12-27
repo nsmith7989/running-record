@@ -15,7 +15,7 @@ var _view = PassageConstants.LIST_PASSAGES;
 var _passagesByID = {};
 
 
-var PassageStore = assign(createStore(), {
+var PassageStore = assign({}, createStore(), {
 
     initialize: function() {
         //on first load get all passages

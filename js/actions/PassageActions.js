@@ -21,6 +21,7 @@ PassageActions = {
     },
 
     getAll: function() {
+
         var queryObject = new Parse.Query(Passage);
 
         queryObject.find().then(resp => {

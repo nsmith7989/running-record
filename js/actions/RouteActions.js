@@ -2,9 +2,9 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var RouteConstants = require('../constants/RouteConstants');
 var Parse = window.Parse;
 
-window.onpopstate = () => {
-    //RouteActions.navigate(window.location.hash.replace('#', ''));
-};
+//window.onpopstate = () => {
+//    //RouteActions.navigate(window.location.hash.replace('#', ''));
+//};
 
 var RouteActions = {
 
