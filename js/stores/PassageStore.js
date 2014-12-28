@@ -51,8 +51,6 @@ var PassageStore = assign({}, createStore(), {
         }
     },
 
-
-
     dispatcherIndex: Dispatcher.register(function(payload) {
 
         var action = payload.action;
@@ -75,7 +73,7 @@ var PassageStore = assign({}, createStore(), {
 
             case PassageConstants.CREATE_PASSAGE:
 
-                _success_message = 'Passage "' + action.data.title + '" Created!';
+                _success_message = 'Passage "' + action.data.attributes.title + '" Created!';
 
                 //add passage
                 _passages.push(action.data);
@@ -137,7 +135,7 @@ var PassageStore = assign({}, createStore(), {
 
                 _passages[_passages.indexOf(passage)] = newPassage;
 
-                _success_message = 'Passage "' + action.data.title + '" updated';
+                _success_message = 'Passage "' + action.data.attributes.title + '" updated';
 
                 PassageStore.emitChange();
 
@@ -154,7 +152,7 @@ var PassageStore = assign({}, createStore(), {
 
                 _passages.splice(_passages.indexOf(passage), 1);
 
-                _success_message = 'Passage "' + action.data.title + '" deleted';
+                _success_message = 'Passage "' + action.data.attributes.title + '" deleted';
 
                 PassageStore.emitChange();
 
@@ -174,7 +172,7 @@ var PassageStore = assign({}, createStore(), {
 
             case PassageConstants.GET_PASSAGE_BY_ID:
 
-                _passagesByID[action.data.id] = action.data.passage;
+                _passagesByID[action.data.id] = action.data.attributes.passage;
 
                 PassageStore.emitChange();
 
