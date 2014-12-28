@@ -1,5 +1,5 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
-var PassageConstants = require('../constants/PassageConstants');
+var PassageConstants = require('../constants/Constants').passage;
 var assign = require('object.assign');
 var Parse = window.Parse;
 

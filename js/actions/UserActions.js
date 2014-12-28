@@ -1,5 +1,5 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
-var UserConstants = require('../constants/UserConstants');
+var UserConstants = require('../constants/Constants').user;
 var Parse = window.Parse;
 var RouteActions = require('./RouteActions');
 

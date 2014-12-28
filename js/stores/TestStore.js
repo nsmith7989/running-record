@@ -4,7 +4,7 @@ var assign = Object.assign || require('object.assign');
 var _ = require('lodash');
 var Router = require('../actions/RouteActions');
 
-var TestConstants = require('../constants/TestConstants');
+var TestConstants = require('../constants/Constants').test;
 var createStore = require('../utils/storeUtils');
 var TestActions = require('../actions/TestActions');
 

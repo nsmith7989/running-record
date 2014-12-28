@@ -1,7 +1,7 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
 var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
-var RouterConstants = require('../constants/RouteConstants');
+var RouterConstants = require('../constants/Constants').route;
 var createStore = require('../utils/storeUtils');
 
 var PassageStore = require('./PassageStore');

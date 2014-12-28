@@ -3,7 +3,7 @@ var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
 var _ = require('lodash');
 
-var StudentConstants = require('../constants/StudentConstants');
+var StudentConstants = require('../constants/Constants').student;
 var createStore = require('../utils/storeUtils');
 var StudentActions = require('../actions/StudentActions');
 

@@ -2,7 +2,7 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
 
-var UserConstants = require('../constants/UserConstants.js');
+var UserConstants = require('../constants/Constants.js').test;
 
 var createStore = require('../utils/storeUtils');
 

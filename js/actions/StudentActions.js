@@ -1,5 +1,5 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
-var StudentConstants = require('../constants/StudentConstants');
+var StudentConstants = require('../constants/Constants').student;
 var assign = require('object.assign');
 var Parse = window.Parse;
 

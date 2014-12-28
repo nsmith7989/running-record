@@ -1,5 +1,5 @@
 var Dispatcher = require('../dispatcher/dispatcher.js');
-var RouteConstants = require('../constants/RouteConstants');
+var RouteConstants = require('../constants/Constants').route;
 var Parse = window.Parse;
 
 //window.onpopstate = () => {
