@@ -1159,7 +1159,8 @@ a:hover {
     margin: 0.2em 0.2em 0.2em 0;
     display: inline-block;
     padding: 0.8em 0.1em 0.1em;
-    font-size: 24px; }
+    font-size: 24px;
+    cursor: pointer; }
     .text .word-wrap .error-code {
       display: block;
       width: 20px;

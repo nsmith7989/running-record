@@ -82,6 +82,12 @@ var GradingInterface = React.createClass({
         }
     },
 
+    makeActiveOnClick: function(position) {
+        this.setState({
+            currentWord: position
+        });
+    },
+
     startTimer: function() {
 
         this.timer = setInterval(this.tick, 1000);
@@ -182,6 +188,7 @@ var GradingInterface = React.createClass({
                                 {paragraph.map(function(item, i) {
                                     return (
                                         <Word
+                                            {...this}
                                             currentWord={this.state.currentWord}
                                             incorrectWords={this.state.incorrectWords}
                                             indexPos={item.count} key={item.count}

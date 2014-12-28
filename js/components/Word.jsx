@@ -12,10 +12,10 @@ var ErrorBlock = React.createClass({
 
 var Word = React.createClass({
 
-    shouldComponentUpdate: function(nextProps, nextState) {
-        //only update if we are within 3 of the active
-        return Math.abs(nextProps.indexPos - nextProps.currentWord) < 3;
-    },
+    //shouldComponentUpdate: function(nextProps, nextState) {
+    //    //only update if we are within 3 of the active
+    //    return Math.abs(nextProps.indexPos - nextProps.currentWord) < 3;
+    //},
 
     render: function() {
 
@@ -29,7 +29,7 @@ var Word = React.createClass({
         var className = React.addons.classSet(this.activeClass);
 
         return (
-            <span className="word-wrap">
+            <span className="word-wrap" onClick={this.props.makeActiveOnClick.bind(null, this.props.indexPos)}>
                 {this.props.incorrectPositions.indexOf(this.props.indexPos) > -1 ? <ErrorBlock {...this.props} index={this.props.indexPos} /> : ''}
                 <span className={className}>
                     <span className="punct" dangerouslySetInnerHTML={{__html: this.props.word.before}} />
