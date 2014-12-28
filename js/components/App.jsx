@@ -55,6 +55,7 @@ var App = React.createClass({
         RouteStore.removeChangeListener(this._onRouteChange);
     },
 
+
     render: function() {
         var currentView;
 

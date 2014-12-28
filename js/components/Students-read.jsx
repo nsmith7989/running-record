@@ -1,10 +1,11 @@
 var React = require('react');
-var StudentActions = require('../actions/StudentActions');
+var PassageActions = require('../actions/PassageActions');
 var Router = require('../actions/RouteActions');
 var TestStore = require('../stores/TestStore');
 var PassagesStore = require('../stores/PassageStore');
 var _ = require('lodash');
 var scoreCalc = require('../utils/store-calc');
+var TestActions = require('../actions/TestActions');
 
 function getTestInfo(id) {
     return {
@@ -28,7 +29,13 @@ module.exports = React.createClass({
     componentWillUnmount: function() {
         TestStore.removeChangeListener(this._onChange);
         PassagesStore.removeChangeListener(this._onChange);
+    },
 
+    reviewTest: function(testData) {
+        Router.navigate('/test');
+        TestActions.setCurrentTest(testData);
+        PassageActions.setCurrent(testData.attributes.passage.id);
+        TestActions.switchView('view-test');
     },
 
     render: function() {
@@ -46,7 +53,7 @@ module.exports = React.createClass({
                             {score.percentageCorrect}% | {score.time}
                             </span>
                             <span>
-                                <button>View Test</button>
+                                <button onClick={this.reviewTest.bind(null, test)}>View Test</button>
                             </span>
                         </div>
                     </li>

@@ -96,8 +96,14 @@ var TestActions = {
                 })
             });
         });
-    }
+    },
 
+    setCurrentTest: test => {
+        Dispatcher.handleViewAction({
+           actionType: TestConstants.SET_CURRENT_TEST,
+            data: test
+        });
+    }
 
 };
 

@@ -117,6 +117,13 @@ var TestStore = assign({}, createStore(), {
                 TestStore.emitChange();
 
                 break;
+
+            case TestConstants.SET_CURRENT_TEST:
+
+                _current = action.data;
+                TestStore.emitChange();
+
+                break;
         }
 
     })

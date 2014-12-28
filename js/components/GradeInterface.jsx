@@ -71,14 +71,17 @@ var GradingInterface = React.createClass({
     },
 
     getInitialState: function() {
-        return {
-            currentWord: -1,
-            incorrectWords: [],
-            incorrectPositions: [],
-            timeElapsed: 0,
-            running: false,
-            enteringErrorCode: false,
-            showResults: false
+        if (this.props.readOnly) {
+            return this.props.oldState;
+        } else {
+            return {
+                currentWord: -1,
+                incorrectWords: [],
+                incorrectPositions: [],
+                timeElapsed: 0,
+                running: false,
+                showResults: false
+            }
         }
     },
 

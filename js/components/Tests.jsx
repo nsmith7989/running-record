@@ -18,7 +18,8 @@ var getTestState = () => {
         currentStudent: StudentStore.getCurrentStudent(),
         passages: PassagesStore.getPassages(),
         view: TestStore.getTestCurrentView(),
-        currentPassage: PassagesStore.getCurrentPassage()
+        currentPassage: PassagesStore.getCurrentPassage(),
+        oldTest: TestStore.getCurrentTest()
     }
 };
 
@@ -84,6 +85,15 @@ module.exports = React.createClass({
                     passage={this.state.currentPassage.attributes.content}
                     studentName={this.state.currentStudent.attributes.name}
                     passageName={this.state.currentPassage.attributes.title}
+                />;
+                break;
+            case 'view-test':
+                output = <GraderInterface
+                    readOnly={true}
+                    passage={this.state.currentPassage.attributes.content}
+                    studentName={this.state.currentStudent.attributes.name}
+                    passageName={this.state.currentPassage.attributes.title}
+                    oldState={this.state.oldTest.attributes}
                 />;
                 break;
             default:

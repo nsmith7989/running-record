@@ -14,7 +14,8 @@ module.exports = {
         SHOW_PASSAGE_EDIT_FORM: null,
         SET_CURRENT_PASSAGE: null,
         GET_PASSAGE_BY_ID: null,
-        CHANGE_PASSAGE_VIEW: null
+        CHANGE_PASSAGE_VIEW: null,
+        SET_CURRENT: null
     }),
 
     route: keyMirror({
@@ -42,7 +43,8 @@ module.exports = {
         PASSAGE_SELECTION: null,
         TEST_VIEW_CHANGE: null,
         TEST_FOR_STUDENT: null,
-        GET_ALL_TESTS: null
+        GET_ALL_TESTS: null,
+        SET_CURRENT_TEST: null
     }),
 
     user: keyMirror({
