@@ -51,7 +51,7 @@ var StudentStore = assign({}, createStore(), {
 
             case StudentConstants.CREATE_STUDENT:
 
-                _success_message = 'Student "' + action.data.name + '" Created!';
+                _success_message = 'Student "' + action.data.attributes.name + '" Created!';
 
                 //add student
                 _students.push(action.data);
@@ -114,7 +114,7 @@ var StudentStore = assign({}, createStore(), {
 
                 _students[_students.indexOf(student)] = newStudent;
 
-                _success_message = 'Student "' + action.data.name + '" updated';
+                _success_message = 'Student "' + action.data.attributes.name + '" updated';
 
                 StudentStore.emitChange();
 

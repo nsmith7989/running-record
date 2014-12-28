@@ -15,7 +15,7 @@ var StudentActions = {
         student.save(data).then(resp => {
             Dispatcher.handleViewAction({
                 actionType: StudentConstants.CREATE_STUDENT,
-                data: assign(resp.attributes, {id: resp.id})
+                data: resp
             });
         })
 
@@ -31,7 +31,7 @@ var StudentActions = {
         queryObject.find().then(resp => {
             Dispatcher.handleViewAction({
                 actionType: StudentConstants.GET_ALL_STUDENTS,
-                data: resp.map(item => {return assign(item.attributes, {id: item.id})})
+                data: resp
             })
 
         });
@@ -67,7 +67,7 @@ var StudentActions = {
 
                 Dispatcher.handleViewAction({
                     actionType: StudentConstants.UPDATE_STUDENT,
-                    data: assign(resp.attributes, {id: resp.id})
+                    data: resp
                 });
 
             })

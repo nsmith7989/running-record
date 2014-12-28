@@ -59,7 +59,7 @@ module.exports = React.createClass({
         return (
             <div>
                 <div className="container top-padding">
-                    <h2>{currentStudent.name}</h2>
+                    <h2>{currentStudent.attributes.name}</h2>
                     <p dangerouslySetInnerHTML={{__html: currentStudent.notes}} />
 
                 </div>
