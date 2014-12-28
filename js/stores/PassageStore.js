@@ -6,8 +6,6 @@ var _ = require('lodash');
 var PassageConstants = require('../constants/Constants').passage;
 var createStore = require('../utils/storeUtils');
 var PassageActions = require('../actions/PassageActions');
-var RouterStore = require('./RouteStore');
-
 
 var _passages = [];
 var _success_message = '';
@@ -39,7 +37,6 @@ var PassageStore = assign({}, createStore(), {
         } else {
             PassageStore.initialize();
         }
-
     },
 
     getCurrentPassage: function() {
@@ -52,7 +49,6 @@ var PassageStore = assign({}, createStore(), {
         } else {
             return _passagesByID[id];
         }
-
     },
 
 
@@ -138,6 +134,7 @@ var PassageStore = assign({}, createStore(), {
 
                 var newPassage = action.data;
 
+
                 _passages[_passages.indexOf(passage)] = newPassage;
 
                 _success_message = 'Passage "' + action.data.title + '" updated';
@@ -148,7 +145,6 @@ var PassageStore = assign({}, createStore(), {
                     _success_message = '';
                     PassageStore.emitChange();
                 }, 4000);
-
 
                 break;
 

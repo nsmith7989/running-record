@@ -61,7 +61,7 @@ PassageActions = {
 
                 Dispatcher.handleViewAction({
                     actionType: PassageConstants.UPDATE_PASSAGE,
-                    data: assign(resp.attributes, {id: resp.id})
+                    data: resp
                 });
 
             })
@@ -83,7 +83,7 @@ PassageActions = {
             passage.destroy().then(function(resp) {
                 Dispatcher.handleViewAction({
                     actionType: PassageConstants.DELETE_PASSAGE,
-                    data: assign(resp.attributes, {id: resp.id})
+                    data: resp
                 });
             });
         });

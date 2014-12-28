@@ -53,7 +53,7 @@ module.exports = React.createClass({
             includeScore: false,
             shouldSort: true,
             threshold: 0.2,
-            keys: ['title']
+            keys: ['attributes.title', 'attributes.difficulty']
         };
 
         var fuse = new Fuse(this.state.passages, options);
