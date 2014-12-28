@@ -14,6 +14,7 @@ var _current = '';
 var _view = 'selection';
 var _score = {};
 var _fetched = false;
+var _initialized = false;
 
 var testsByStudent = {};
 
@@ -41,6 +42,37 @@ var TestStore = assign({}, createStore(), {
             }
         } else {
             TestActions.findByStudent(id);
+        }
+    },
+
+    initalize: () => {
+        if (!_initialized) {
+            TestActions.getAll();
+        }
+    },
+
+    /**
+     *
+     * @param id
+     */
+    mostRecentTest: (id) => {
+
+        var tests = testsByStudent[id];
+        if (tests && tests.length) {
+            return tests.reduce(function(previousValue, currentValue) {
+                var previousDate = new Date(previousValue.createdAt);
+                var currentDate = new Date(currentValue.createdAt);
+
+                if (previousDate > currentDate) {
+                    return previousValue;
+                } else {
+                    return currentValue;
+                }
+
+            });
+
+        } else {
+            return false;
         }
 
 
@@ -74,6 +106,14 @@ var TestStore = assign({}, createStore(), {
 
                 testsByStudent[action.data.id] = action.data.tests;
                 _fetched = true;
+                TestStore.emitChange();
+
+                break;
+
+            case TestConstants.GET_ALL_TESTS:
+
+                testsByStudent = _.groupBy(action.data, function(test) {return test.attributes.student.id });
+
                 TestStore.emitChange();
 
                 break;

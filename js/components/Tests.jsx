@@ -44,6 +44,7 @@ module.exports = React.createClass({
     componentWillMount: function() {
         TestStore.addChangeListener(this._onChange);
         PassagesStore.addChangeListener(this._onChange);
+        PassagesStore.initialize();
     },
 
     componentWillUnmount: function() {
@@ -80,9 +81,9 @@ module.exports = React.createClass({
                 break;
             case 'grade':
                 output = <GraderInterface
-                    passage={this.state.currentPassage.content}
-                    studentName={this.state.currentStudent.name}
-                    passageName={this.state.currentPassage.title}
+                    passage={this.state.currentPassage.attributes.content}
+                    studentName={this.state.currentStudent.attributes.name}
+                    passageName={this.state.currentPassage.attributes.title}
                 />;
                 break;
             default:

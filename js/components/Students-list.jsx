@@ -2,6 +2,7 @@ var React = require('react');
 var Fuse = require('fuse.js');
 var StudentStore = require('../stores/StudentStore');
 var StudentActions = require('../actions/StudentActions');
+var TestStore = require('../stores/TestStore');
 
 
 function getStudentsInfo() {
@@ -46,10 +47,13 @@ module.exports = React.createClass({
     componentWillMount: function() {
         StudentActions.getAll();
         StudentStore.addChangeListener(this._onChange);
+        TestStore.addChangeListener(this._onChange);
+        TestStore.initalize();
     },
 
     componentWillUnmount: function() {
         StudentStore.removeChangeListener(this._onChange);
+        TestStore.removeChangeListener(this._onChange);
     },
 
     render: function() {
@@ -82,11 +86,19 @@ module.exports = React.createClass({
                             </div>
                         </li>
                         {this.state.students.map(function(student) {
+                            var mostRecentTestDate = TestStore.mostRecentTest(student.id);
+                            var dateString = 'No Tests Yet';
+
+                            if (mostRecentTestDate) {
+                                var date = new Date(mostRecentTestDate.createdAt);
+                                dateString = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+                            }
+
                             return (
                                 <li key={student.id}>
                                     <div className="container">
                                         <a onClick={this.props.read.bind(null,student.id)}>{student.attributes.name}</a>
-                                        <span>CAN BE UPDATED</span>
+                                        <span>{dateString}</span>
                                         <span className="actions">
                                             <button className="edit" onClick={this.props.showEditForm.bind(null, student.id)}>
                                                 Edit

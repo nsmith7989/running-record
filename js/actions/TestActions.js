@@ -63,6 +63,16 @@ var TestActions = {
         });
     },
 
+    getAll: () => {
+        var queryObject = new Parse.Query(Test);
+        queryObject.find().then(resp => {
+            Dispatcher.handleViewAction({
+                actionType: TestConstants.GET_ALL_TESTS,
+                data: resp
+            })
+        })
+    },
+
     switchView: view => {
         Dispatcher.handleViewAction({
             actionType: TestConstants.TEST_VIEW_CHANGE,

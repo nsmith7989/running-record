@@ -41,7 +41,8 @@ module.exports = {
         READ_TEST: null,
         PASSAGE_SELECTION: null,
         TEST_VIEW_CHANGE: null,
-        TEST_FOR_STUDENT: null
+        TEST_FOR_STUDENT: null,
+        GET_ALL_TESTS: null
     }),
 
     user: keyMirror({

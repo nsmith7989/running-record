@@ -14,8 +14,8 @@ var React = require('react'),
     RouteActions = require('../actions/RouteActions'),
     Passages = require('./Passages.jsx'),
     Dashboard = require('./Dashboard.jsx'),
-    Tests = require('./Tests.jsx');
-
+    Tests = require('./Tests.jsx'),
+    PassageStore = require('../stores/PassageStore');
 
 function getUserState() {
     return {
@@ -43,6 +43,8 @@ var App = React.createClass({
     componentWillMount: function() {
         UserStore.addChangeListener(this._onUserChange);
         RouteStore.addChangeListener(this._onRouteChange);
+        PassageStore.initialize();
+        StudentStore.initialize();
         if (window.location.hash) {
             RouteActions.navigate(window.location.hash.replace(/#/g, ''));
         }
@@ -52,7 +54,6 @@ var App = React.createClass({
         UserStore.removeChangeListener(this._onUserChange);
         RouteStore.removeChangeListener(this._onRouteChange);
     },
-
 
     render: function() {
         var currentView;

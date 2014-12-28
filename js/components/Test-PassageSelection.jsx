@@ -23,8 +23,8 @@ module.exports = React.createClass({
                         return (
                             <li key={passage.id}>
                                 <div className="container">
-                                    <a onClick={this.props.reviewPassage.bind(null, passage.id)}>{passage.title}</a>
-                                    <span>{passage.difficulty}</span>
+                                    <a onClick={this.props.reviewPassage.bind(null, passage.id)}>{passage.attributes.title}</a>
+                                    <span>{passage.attributes.difficulty}</span>
                                     <span>
                                         <button onClick={this.props.selectText.bind(null, passage.id)}>Select</button>
                                     </span>
