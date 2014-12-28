@@ -40,7 +40,7 @@ module.exports = React.createClass({
                 return (
                     <li key={i}>
                         <div className="container">
-                            <span>{passage.title}</span>
+                            <span>{passage.attributes.title}</span>
                             <span>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</span>
                             <span>
                             {score.percentageCorrect}% | {score.time}
