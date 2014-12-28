@@ -14,7 +14,7 @@ PassageActions = {
         passage.save(data).then(resp => {
             Dispatcher.handleViewAction({
                 actionType: PassageConstants.CREATE_PASSAGE,
-                data: assign(resp.attributes, {id: resp.id})
+                data: resp
             });
         })
 
@@ -28,7 +28,7 @@ PassageActions = {
 
             Dispatcher.handleViewAction({
                 actionType: PassageConstants.GET_ALL_PASSAGES,
-                data: resp.map(item => {return assign(item.attributes, {id: item.id})})
+                data: resp
             })
 
         });
@@ -61,7 +61,7 @@ PassageActions = {
 
                 Dispatcher.handleViewAction({
                     actionType: PassageConstants.UPDATE_PASSAGE,
-                    data: assign(resp.attributes, {id: resp.id})
+                    data: resp
                 });
 
             })
@@ -83,7 +83,7 @@ PassageActions = {
             passage.destroy().then(function(resp) {
                 Dispatcher.handleViewAction({
                     actionType: PassageConstants.DELETE_PASSAGE,
-                    data: assign(resp.attributes, {id: resp.id})
+                    data: resp
                 });
             });
         });

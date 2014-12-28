@@ -53,7 +53,7 @@ module.exports = React.createClass({
             includeScore: false,
             shouldSort: true,
             threshold: 0.2,
-            keys: ['title']
+            keys: ['attributes.title', 'attributes.difficulty']
         };
 
         var fuse = new Fuse(this.state.passages, options);
@@ -105,8 +105,8 @@ module.exports = React.createClass({
                         return (
                             <li key={passage.id}>
                                 <div className="container">
-                                    <a onClick={this.props.read.bind(null, passage.id)}>{passage.title}</a>
-                                    <span>{passage.difficulty}</span>
+                                    <a onClick={this.props.read.bind(null, passage.id)}>{passage.attributes.title}</a>
+                                    <span>{passage.attributes.difficulty}</span>
                                     <span className="actions">
                                         <button className="read" onClick={this.props.read.bind(null, passage.id)}>
                                             View
