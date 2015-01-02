@@ -34,8 +34,10 @@ module.exports = React.createClass({
             includeScore: false,
             shouldSort: true,
             threshold: 0.2,
-            keys: ['name']
+            keys: ['attributes.name']
         };
+
+        console.log(this.state.students);
 
         var fuse = new Fuse(this.state.students, options);
 
@@ -45,10 +47,8 @@ module.exports = React.createClass({
     },
 
     componentWillMount: function() {
-        StudentActions.getAll();
         StudentStore.addChangeListener(this._onChange);
         TestStore.addChangeListener(this._onChange);
-        TestStore.initalize();
     },
 
     componentWillUnmount: function() {
@@ -91,7 +91,7 @@ module.exports = React.createClass({
 
                             if (mostRecentTestDate) {
                                 var date = new Date(mostRecentTestDate.createdAt);
-                                dateString = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+                                dateString = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
                             }
 
                             return (

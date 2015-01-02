@@ -6,20 +6,37 @@ var _ = require('lodash');
 var PassageConstants = require('../constants/Constants').passage;
 var createStore = require('../utils/storeUtils');
 var PassageActions = require('../actions/PassageActions');
+var PassageCollection = require('../models/models').Passages;
+var PassageModel = require('../models/models').Passage;
 
 var _passages = [];
 var _success_message = '';
 var _current = '';
 var _view = PassageConstants.LIST_PASSAGES;
+
 var _passagesByID = {};
 var _initalized = false;
+
+var _collection = new PassageCollection();
 
 
 var PassageStore = assign({}, createStore(), {
 
     initialize: function() {
-        //on first load get all passages
-        PassageActions.getAll();
+        _collection.fetch().then(function() {
+            // check whether the current user can edit, seat as attribute
+            _collection.each(function(item) {
+                if (item.get('user') && item.get('user').id == Parse.User.current().id) {
+                    item.set({canEdit: true});
+                }
+            });
+            PassageStore.emitChange();
+
+        }, function(err) {
+            console.error(err);
+        });
+
+
         _initalized = true;
     },
 
@@ -32,11 +49,7 @@ var PassageStore = assign({}, createStore(), {
     },
 
     getPassages: function() {
-        if (_initalized) {
-            return _passages;
-        } else {
-            PassageStore.initialize();
-        }
+        return _collection.models;
     },
 
     getCurrentPassage: function() {
@@ -44,16 +57,13 @@ var PassageStore = assign({}, createStore(), {
     },
 
     getPassageById: function(id) {
-        if (!_passagesByID[id]) {
-            PassageActions.getPassageById(id);
-        } else {
-            return _passagesByID[id];
-        }
+        return _collection.get(id);
     },
 
     dispatcherIndex: Dispatcher.register(function(payload) {
 
         var action = payload.action;
+        var data = action.data;
 
         switch(action.actionType) {
 
@@ -64,20 +74,12 @@ var PassageStore = assign({}, createStore(), {
 
                 break;
 
-            case PassageConstants.GET_ALL_PASSAGES:
-
-                _passages = action.data;
-                PassageStore.emitChange();
-
-                break;
-
             case PassageConstants.CREATE_PASSAGE:
 
-                _success_message = 'Passage "' + action.data.attributes.title + '" Created!';
+                var __passage = _collection.create(assign(action.data, {user: Parse.User.current()}));
+                __passage.set({canEdit: true});
 
-                //add passage
-                _passages.push(action.data);
-
+                _success_message = 'Passage "' + action.data.title + '" Created!';
 
                 PassageStore.emitChange();
 
@@ -106,7 +108,8 @@ var PassageStore = assign({}, createStore(), {
             case PassageConstants.READ_PASSAGE:
                 _view = PassageConstants.READ_PASSAGE;
 
-                _current = _.find(_passages, {id: action.data.id});
+
+                _current = _collection.get(action.data.id);
 
                 PassageStore.emitChange();
 
@@ -148,12 +151,12 @@ var PassageStore = assign({}, createStore(), {
 
             case PassageConstants.DELETE_PASSAGE:
 
-                var passage = _.find(_passages, {id: action.data.id});
+                //_collection.remove(action.data);
+                if (!data) {
+                    console.error();
+                }
 
-                _passages.splice(_passages.indexOf(passage), 1);
-
-                _success_message = 'Passage "' + action.data.attributes.title + '" deleted';
-
+                _collection.get(data).destroy();
                 PassageStore.emitChange();
 
                 setTimeout(() => {
@@ -166,7 +169,7 @@ var PassageStore = assign({}, createStore(), {
 
             case PassageConstants.SET_CURRENT_PASSAGE:
 
-                _current = _.find(_passages, {id: action.data.id});
+                _current = _collection.get(action.data.id);
 
                 break;
 

@@ -892,9 +892,6 @@ button {
     background: #d5513f;
     border-bottom-color: #a64133; }
 
-.button-wrap {
-  margin-top: 40px; }
-
 header .button {
   background: #2099a4;
   color: #ffffff;
@@ -1107,6 +1104,9 @@ a:hover {
         .table-list li > .container > *:last-child button.delete {
           background: #d5513f;
           border-bottom: 2px solid #a64133; }
+        .table-list li > .container > *:last-child button:disabled {
+          background: #c8c8c8;
+          border-bottom-color: #bbbbbb; }
 
 .table-list li.headings {
   font-weight: bold;
@@ -1143,6 +1143,14 @@ a:hover {
 
 .student-list .name {
   font-size: 22px; }
+
+.example-leave {
+  opacity: 1;
+  -webkit-transition: opacity 2s ease-in;
+          transition: opacity 2s ease-in; }
+
+.example-leave.example-leave-active {
+  opacity: 0.01; }
 
 .text {
   font-size: 24px;
@@ -1281,5 +1289,7 @@ body {
   .incorrect-results .submit-wrap {
     text-align: right; }
   .incorrect-results .score {
+    padding: 20px 0 0; }
+  .incorrect-results .audio-wrap {
     padding: 20px 0 0; }
 /*# sourceMappingURL=style.css.map */

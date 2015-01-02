@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react/addons');
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Fuse = require('fuse.js');
 var PassageStore = require('../stores/PassageStore');
 
@@ -26,6 +27,7 @@ module.exports = React.createClass({
     },
 
     confirmDeletion: function(id) {
+
         this.setState({
             deletionConfirmation: true,
             possibleDeletion: id
@@ -33,6 +35,7 @@ module.exports = React.createClass({
     },
 
     confirmYes: function(id) {
+
         this.props.destroy(id);
         this.replaceState(getPassageInfo());
     },
@@ -69,7 +72,8 @@ module.exports = React.createClass({
         var confirm = (
             <div className="confirm">
                 <div className="container">
-                    This will remove this passage for all users: <button onClick={this.confirmYes.bind(null,this.state.possibleDeletion)}>Confirm</button>
+                    This will remove this passage for all users:
+                    <button onClick={this.confirmYes.bind(null, this.state.possibleDeletion)}>Confirm</button>
                 </div>
             </div>
         );
@@ -102,24 +106,34 @@ module.exports = React.createClass({
                             </div>
                         </li>
                     {this.state.passages.map(function(passage, pos) {
+
+                        var disabled = !passage.get('canEdit');
+
+                        var editControls = (
+                            <span className="actions">
+                                <button className="read" onClick={this.props.read.bind(null, passage.id)}>
+                                    View
+                                </button>
+                                <button disabled={disabled} className="edit" onClick={this.props.showEditForm.bind(null, passage.id)}>
+                                    Edit
+                                </button>
+                                <button disabled={disabled} className="delete" onClick={this.confirmDeletion.bind(null, passage.cid)}>
+                                    Delete
+                                </button>
+                            </span>
+                        );
+
+
                         return (
-                            <li key={passage.id}>
-                                <div className="container">
-                                    <a onClick={this.props.read.bind(null, passage.id)}>{passage.attributes.title}</a>
-                                    <span>{passage.attributes.difficulty}</span>
-                                    <span className="actions">
-                                        <button className="read" onClick={this.props.read.bind(null, passage.id)}>
-                                            View
-                                        </button>
-                                        <button className="edit" onClick={this.props.showEditForm.bind(null, passage.id)}>
-                                            Edit
-                                        </button>
-                                        <button className="delete" onClick={this.confirmDeletion.bind(null, passage.id)}>
-                                            Delete
-                                        </button>
-                                    </span>
-                                </div>
-                            </li>
+                            <ReactCSSTransitionGroup transitionName="example">
+                                <li key={passage.id}>
+                                    <div className="container">
+                                        <a onClick={this.props.read.bind(null, passage.id)}>{passage.get('title')}</a>
+                                        <span>{passage.get('difficulty')}</span>
+                                     {editControls}
+                                    </div>
+                                </li>
+                            </ReactCSSTransitionGroup>
                         )
                     }.bind(this))}
                     </ul>

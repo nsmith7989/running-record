@@ -32,7 +32,9 @@ var TestStore = assign({}, createStore(), {
         return _current;
     },
 
+    //fixme: causing unnecessary api calls
     getTestsByStudentId: (id) => {
+        console.trace();
 
         if (_fetched) {
             if(testsByStudent[id]) {
@@ -46,6 +48,7 @@ var TestStore = assign({}, createStore(), {
     },
 
     initalize: () => {
+
         if (!_initialized) {
             TestActions.getAll();
         }

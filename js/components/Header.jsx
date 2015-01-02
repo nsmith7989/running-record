@@ -23,7 +23,7 @@ module.exports = React.createClass({
 
                     <div className="col16 last columns r-col">
                         {loginBtn}
-                        <Dashboard />
+                    {this.props.loggedIn ? <Dashboard /> : ''}
                     </div>
                 </div>
             </header>

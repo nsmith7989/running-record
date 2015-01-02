@@ -36,7 +36,7 @@
     "test": "jest",
     "browser-sync": "browser-sync start --server --files='js/bundle.js, index.html, css/style.css'",
     "node-sass": "node-sass --source-map css/style.css.map scss/style.scss css/style.css && autoprefixer css/style.css",
-    "watch-sass": "nodemon -e scss -x 'npm run node-sass'"
+    "watch-sass": "nodemon -w scss -e scss -x 'npm run node-sass'"
   },
   "author": "Bill Fisher",
   "browserify": {

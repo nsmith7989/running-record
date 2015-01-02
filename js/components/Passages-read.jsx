@@ -29,11 +29,11 @@ module.exports = React.createClass({
         var buttons = this.props.selectionButton || false;
         return (
             <div className="container top-padding">
-                <h2>{this.props.state.currentPassage.attributes.title}</h2>
+                <h2>{this.props.state.currentPassage.get('title')}</h2>
                 <p>
-                    <strong>Difficulty: {this.props.state.currentPassage.attributes.difficulty}</strong>
+                    <strong>Difficulty: {this.props.state.currentPassage.get('difficulty')}</strong>
                 </p>
-                <p dangerouslySetInnerHTML={{__html: this.props.state.currentPassage.attributes.content.replace(/\r?\n/g, '<br />')}} />
+                <p dangerouslySetInnerHTML={{__html: this.props.state.currentPassage.get('content').replace(/\r?\n/g, '<br />')}} />
                 {buttons ? <SelectionButton id={this.props.state.currentPassage.id} {...this.props} /> : <Buttons {...this.props} />}
             </div>
         )

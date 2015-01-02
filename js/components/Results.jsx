@@ -1,10 +1,10 @@
 var React = require('react');
 var _ = require('lodash');
-var removeNonAlpha = require('../utils/removeNonAlpha');
+var TestStore = require('../stores/TestStore');
 
-function padNum (num, size) {
+function padNum(num, size) {
     var s = num + "";
-    while (s.length < size) s = "0" + s;
+    while(s.length < size) s = "0" + s;
     return s;
 }
 
@@ -25,6 +25,25 @@ module.exports = React.createClass({
         var minutes = (secondsTotalSeconds / 60) % 60;
         var seconds = (secondsTotalSeconds % 60);
 
+
+
+        if (this.props.audio) {
+            var audio;
+            var src;
+
+            if (this.props.audio instanceof Blob) {
+                src = window.URL.createObjectURL(this.props.audio);
+            } else {
+                src = '//audio.running-record.com/uploads/' + TestStore.getCurrentTest().id + '.mp3';
+            }
+            audio = (
+                <div className="audio-wrap">
+                    <h3>Audio</h3>
+                    <audio controls="controls" src={src} />
+                </div>
+            );
+        }
+
         return (
             <div className="container">
                 <div className="incorrect-results">
@@ -33,11 +52,11 @@ module.exports = React.createClass({
                         {Object.keys(errorCodeGroups).map(function(letter) {
 
                             var words = errorCodeGroups[letter].map(incorrectObj => {
-                                console.log(incorrectObj.word.word);
                                 return incorrectObj.word.word
                             }).join(', ');
                             return (
-                                <li><strong>{letter}: </strong>{words}</li>
+                                <li>
+                                    <strong>{letter}: </strong>{words}</li>
                             );
                         })}
                     </ul>
@@ -50,13 +69,16 @@ module.exports = React.createClass({
                             <strong>Incorrect:</strong> {this.props.incorrectPositions.length}
                         </div>
                         <div>
-                            <strong>Time:</strong> {padNum(Math.floor(minutes), 2) + " : "} {padNum(seconds,2)}
+                            <strong>Time:</strong> {padNum(Math.floor(minutes), 2) + " : "} {padNum(seconds, 2)}
                         </div>
                     </div>
-                    <div className="submit-wrap">
-                        <button onClick={this.props.submit}>Submit Test</button>
-                        <button className="dangerous-action">Reject Test</button>
-                    </div>
+                        {audio}
+                    {this.props.readOnly ? '' :
+                        <div className="submit-wrap">
+                            <button onClick={this.props.submit}>Submit Test</button>
+                            <button className="dangerous-action">Reject Test</button>
+                        </div>
+                        }
 
                 </div>
             </div>

@@ -49,7 +49,6 @@ module.exports = React.createClass({
     },
 
     componentWillMount: function() {
-        StudentStore.initialize();
         StudentStore.addChangeListener(this._onStudentChange);
     },
 

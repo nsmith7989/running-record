@@ -46,7 +46,6 @@ var PassagesController = React.createClass({
     },
 
     componentWillMount: function() {
-        PassageStore.initialize();
         PassageStore.addChangeListener(this._onPassageChange);
     },
 

@@ -80,12 +80,14 @@ a:hover {
                 &.read {
                     background: $site-teal1;
                     border-bottom: 2px solid $site-teal2;
-
                 }
                 &.delete {
                     background: $site-red1;
                     border-bottom: 2px solid $site-red2;
-
+                }
+                &:disabled {
+                    background: $site-grey3;
+                    border-bottom-color: darken($site-grey3, 5%);
                 }
             }
         }
@@ -130,4 +132,13 @@ a:hover {
 .student-list .name {
     font-size: 22px;
     @extend .OpenSans-Bold;
+}
+
+.example-leave {
+    opacity: 1;
+    transition: opacity 2s ease-in;
+}
+
+.example-leave.example-leave-active {
+    opacity: 0.01;
 }

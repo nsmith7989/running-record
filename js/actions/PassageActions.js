@@ -10,29 +10,13 @@ PassageActions = {
 
     create: function(data) {
 
-        var passage = new Passage();
-        passage.save(data).then(resp => {
-            Dispatcher.handleViewAction({
-                actionType: PassageConstants.CREATE_PASSAGE,
-                data: resp
-            });
-        })
-
-    },
-
-    getAll: function() {
-
-        var queryObject = new Parse.Query(Passage);
-
-        queryObject.find().then(resp => {
-
-            Dispatcher.handleViewAction({
-                actionType: PassageConstants.GET_ALL_PASSAGES,
-                data: resp
-            })
-
+        Dispatcher.handleViewAction({
+            actionType: PassageConstants.CREATE_PASSAGE,
+            data: data
         });
+
     },
+
 
     list: function() {
         Dispatcher.handleViewAction({
@@ -77,16 +61,12 @@ PassageActions = {
     },
 
     destroy: function(id) {
-        var query = new Parse.Query(Passage);
 
-        query.get(id).then(function(passage) {
-            passage.destroy().then(function(resp) {
-                Dispatcher.handleViewAction({
-                    actionType: PassageConstants.DELETE_PASSAGE,
-                    data: resp
-                });
-            });
+        Dispatcher.handleViewAction({
+            actionType: PassageConstants.DELETE_PASSAGE,
+            data: id
         });
+
     },
 
     setCurrent: function(id) {
