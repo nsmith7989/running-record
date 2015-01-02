@@ -2,6 +2,7 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var TestConstants = require('../constants/Constants').test;
 var assign = require('object.assign');
 var Parse = window.Parse;
+var recorder = require('../utils/recorder');
 
 var Test = Parse.Object.extend('Test');
 var Student = Parse.Object.extend('Student');
@@ -10,7 +11,7 @@ var Passage = Parse.Object.extend('Passage');
 
 var TestActions = {
 
-    create: (data, studentId, passageId) => {
+    create: (data, studentId, passageId, audioData) => {
 
 
         var test = new Test();
@@ -30,6 +31,9 @@ var TestActions = {
                         return test.save(data);
                     })
                     .then(resp => {
+
+                        recorder.sendToServer(audioData, resp.id);
+
                         Dispatcher.handleViewAction({
                             actionType: TestConstants.CREATE_TEST,
                             data: assign(resp, {testId: resp.id}, {studentId: studentId})

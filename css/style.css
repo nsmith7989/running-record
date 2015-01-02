@@ -892,9 +892,6 @@ button {
     background: #d5513f;
     border-bottom-color: #a64133; }
 
-.button-wrap {
-  margin-top: 40px; }
-
 header .button {
   background: #2099a4;
   color: #ffffff;
@@ -1281,5 +1278,7 @@ body {
   .incorrect-results .submit-wrap {
     text-align: right; }
   .incorrect-results .score {
+    padding: 20px 0 0; }
+  .incorrect-results .audio-wrap {
     padding: 20px 0 0; }
 /*# sourceMappingURL=style.css.map */

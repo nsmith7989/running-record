@@ -18,9 +18,12 @@ module.exports = React.createClass({
                         {this.props.passageName}
                         </div>
                     </div>
+
                     <div className="controls">
                         <Timer {...this.props} />
-                        <Controls {...this.props} />
+                        {this.props.readOnly ? '' :
+                            <Controls {...this.props} />
+                            }
                         <Stats {...this.props}/>
                     </div>
                 </div>

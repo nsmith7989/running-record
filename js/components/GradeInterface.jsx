@@ -5,6 +5,9 @@ var Results = require('./Results.jsx');
 var TestActions = require('../actions/TestActions');
 var StudentStore = require('../stores/StudentStore');
 var PassageStore = require('../stores/PassageStore');
+var Routers = require('../actions/RouteActions');
+
+var recorder = require('../utils/recorder');
 
 var GradingInterface = React.createClass({
 
@@ -12,8 +15,10 @@ var GradingInterface = React.createClass({
         TestActions.create(
             this.state,
             StudentStore.getCurrentStudent().id,
-            PassageStore.getCurrentPassage().id
-        )
+            PassageStore.getCurrentPassage().id,
+            this.state.audio
+        );
+        Routers.navigate('/students');
     },
 
     handleKeyDown: function(e) {
@@ -86,9 +91,11 @@ var GradingInterface = React.createClass({
     },
 
     makeActiveOnClick: function(position) {
-        this.setState({
-            currentWord: position
-        });
+        if(!this.props.readOnly) {
+            this.setState({
+                currentWord: position
+            });
+        }
     },
 
     startTimer: function() {
@@ -115,7 +122,10 @@ var GradingInterface = React.createClass({
     },
 
     componentDidMount: function() {
-        window.addEventListener('keydown', this.handleKeyDown);
+        if(!this.props.readOnly) {
+            window.addEventListener('keydown', this.handleKeyDown);
+            recorder.record();
+        }
     },
 
     componentWillUnmount: function() {
@@ -169,7 +179,14 @@ var GradingInterface = React.createClass({
         this.stopTimer();
         this.setState({
             showResults: true
-        })
+        });
+        recorder.stop();
+        window.removeEventListener('keydown', this.handleKeyDown);
+        recorder.getWAV().then(function(wav) {
+            this.setState({
+                audio: wav
+            })
+        }.bind(this));
     },
 
     render: function() {
@@ -205,12 +222,10 @@ var GradingInterface = React.createClass({
                     }.bind(this))}
                 </div>
                 {this.state.showResults ?
-                    <Results {...this.state} submit={this.submitTest} /> :
+                    <Results {...this.props} {...this.state} submit={this.submitTest} /> :
                     <div className="container">
                         <button onClick={this.handleResultsClick} className="finish-btn">Stop Timer and Show Score</button>
                     </div>}
-
-
             </div>
         );
     }

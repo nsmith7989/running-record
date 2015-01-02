@@ -91,7 +91,7 @@ module.exports = React.createClass({
 
                             if (mostRecentTestDate) {
                                 var date = new Date(mostRecentTestDate.createdAt);
-                                dateString = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+                                dateString = date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear();
                             }
 
                             return (
