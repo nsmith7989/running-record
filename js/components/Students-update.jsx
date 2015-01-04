@@ -10,7 +10,7 @@ module.exports = React.createClass({
                     <h2>Update Student</h2>
                     <p className="success">{this.props.state.success}</p>
                     <label>Name</label>
-                    <input type="text" name="title" placeholder="Name" defaultValue={currentStudent.attributes.name}/>
+                    <input type="text" name="name" placeholder="Name" defaultValue={currentStudent.attributes.name}/>
                     <label>Notes</label>
                     <textarea name="notes" placeholder="Notes" defaultValue={currentStudent.attributes.notes}/>
                     <input type="submit" />

@@ -5,7 +5,6 @@ var _ = require('lodash');
 
 var PassageConstants = require('../constants/Constants').passage;
 var createStore = require('../utils/storeUtils');
-var PassageActions = require('../actions/PassageActions');
 var PassageCollection = require('../models/models').Passages;
 var PassageModel = require('../models/models').Passage;
 
@@ -138,16 +137,19 @@ var PassageStore = assign({}, createStore(), {
                 _view = PassageConstants.LIST_PASSAGES;
                 _current = null;
 
-                var title = _collection.get(action.data.id).set(action.data.data).get('title');
+                (function() {
+                    var passage = _collection.get(action.data.id).set(action.data.data);
+                    passage.save();
+                    _success_message = 'Passage "' + passage.get('title') + '" updated';
 
-                _success_message = 'Passage "' + title + '" updated';
+                    setTimeout(() => {
+                        _success_message = '';
+                        PassageStore.emitChange();
+                    }, 4000);
 
-                PassageStore.emitChange();
-
-                setTimeout(() => {
-                    _success_message = '';
                     PassageStore.emitChange();
-                }, 4000);
+
+                })();
 
                 break;
 

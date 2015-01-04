@@ -5,19 +5,24 @@ var _ = require('lodash');
 
 var StudentConstants = require('../constants/Constants').student;
 var createStore = require('../utils/storeUtils');
-var StudentActions = require('../actions/StudentActions');
+var StudentModel = require('../models/models').Student;
+var StudentCollection = require('../models/models').Students;
 
+var _collection = new StudentCollection();
 
-var _students = [];
 var _success_message = '';
-var _current = '';
+var _current;
 var _view = StudentConstants.LIST_STUDENTS;
 
 var StudentStore = assign({}, createStore(), {
 
     initialize: function() {
         //on first load get all students
-        StudentActions.getAll();
+        _collection.fetch().then(function() {
+            StudentStore.emitChange();
+        }, function(err) {
+            throw err;
+        });
     },
 
     getStudentSuccessMessage: function() {
@@ -29,7 +34,7 @@ var StudentStore = assign({}, createStore(), {
     },
 
     getStudents: function() {
-        return _students;
+        return _collection;
     },
 
     getCurrentStudent: function() {
@@ -42,28 +47,28 @@ var StudentStore = assign({}, createStore(), {
 
         switch(action.actionType) {
 
-            case StudentConstants.GET_ALL_STUDENTS:
-
-                _students = action.data;
-                StudentStore.emitChange();
-
-                break;
-
             case StudentConstants.CREATE_STUDENT:
 
-                _success_message = 'Student "' + action.data.attributes.name + '" Created!';
+                (function() {
+                    var student = new StudentModel(assign(action.data, {teacher: Parse.User.current()}));
+                    student.save().then(function(resp) {
+                        _view = StudentConstants.LIST_STUDENTS;
 
-                //add student
-                _students.push(action.data);
+                        _success_message = 'Student "' + student.get('name') + '" Created!';
+                        _collection.add(student);
+
+                        StudentStore.emitChange();
+
+                        //hide flash
+                        setTimeout(() => {
+                            _success_message = '';
+                            StudentStore.emitChange();
+                        }, 4000);
+
+                    });
 
 
-                StudentStore.emitChange();
-
-                //hide flash
-                setTimeout(() => {
-                    _success_message = '';
-                    StudentStore.emitChange();
-                }, 4000);
+                })();
 
                 break;
 
@@ -82,21 +87,18 @@ var StudentStore = assign({}, createStore(), {
                 break;
 
             case StudentConstants.READ_STUDENT:
-                _view = StudentConstants.READ_STUDENT;
 
-                _current = _.find(_students, {id: action.data.id});
+                _view = StudentConstants.READ_STUDENT;
+                _current = _collection.get(action.data.id);
 
                 StudentStore.emitChange();
-
 
                 break;
 
             case StudentConstants.SHOW_STUDENT_EDIT_FORM:
 
-
-
                 _view = StudentConstants.SHOW_STUDENT_EDIT_FORM;
-                _current = _.find(_students, {id: action.data.id});
+                _current = _collection.get(action.data.id);
 
                 StudentStore.emitChange();
 
@@ -107,35 +109,33 @@ var StudentStore = assign({}, createStore(), {
                 _view = StudentConstants.LIST_STUDENTS;
                 _current = null;
 
-                //find the student and update its data
-                var student = _.find(_students, {id: action.data.id});
+                (function() {
+                    var student = _collection.get(action.data.id).set(action.data.data);
+                    student.save();
+                    _success_message = 'Student "' + student.get('name') + '" updated';
 
-                var newStudent = action.data;
-
-                _students[_students.indexOf(student)] = newStudent;
-
-                _success_message = 'Student "' + action.data.attributes.name + '" updated';
-
-                StudentStore.emitChange();
-
-                setTimeout(() => {
-                    _success_message = '';
                     StudentStore.emitChange();
-                }, 4000);
 
+                    setTimeout(() => {
+                        _success_message = '';
+                        StudentStore.emitChange();
+                    }, 4000);
+
+                })();
 
                 break;
+
             case StudentConstants.SET_CURRENT_STUDENT:
 
-                _current = _.find(_students, {id: action.data.id});
+                _current = _collection.get(action.data.id);
 
                 break;
 
             case StudentConstants.CHANGE_STUDENT_VIEW:
 
-
                 _view = action.data;
                 StudentStore.emitChange();
+
                 break;
 
         }

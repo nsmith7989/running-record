@@ -97,7 +97,7 @@ module.exports = React.createClass({
                             return (
                                 <li key={student.id}>
                                     <div className="container">
-                                        <a onClick={this.props.read.bind(null,student.id)}>{student.attributes.name}</a>
+                                        <a onClick={this.props.read.bind(null,student.id)}>{student.get('name')}</a>
                                         <span>{dateString}</span>
                                         <span className="actions">
                                             <button className="edit" onClick={this.props.showEditForm.bind(null, student.id)}>
