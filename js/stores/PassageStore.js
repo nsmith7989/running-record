@@ -9,13 +9,12 @@ var PassageActions = require('../actions/PassageActions');
 var PassageCollection = require('../models/models').Passages;
 var PassageModel = require('../models/models').Passage;
 
-var _passages = [];
 var _success_message = '';
 var _current = '';
 var _view = PassageConstants.LIST_PASSAGES;
 
 var _passagesByID = {};
-var _initalized = false;
+var _initialized = false;
 
 var _collection = new PassageCollection();
 
@@ -26,7 +25,7 @@ var PassageStore = assign({}, createStore(), {
         _collection.fetch().then(function() {
             // check whether the current user can edit, seat as attribute
             _collection.each(function(item) {
-                if (item.get('user') && item.get('user').id == Parse.User.current().id) {
+                if(item.get('user') && item.get('user').id == Parse.User.current().id) {
                     item.set({canEdit: true});
                 }
             });
@@ -37,7 +36,7 @@ var PassageStore = assign({}, createStore(), {
         });
 
 
-        _initalized = true;
+        _initialized = true;
     },
 
     getPassageSuccessMessage: function() {
@@ -76,18 +75,29 @@ var PassageStore = assign({}, createStore(), {
 
             case PassageConstants.CREATE_PASSAGE:
 
-                var __passage = _collection.create(assign(action.data, {user: Parse.User.current()}));
-                __passage.set({canEdit: true});
 
-                _success_message = 'Passage "' + action.data.title + '" Created!';
+                (function() {
+                    var __passage = new PassageModel(assign(action.data, {user: Parse.User.current()}));
 
-                PassageStore.emitChange();
+                    __passage.save().then(function(resp) {
 
-                //hide flash
-                setTimeout(() => {
-                    _success_message = '';
-                    PassageStore.emitChange();
-                }, 4000);
+                        _collection.add(resp);
+                        __passage.set({canEdit: true});
+
+                        _success_message = 'Passage "' + action.data.title + '" Created!';
+                        _view = PassageConstants.LIST_PASSAGES;
+
+                        PassageStore.emitChange();
+
+                        //hide flash
+                        setTimeout(() => {
+                            _success_message = '';
+                            PassageStore.emitChange();
+                        }, 4000);
+
+                    });
+
+                })();
 
                 break;
 
@@ -108,18 +118,16 @@ var PassageStore = assign({}, createStore(), {
             case PassageConstants.READ_PASSAGE:
                 _view = PassageConstants.READ_PASSAGE;
 
-
                 _current = _collection.get(action.data.id);
 
                 PassageStore.emitChange();
-
 
                 break;
 
             case PassageConstants.SHOW_PASSAGE_EDIT_FORM:
 
                 _view = PassageConstants.SHOW_PASSAGE_EDIT_FORM;
-                _current = _.find(_passages, {id: action.data.id});
+                _current = _collection.get(action.data.id);
 
                 PassageStore.emitChange();
 
@@ -130,15 +138,9 @@ var PassageStore = assign({}, createStore(), {
                 _view = PassageConstants.LIST_PASSAGES;
                 _current = null;
 
-                //find the passage and update its data
-                var passage = _.find(_passages, {id: action.data.id});
+                var title = _collection.get(action.data.id).set(action.data.data).get('title');
 
-                var newPassage = action.data;
-
-
-                _passages[_passages.indexOf(passage)] = newPassage;
-
-                _success_message = 'Passage "' + action.data.attributes.title + '" updated';
+                _success_message = 'Passage "' + title + '" updated';
 
                 PassageStore.emitChange();
 
@@ -151,8 +153,7 @@ var PassageStore = assign({}, createStore(), {
 
             case PassageConstants.DELETE_PASSAGE:
 
-                //_collection.remove(action.data);
-                if (!data) {
+                if(!data) {
                     console.error();
                 }
 
@@ -170,6 +171,7 @@ var PassageStore = assign({}, createStore(), {
             case PassageConstants.SET_CURRENT_PASSAGE:
 
                 _current = _collection.get(action.data.id);
+                PassageStore.emitChange();
 
                 break;
 

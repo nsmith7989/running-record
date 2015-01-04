@@ -38,18 +38,23 @@ PassageActions = {
     },
 
     update: function(id, data) {
-        var query = new Parse.Query(Passage);
 
-        query.get(id).then(function(passage) {
-            passage.save(data).then(function(resp) {
-
-                Dispatcher.handleViewAction({
-                    actionType: PassageConstants.UPDATE_PASSAGE,
-                    data: resp
-                });
-
-            })
+        Dispatcher.handleViewAction({
+            actionType: PassageConstants.UPDATE_PASSAGE,
+            data: {id: id, data: data}
         });
+
+        //var query = new Parse.Query(Passage);
+        //query.get(id).then(function(passage) {
+        //    passage.save(data).then(function(resp) {
+        //
+        //        Dispatcher.handleViewAction({
+        //            actionType: PassageConstants.UPDATE_PASSAGE,
+        //            data: resp
+        //        });
+        //
+        //    })
+        //});
 
     },
 
@@ -74,17 +79,6 @@ PassageActions = {
             actionType: PassageConstants.SET_CURRENT_PASSAGE,
             data: {id: id}
         });
-    },
-
-    getPassageById: function(id) {
-        var queryObj = new Parse.Query(Passage);
-
-        queryObj.get(id).then(function(passage) {
-            Dispatcher.handleViewAction({
-                ActionType: PassageConstants.GET_PASSAGE_BY_ID,
-                data: {id: passage.id, passage: passage}
-            })
-        })
     },
 
     changeView: function(view) {
