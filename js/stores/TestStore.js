@@ -3,22 +3,31 @@ var Parse = window.Parse;
 var assign = Object.assign || require('object.assign');
 var _ = require('lodash');
 var Router = require('../actions/RouteActions');
+var recorder = require('../utils/recorder');
 
 var TestConstants = require('../constants/Constants').test;
 var createStore = require('../utils/storeUtils');
-var TestActions = require('../actions/TestActions');
 
+var StudentStore = require('../stores/StudentStore');
+var PassageStore = require('../stores/PassageStore');
+
+var TestModel = require('../models/models').Test;
+var TestCollection = require('../models/models').Tests;
+
+var _collection = new TestCollection();
 
 var _success_message = '';
 var _current = '';
 var _view = 'selection';
-var _score = {};
 var _fetched = false;
-var _initialized = false;
 
 var testsByStudent = {};
 
 var TestStore = assign({}, createStore(), {
+
+    initalize: () => {
+        _collection.fetch().then(TestStore.emitChange);
+    },
 
     getTestSuccessMessage: () => {
         return _success_message;
@@ -32,41 +41,29 @@ var TestStore = assign({}, createStore(), {
         return _current;
     },
 
-    //fixme: causing unnecessary api calls
     getTestsByStudentId: (id) => {
-        console.trace();
 
-        if (_fetched) {
-            if(testsByStudent[id]) {
-                return testsByStudent[id]
-            } else {
-                TestActions.findByStudent(id);
-            }
-        } else {
-            TestActions.findByStudent(id);
-        }
+        return _collection.filter(function(test) {
+            return test.get('student').id === id;
+        });
+
     },
 
-    initalize: () => {
-
-        if (!_initialized) {
-            TestActions.getAll();
-        }
-    },
 
     /**
-     *
+     * Get the most recent test by student id
      * @param id
      */
     mostRecentTest: (id) => {
 
-        var tests = testsByStudent[id];
-        if (tests && tests.length) {
+        var tests = TestStore.getTestsByStudentId(id);
+
+        if(tests && tests.length) {
             return tests.reduce(function(previousValue, currentValue) {
                 var previousDate = new Date(previousValue.createdAt);
                 var currentDate = new Date(currentValue.createdAt);
 
-                if (previousDate > currentDate) {
+                if(previousDate > currentDate) {
                     return previousValue;
                 } else {
                     return currentValue;
@@ -78,11 +75,11 @@ var TestStore = assign({}, createStore(), {
             return false;
         }
 
-
     },
 
     dispatcherIndex: Dispatcher.register(payload => {
         var action = payload.action;
+        var data = action.data;
 
         switch(action.actionType) {
             case TestConstants.PASSAGE_SELECTION:
@@ -100,26 +97,26 @@ var TestStore = assign({}, createStore(), {
             case TestConstants.CREATE_TEST:
 
                 _view = 'selection';
-                _fetched = false;
+                (function() {
+                    var test = new TestModel();
+                    var currentPassage = PassageStore.getCurrentPassage();
+                    var currentStudent = StudentStore.getCurrentStudent();
+                    test.save(assign(data.testData, {
+                        passage: currentPassage,
+                        student: currentStudent,
+                        teacher: Parse.User.current()
+                    })).then(function(resp) {
+                        recorder.sendToServer(data.audioData, resp.id);
+                        _collection.add(test);
+                    })
+
+                })();
+
+
                 TestStore.emitChange();
 
                 break;
 
-            case TestConstants.TEST_FOR_STUDENT:
-
-                testsByStudent[action.data.id] = action.data.tests;
-                _fetched = true;
-                TestStore.emitChange();
-
-                break;
-
-            case TestConstants.GET_ALL_TESTS:
-
-                testsByStudent = _.groupBy(action.data, function(test) {return test.attributes.student.id });
-
-                TestStore.emitChange();
-
-                break;
 
             case TestConstants.SET_CURRENT_TEST:
 

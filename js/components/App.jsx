@@ -9,6 +9,7 @@ var React = require('react'),
     UserStore = require('../stores/UserStore'),
     RouteStore = require('../stores/RouteStore'),
     StudentStore = require('../stores/StudentStore'),
+    TestsStore = require('../stores/TestStore'),
     assign = Object.assign || require('object.assign'),
     Students = require('./Students.jsx'),
     RouteActions = require('../actions/RouteActions'),
@@ -45,6 +46,7 @@ var App = React.createClass({
         RouteStore.addChangeListener(this._onRouteChange);
         PassageStore.initialize();
         StudentStore.initialize();
+        TestsStore.initalize();
         if (window.location.hash) {
             RouteActions.navigate(window.location.hash.replace(/#/g, ''));
         }

@@ -3,8 +3,6 @@ var Word = require('./Word.jsx');
 var TestInfo = require('./TestInfo.jsx');
 var Results = require('./Results.jsx');
 var TestActions = require('../actions/TestActions');
-var StudentStore = require('../stores/StudentStore');
-var PassageStore = require('../stores/PassageStore');
 var Routers = require('../actions/RouteActions');
 
 var recorder = require('../utils/recorder');
@@ -12,12 +10,7 @@ var recorder = require('../utils/recorder');
 var GradingInterface = React.createClass({
 
     submitTest: function() {
-        TestActions.create(
-            this.state,
-            StudentStore.getCurrentStudent().id,
-            PassageStore.getCurrentPassage().id,
-            this.state.audio
-        );
+        TestActions.create(this.state, this.state.audio);
         Routers.navigate('/students');
     },
 
@@ -85,7 +78,8 @@ var GradingInterface = React.createClass({
                 incorrectPositions: [],
                 timeElapsed: 0,
                 running: false,
-                showResults: false
+                showResults: false,
+                notesValue: ''
             }
         }
     },
@@ -165,7 +159,6 @@ var GradingInterface = React.createClass({
             return wordObj;
         });
 
-
     },
 
     tick: function() {
@@ -187,6 +180,12 @@ var GradingInterface = React.createClass({
                 audio: wav
             })
         }.bind(this));
+    },
+
+    handleNotesChange: function(e) {
+        this.setState({
+            notesValue: e.target.value
+        })
     },
 
     render: function() {
@@ -222,7 +221,7 @@ var GradingInterface = React.createClass({
                     }.bind(this))}
                 </div>
                 {this.state.showResults ?
-                    <Results {...this.props} {...this.state} submit={this.submitTest} /> :
+                    <Results {...this.props} {...this.state} submit={this.submitTest} handleNotesChange={this.handleNotesChange}/> :
                     <div className="container">
                         <button onClick={this.handleResultsClick} className="finish-btn">Stop Timer and Show Score</button>
                     </div>}

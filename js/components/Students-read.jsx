@@ -67,8 +67,7 @@ module.exports = React.createClass({
             <div>
                 <div className="container top-padding">
                     <h2>{currentStudent.attributes.name}</h2>
-                    <p dangerouslySetInnerHTML={{__html: currentStudent.notes}} />
-
+                    <p dangerouslySetInnerHTML={{__html: currentStudent.get('notes')}} />
                 </div>
 
                 <div className="previous-test">

@@ -44,6 +44,28 @@ module.exports = React.createClass({
             );
         }
 
+        var submitWrap = (
+            <div className="submit-wrap">
+                <button onClick={this.props.submit}>Submit Test</button>
+                <button className="dangerous-action">Reject Test</button>
+            </div>
+        );
+
+        var notes = (
+          <div>
+              <h3>Notes</h3>
+              <textarea onChange={this.props.handleNotesChange} value={this.props.notesValue} />
+          </div>
+        );
+
+        notes = this.props.readOnly ? (
+            <div>
+                <h3>Notes</h3>
+                <p>{this.props.notesValue}</p>
+            </div>
+        ) : notes;
+
+
         return (
             <div className="container">
                 <div className="incorrect-results">
@@ -73,12 +95,8 @@ module.exports = React.createClass({
                         </div>
                     </div>
                         {audio}
-                    {this.props.readOnly ? '' :
-                        <div className="submit-wrap">
-                            <button onClick={this.props.submit}>Submit Test</button>
-                            <button className="dangerous-action">Reject Test</button>
-                        </div>
-                        }
+                        {notes}
+                    {this.props.readOnly ? '' : submitWrap}
 
                 </div>
             </div>
