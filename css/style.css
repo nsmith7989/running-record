@@ -905,7 +905,6 @@ header .button:hover {
   background: #26b8c5; }
 
 .pageheader .button {
-  -webkit-box-flex: 100%;
   -webkit-flex: 100%;
       -ms-flex: 100%;
           flex: 100%;
@@ -923,7 +922,6 @@ header .button:hover {
   background: #2099a4; }
 
 .complete-score-button {
-  -webkit-box-flex: 100%;
   -webkit-flex: 100%;
       -ms-flex: 100%;
           flex: 100%;
@@ -942,7 +940,6 @@ header .button:hover {
   color: #ffffff; }
 
 .score-button {
-  -webkit-box-flex: 100%;
   -webkit-flex: 100%;
       -ms-flex: 100%;
           flex: 100%;
@@ -961,7 +958,6 @@ header .button:hover {
   color: #ffffff; }
 
 .scored-button {
-  -webkit-box-flex: 100%;
   -webkit-flex: 100%;
       -ms-flex: 100%;
           flex: 100%;
@@ -1001,11 +997,9 @@ header {
   padding: 40px 0; }
 
 .pageheader {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
@@ -1025,16 +1019,13 @@ a:hover {
   padding: 40px 0;
   background: #cae8eb; }
   .header-wrap > .container {
-    display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
     .header-wrap > .container > * {
-      -webkit-box-flex: 100%;
       -webkit-flex: 100%;
           -ms-flex: 100%;
               flex: 100%; }
@@ -1068,16 +1059,13 @@ a:hover {
   padding: 10px; }
 
 .table-list li > .container {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
   .table-list li > .container > * {
-    -webkit-box-flex: 100%;
     -webkit-flex: 100%;
         -ms-flex: 100%;
             flex: 100%;
@@ -1117,17 +1105,14 @@ a:hover {
     text-align: right; }
 
 .student-list {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
 
 .student-list .status, .name, .level {
-  -webkit-box-flex: 100%;
   -webkit-flex: 100%;
       -ms-flex: 100%;
           flex: 100%; }
@@ -1194,7 +1179,6 @@ a:hover {
   padding: 20px 0 0;
   background: #cae8eb; }
   .test-info > .container {
-    display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
@@ -1249,19 +1233,15 @@ footer {
   margin-top: 50px; }
 
 body {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   min-height: 100vh;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column; }
 
 .main {
-  -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1; }
