@@ -39,16 +39,16 @@ a:hover {
     background: #ffffff;
 }
 
-
-
-.flash .success {
+.flash {
     text-align: center;
-    width: 80%;
-    background: lighten($site-green1, 10%);
-    z-index: 10;
-    margin: 10px auto;
-    color: $site-white;
-    padding: 10px;
+    padding: 10px 0;
+    width: 60%;
+    text-transform: uppercase;
+    background: $site-red1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
 }
 
 .table-list li > .container {

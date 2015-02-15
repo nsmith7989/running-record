@@ -24,7 +24,7 @@ var video;
 var streamRecorder;
 var audio;
 
-record = (function() {
+var record = (function() {
     // ask for permission and start recording
     navigator.getUserMedia({audio: true}, function(localMediaStream) {
 
@@ -50,7 +50,7 @@ record = (function() {
     }, function(err) {
         console.log('Browser not supported');
     });
-    return arguments.callee;
+    //return arguments.callee;
 });
 
 function stop() {

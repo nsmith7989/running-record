@@ -1,7 +1,9 @@
 var React = require('react'),
     Parse = window.Parse,
     UserActions = require('../actions/UserActions'),
-    RouteActions = require('../actions/RouteActions');
+    RouteActions = require('../actions/RouteActions'),
+    NotificationActions = require('../actions/NotificationActions.js');
+
 
 
 module.exports = React.createClass({
@@ -69,14 +71,9 @@ module.exports = React.createClass({
             </form>
         );
 
-        var success =  <p className="success">{this.props.success}</p>;
-        var error =  <p className="error">{this.props.errors}</p>;
-
         return (
             <div className="container">
                 <div className="login-wrap">
-                    {success}
-                    {error}
                     {this.state.loginForm ? loginForm : signupForm}
                 </div>
 

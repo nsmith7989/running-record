@@ -52,6 +52,10 @@ module.exports = {
         LOG_OUT: null,
         USER_ERROR: null,
         SIGN_UP: null
+    }),
+
+    notification: keyMirror({
+        NEW_NOTIFICATION: null
     })
 
 };

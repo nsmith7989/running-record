@@ -180,13 +180,18 @@ var GradingInterface = React.createClass({
         this.setState({
             showResults: true
         });
-        recorder.stop();
+        try {
+            recorder.stop();
+            recorder.getWAV().then(function (wav) {
+                this.setState({
+                    audio: wav
+                })
+            }.bind(this));
+        } catch (e) {
+        }
+
         window.removeEventListener('keydown', this.handleKeyDown);
-        recorder.getWAV().then(function(wav) {
-            this.setState({
-                audio: wav
-            })
-        }.bind(this));
+
     },
 
     render: function() {

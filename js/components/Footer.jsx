@@ -5,7 +5,7 @@ module.exports = React.createClass({
     render: function() {
         return (
             <footer>
-                <span>&copy; Running Record 2014</span>
+                <span>Running Record</span>
             </footer>
         )
     }

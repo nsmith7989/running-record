@@ -2,6 +2,8 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var UserConstants = require('../constants/Constants').user;
 var Parse = window.Parse;
 var RouteActions = require('./RouteActions');
+var NotificationActions = require('../actions/NotificationActions.js');
+
 
 module.exports = {
 
@@ -24,10 +26,7 @@ module.exports = {
             },
             error: function(user, error) {
 
-                Dispatcher.handleViewAction({
-                    actionType: UserConstants.ERROR,
-                    data: error
-                });
+                NotificationActions.newNotification("Invalid email/password");
 
             }
         });

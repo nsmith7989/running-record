@@ -74,12 +74,9 @@ module.exports = React.createClass({
             </div>
         );
 
-        var suscess = this.props.state.success ? <p className="success">{this.props.state.success}</p> : '';
         return (
             <div>
-                <div className="container flash">
-                    {suscess}
-                </div>
+
                 <div className="header-wrap">
                     <div className="container">
                         <header>Passages</header>

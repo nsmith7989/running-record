@@ -15,7 +15,10 @@ var React = require('react'),
     Passages = require('./Passages.jsx'),
     Dashboard = require('./Dashboard.jsx'),
     Tests = require('./Tests.jsx'),
-    PassageStore = require('../stores/PassageStore');
+    PassageStore = require('../stores/PassageStore'),
+    NotificationStore = require('../stores/NotificationStore'),
+    Notification = require('./Notification.jsx');
+
 
 function getUserState() {
     return {
@@ -31,18 +34,25 @@ function getRouteState() {
     }
 }
 
+function getNotification() {
+    return {
+        notification: NotificationStore.get()
+    }
+}
+
 
 var App = React.createClass({
 
     getInitialState: function() {
         return assign(
-            getUserState(), getRouteState()
+            getUserState(), getRouteState(), getNotification()
         );
     },
 
     componentWillMount: function() {
         UserStore.addChangeListener(this._onUserChange);
         RouteStore.addChangeListener(this._onRouteChange);
+        NotificationStore.addChangeListener(this._onNotification);
         PassageStore.initialize();
         StudentStore.initialize();
         if (window.location.hash) {
@@ -86,6 +96,7 @@ var App = React.createClass({
             <body>
                 <AppHeader {...this.state} />
                 <div className="main">
+                    {this.state.notification ? <Notification message={this.state.notification} /> : ''}
                     {currentView}
                 </div>
                 <AppFooter />
@@ -101,6 +112,10 @@ var App = React.createClass({
 
     _onRouteChange: function() {
         this.setState(getRouteState());
+    },
+
+    _onNotification: function() {
+        this.setState(getNotification());
     }
 
 });

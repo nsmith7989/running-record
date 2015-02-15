@@ -2,11 +2,12 @@ var Dispatcher = require('../dispatcher/dispatcher.js');
 var PassageConstants = require('../constants/Constants').passage;
 var assign = require('object.assign');
 var Parse = window.Parse;
+var notify = require('../actions/NotificationActions.js').newNotification;
 
 var Passage = Parse.Object.extend("Passage");
 
 
-PassageActions = {
+var PassageActions = {
 
     create: function(data) {
 
@@ -16,7 +17,11 @@ PassageActions = {
                 actionType: PassageConstants.CREATE_PASSAGE,
                 data: resp
             });
-        })
+        }).catch(e => {
+
+            notify('An error has occurred.');
+
+        });
 
     },
 
@@ -24,7 +29,9 @@ PassageActions = {
 
         var queryObject = new Parse.Query(Passage);
 
-        queryObject.find().then(resp => {
+        queryObject
+            .find()
+            .then(resp => {
 
             Dispatcher.handleViewAction({
                 actionType: PassageConstants.GET_ALL_PASSAGES,
@@ -32,6 +39,7 @@ PassageActions = {
             })
 
         });
+
     },
 
     list: function() {

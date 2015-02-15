@@ -34,7 +34,7 @@ module.exports = React.createClass({
             includeScore: false,
             shouldSort: true,
             threshold: 0.2,
-            keys: ['name']
+            keys: ['attributes.name']
         };
 
         var fuse = new Fuse(this.state.students, options);
@@ -57,14 +57,8 @@ module.exports = React.createClass({
     },
 
     render: function() {
-
-        var suscess = this.props.state.success ? <p className="success">{this.props.state.success}</p> : '';
-
         return (
             <div>
-                <div className="container flash">
-                    {suscess}
-                </div>
                 <div className="header-wrap">
                     <div className="container">
                         <header>Students</header>

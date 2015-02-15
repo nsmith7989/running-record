@@ -1049,14 +1049,18 @@ a:hover {
 .table-list li:nth-child(odd) {
   background: #ffffff; }
 
-.flash .success {
+.flash {
   text-align: center;
-  width: 80%;
-  background: #79c76c;
-  z-index: 10;
-  margin: 10px auto;
-  color: #fff;
-  padding: 10px; }
+  padding: 10px 0;
+  width: 60%;
+  text-transform: uppercase;
+  background: #d5513f;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1000; }
 
 .table-list li > .container {
   display: -webkit-flex;
