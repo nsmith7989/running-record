@@ -56,6 +56,28 @@ module.exports = React.createClass({
         TestStore.removeChangeListener(this._onChange);
     },
 
+    sortBy: function(attribute) {
+        var students = this.state.students;
+
+        var sortedStudents = students.sort(function(a, b) {
+            var aName = a.attributes[attribute];
+            var bName = b.attributes[attribute];
+
+            if (aName > bName) {
+                return 1;
+            }
+            if (aName < bName) {
+                return -1;
+            }
+            return 0;
+        });
+
+        this.setState({
+            students: sortedStudents
+        });
+
+    },
+
     render: function() {
         return (
             <div>
@@ -74,7 +96,7 @@ module.exports = React.createClass({
                     <ul>
                         <li className="headings">
                             <div className="container">
-                                <span>Name</span>
+                                <span onClick={this.sortBy.bind(null, 'name')}>Name</span>
                                 <span>Last Test</span>
                                 <span>Actions</span>
                             </div>
